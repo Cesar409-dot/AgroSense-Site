@@ -4,7 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-*, body {
+*,
+body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -31,12 +32,12 @@ p.page {
     text-decoration-color: #4E5A65;
     text-decoration-thickness: 4px;
     text-underline-offset: 8px;
-    
+
 }
 
 .navbar a {
     text-decoration: none;
-    color: #174219 ;
+    color: #174219;
 }
 
 
@@ -73,4 +74,101 @@ p.page {
     border-radius: 15px;
     width: 100px;
     text-align: center;
+}
+
+.rodape {
+    background-color: #174219;
+    display: flex;
+    padding: 43px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.rodape_bordao {
+    color: #7CB324;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.rodape_bordao img {
+    width: 180px;
+}
+
+.rodape_contato {
+    display: flex;
+    flex-direction: column;
+    color: #f1e7d0;
+    line-height: 2rem;
+}
+
+.rodape_contato div {
+    display: flex;
+    align-items: center;
+}
+
+.rodape_contato a {
+    color: #f1e7d0;
+    text-decoration: none;
+}
+
+.rodape_contato a :hover {
+    color: #4E5A65;
+    text-decoration: underline;
+}
+
+.rodape_contato p {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.rodape_contato img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.rodape_redes {
+    margin-bottom: 34px;
+}
+
+.rodape_redes div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rodape_redes p {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f1e7d0;
+    margin-bottom: 30px;
+}
+
+.rodape_redes img {
+    width: 30px;
+}
+
+.rodape_empresas {
+    margin-top: 24px;
+}
+
+.rodape_empresas div>p {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f1e7d0;
+    margin-bottom: 30px;
+}
+
+.rodape_empresas a {
+    color: #f1e7d0;
+    text-decoration: none;
+}
+
+.rodape_empresas a:hover {
+    color: #4E5A65;
+    text-decoration: underline;
+}
+
+.empresas {
+    line-height: 30px;
 }
