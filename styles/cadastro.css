@@ -1,0 +1,66 @@
+/* CONFIGURAÇÕES PADRÃO PARA TODAS AS PÁGINAS */
+
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*, body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.navbar {
+    background-color: #7CB324;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 900;
+    font-size: 1.4rem;
+
+    padding: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #174219 ;
+}
+
+
+
+.logoheader {
+    height: 135px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu p {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.cadastro {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+}
+
+.cadastro p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.cadastrar {
+    color: #FFFFFF;
+    background-color: #4E5A65;
+    padding: 15px;
+    border-radius: 15px;
+}
