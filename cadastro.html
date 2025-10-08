@@ -8,7 +8,6 @@
     <title>Cadastro</title>
 </head>
 <body>
-    <div class="cabeçalho">
         <header class="navbar">
             <img src="src/logo png.png" alt="logo" class="logoheader">
             <div class="menu">
@@ -31,10 +30,33 @@
                 </a>
             </div>
         </header>
-    </div>
 
     <div class="conteudo">
-
+        <h2>Cadastro</h2>
+        <p>Nome da Empresa</p>
+        <input type="text" id="iptNomeEmpresa">
+        <p>Email</p>
+        <input type="text" id="iptEmail">
+        <p>Senha</p>
+        <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
+        <p>Confirmar Senha</p>
+        <input type="password" id="iptCheckSenha">
+        <p>Telefone</p>
+        <input type="number" id="iptTelefone">
+        <p>CNPJ</p>
+        <input type="number" id="iptCNPJ">
+        <p>CEP</p>
+        <input type="number" id="iptCEP">
+        <p>N° Endereço</p>
+        <input type="text" id="iptEndereco">
+        <button onclick="cadastrar()">Cadastrar</button>
+        <div>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+    </div>
     </div>
 
 
@@ -78,7 +100,67 @@
                     </a>
                 </div>
             </div>
-
         </footer>
 </body>
+
+    <script>
+
+        function cadastrar(){
+            var nomeEmpresa = iptNomeEmpresa.value
+            var email = iptEmail.value
+            var senha = iptSenha.value
+            var confirmarSenha = iptCheckSenha.value
+            var telefone = Number(iptTelefone.value)
+            var cnpj = Number(iptCNPJ.value)
+            var cep = Number(iptCEP.value)
+            var numEndereco = iptEndereco.value
+            mostrarSenha()
+
+            if(nomeEmpresa == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cnpj == 0 || cep == 0 || numEndereco == `` ) {
+                alert(`Preencha todos os campos!`)
+            }   else if(telefone % 1 != 0 || telefone < 0 || telefone > 99999999999) {
+                alert(`No campo telefone não é necessário os caracteres especiais("-","+")`)
+            }   else if (cnpj % 1 != 0 || cnpj < 0 || cnpj > 99999999999999) {
+                alert(`No campo CNPJ não é necessário os caracteres especiais`)
+            }   else if(cep % 1 != 0 || cep < 0 || cep > 99999999) {
+                alert(`No campo CEP não é necessário os caracteres especiais`)
+            }   else if (!(email.includes(`@`))){
+                alert(`Seu email não contém "@"`)
+            }   else if (!(email.includes(`.`))){
+                alert(`Seu email não contém "."`)
+            } else if(confirmarSenha != senha) {
+                alert(`Verifique se as senhas estão iguais`)
+            } else {
+                alert(`Cadastro efetuado com sucesso!! Agora faça seu login!!`)
+                window.location.href = "login.html"
+            } 
+        }
+
+        function mostrarSenha() {
+            var senha = iptSenha.value
+            if (senha.length < 8) {
+                p1.innerHTML = `<span style="color: red;">A senha tem que conter pelo menos 8 caracteres</span><br>`
+            }   if(senha.length >= 8) {
+                p1.innerHTML = `<span style="color: green;">A senha tem que conter pelo menos 8 caracteres</span><br>`
+            }   if (senha == senha.toUpperCase()){
+                p2.innerHTML = `<span style="color: red;">A senha tem que conter letras minúsculas</span><br>`
+            }   if (senha != senha.toUpperCase()){
+                p2.innerHTML = `<span style="color: green;">A senha tem que conter letras minúsculas</span><br>`
+            }   if (senha == senha.toLowerCase()){
+                p3.innerHTML = `<span style="color: red;">A senha tem que conter letras maiúsculas</span><br>`
+            }   if (senha != senha.toLowerCase()){
+                p3.innerHTML = `<span style="color: green;">A senha tem que conter letras maiúsculas</span><br>`
+            }   if(!(senha.includes(`!`)) || !(senha.includes(`@`)) || !(senha.includes(`#`)) || !(senha.includes(`$`))|| !(senha.includes(`%`))){
+                p4.innerHTML = `<span style="color: red;">A senha tem que conter caracteres especiais</span><br>`
+            }   if(senha.includes(`!`) || senha.includes(`@`) || senha.includes(`#`) || senha.includes(`$`)|| senha.includes(`%`)){
+                p4.innerHTML = `<span style="color: green;">A senha tem que conter caracteres especiais</span><br>`
+            }   if(!(senha.includes(`0`)) || !(senha.includes(`1`)) || !(senha.includes(`2`)) || !(senha.includes(`3`))|| !(senha.includes(`4`)) || !(senha.includes(`5`)) || !(senha.includes(`6`)) || !(senha.includes(`7`)) || !(senha.includes(`8`)) || !(senha.includes(`9`))) {
+                p5.innerHTML = `<span style="color: red;">A senha tem que conter números</span><br>`
+            }   if(senha.includes(`0`) || senha.includes(`1`) || senha.includes(`2`) || senha.includes(`3`)|| senha.includes(`4`) || senha.includes(`5`) || senha.includes(`6`) || senha.includes(`7`) || senha.includes(`8`) || senha.includes(`9`)) {
+                p5.innerHTML = `<span style="color: green;">A senha tem que conter números</span><br>`
+            }
+        }
+
+    </script>
+
 </html>
