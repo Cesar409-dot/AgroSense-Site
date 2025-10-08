@@ -32,10 +32,22 @@
         </header>
     </div>
     <div class="conteudo">
-
+        <div id="card1">
+        <div id="inputs">
+            <div id="titulo">
+                <img src="src/logo png.png" alt="" style="height: 150px;">
+                <h2>Simulador Financeiro AgroSense</h2>
+                <p>Faça sua simulação aqui, e verifique o quanto você pode melhorar sua produtividade!</p>
+            </div>
+            <h3>Preencha os campos abaixo:</h3>
+            <p>Informe a área plantada (ha)* <input type="number" id="ipt_areaplant"></p>
+            <p>Informe a quantidade plantada por hectare (kg)* <input type="number" id="qtd_plant"></p>
+            <button onclick="simular()" id="botao">Simular</button>
+        </div>
+        <div id="outputs">
+        </div>
     </div>
-
-
+    </div>
         <footer class="rodape">
             <div class="rodape_bordao">
                 <img src="src/logo branca.png" alt="logo" class="logofooter">
@@ -79,4 +91,61 @@
 
         </footer>
 </body>
+<script>
+    function simular() {
+        var areaPlantada = Number(ipt_areaplant.value)
+        var qtdPlantada = Number(qtd_plant.value)
+        var precoVenda = 2.2 // Com base na Associação Brasileira da Batata (ABBA) - R$ 2,2/kg
+
+        var produtividade = areaPlantada * qtdPlantada
+        var receita = produtividade * precoVenda
+
+        var conservador = produtividade * 1.05
+        var realista = produtividade * 1.125
+        var otimista = produtividade * 1.2
+        var perdas = produtividade * 0.4
+        var preju = perdas * 2.2
+
+
+        if (ipt_areaplant.value == '') {
+            alert('Informe uma área plantada!')
+        } else if (areaPlantada <= 0) {
+            alert('A área plantada tem que ser maior do que zero')
+        } else if (qtd_plant.value == '') {
+            alert('Informe a quantidade plantada por hectare')
+        } else if (qtdPlantada <= 0) {
+            alert('A quantidade plantada tem que ser maior do que zero')
+        } else {
+
+            inputs.style.display = 'none'
+            outputs.style.display = 'block'
+            
+            outputs.innerHTML = `Com base nos dados, a sua plantação atual é de <b>${produtividade.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            Venda total: <b>${receita.toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b> <br><br>
+            Sem nosso monitoramento está sujeito a perder: <b><span style="color: red;">${perdas.toLocaleString('pt-br', {style:"decimal"})}kg</span></b> de batata e terá uma perda de <b><span style="color: red;">${preju.toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</span></b> <hr>
+
+            
+            <h3>Com o sistema de monitoramento AgroSense!</h3>
+            
+            <h4>Em um cenario conservador</h4> A sua plantação atual pode chegar até: <b>${conservador.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((conservador * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <h4>Em um cenário moderado</h4>  A sua plantação atual pode chegar até: <b>${realista.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((realista * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <h4>No melhor dos cenários </h4>  A sua plantação atual pode chegar até: <b>${otimista.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((otimista * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <button onclick="voltar()" id="botao">Fazer outra simulação</button>`
+        }
+    }
+    
+    function voltar() {
+        inputs.style.display = 'block'
+        outputs.style.display = 'none'
+
+        ipt_areaplant.value = ''
+        qtd_plant.value = ''
+    }
+</script>
 </html>

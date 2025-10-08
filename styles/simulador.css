@@ -165,3 +165,102 @@ p.page {
 .empresas{
     line-height: 30px;
 }
+
+.conteudo {
+    height: 800px;
+    width: 100vw;
+    background-color: #f1e7d0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+div#card1 {
+    background-color: #ffffff;
+    width: 1000px;
+    height: fit-content;
+    border-radius: 20px;
+
+    font-size: 1.5rem;
+
+    padding: 25px;
+}
+
+#titulo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+div#inputs {
+    text-align: left;
+    padding: 2px;
+}
+
+#inputs input {
+    border: 1px solid #174219;
+    border-radius: 5px;
+    height: 25px;
+
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+
+}
+
+#inputs h3 {
+    margin-bottom: 20px;
+}
+
+#botao {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    height: 45px;
+    width: 130px;
+
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 5px;
+    background-color: #7CB342;
+    font-weight: bolder;
+
+    transition-duration: 0.3s;
+}
+
+#botao:hover {
+    background-color: #174219;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#outputs {
+    text-align: justify;
+}
+
+.ganhos {
+    color: green;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#outputs, #inputs {
+    color: #174219;
+}
+
+#outputs h4 {
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+
+#outputs h3 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#outputs hr {
+    margin-top: 15px;
+}
