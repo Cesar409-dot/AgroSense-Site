@@ -161,3 +161,55 @@
 .empresas {
     line-height: 30px;
 }
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f1e7d0 ;
+    
+}
+
+.conteudo h2{
+    color: #174219;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.entradas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 30rem;
+    border-radius: 15px;
+    height: fit-content; 
+    margin: 40px;
+}
+
+.entradas button{
+    background-color:#7CB324;
+    color: #174219;
+    border-radius: 5px;
+    border-color: #7CB324;
+    font-weight: 900;
+    padding: 6px;
+    margin-top: 30px;
+}
+
+.entradas input{
+    width: 300px;
+    margin-top: 5px;
+}
+
+.entradas p{
+    margin-top: 5px;
+}
+
+.validacao{
+    font-size: 0.6rem;
+}
+
+

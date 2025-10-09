@@ -32,13 +32,21 @@
         </header>
 
     <div class="conteudo">
-        <h2>Cadastro</h2>
+        <div class="entradas">
+            <h2>Cadastro</h2>
         <p>Nome da Empresa</p>
         <input type="text" id="iptNomeEmpresa">
         <p>Email</p>
         <input type="text" id="iptEmail">
         <p>Senha</p>
         <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
+        <div class="validacao">
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+    </div>
         <p>Confirmar Senha</p>
         <input type="password" id="iptCheckSenha">
         <p>Telefone</p>
@@ -49,13 +57,9 @@
         <input type="number" id="iptCEP">
         <p>N° Endereço</p>
         <input type="text" id="iptEndereco">
+        <div class="botao">
         <button onclick="cadastrar()">Cadastrar</button>
-        <div>
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
-        <p id="p4"></p>
-        <p id="p5"></p>
+    </div>
     </div>
     </div>
 
