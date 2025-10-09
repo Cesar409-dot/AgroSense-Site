@@ -165,3 +165,75 @@ p.page {
 .empresas{
     line-height: 30px;
 }
+
+.conteudo{
+    background-color: #F1E7D0 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image1{
+    
+    height: 636px;
+}
+
+.text_imagem{
+    background-color: #8d6e63;
+    color: #F1E7D0;
+    border-style: hidden;
+    height: 150px;
+    text-align: center;
+    padding: 20px;
+}
+
+.problema{
+    display: flex;
+    border-style:solid;
+    border-color: #7CB324;
+    border-width: 15px;
+    border-radius: 15px;
+    flex-direction: column;
+    margin: 70px;
+    padding: 35px;
+    height: auto;
+    text-align: center;
+    color: #4E5A65;
+}
+
+.titulo_problema{
+    color: #174219;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.lupa{
+    height: 30px;
+    width: 40px;
+}
+
+.subtitulo{
+    text-align: end;
+    font-weight: 900;
+    font-size: 25px;
+    color: #174219;
+}
+
+.p1_subtitulo{
+    text-align: end;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.p2_subtitulo{
+    text-align: end;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.p3_subtitulo{
+    text-align: end;
+    font-weight: 500;
+    font-size: 20px;
+}
