@@ -169,3 +169,57 @@ p.page {
 .empresas {
     line-height: 30px;
 }
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f1e7d0 ;
+    
+}
+
+.conteudo h2{
+    color: #174219;
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+.entradas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 750px;
+    border-radius: 15px;
+    height: fit-content; 
+    margin: 40px;
+    padding: 100px;
+    font-size: 1.8rem;
+}
+
+.entradas button{
+    background-color:#7CB324;
+    color: #174219;
+    border-radius: 5px;
+    border-color: #7CB324;
+    font-weight: 900;
+    padding: 8px;
+    margin-top: 55px;
+}
+
+.entradas input{
+    width: 90%;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 2rem;
+}
+
+.entradas p{
+    margin-top: 35px;
+}
+
+.botao {
+    font-size: 1.7rem;
+}

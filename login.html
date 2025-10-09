@@ -34,9 +34,19 @@
     </div>
 
 
-    <div class="conteudo">
-
+<div class="conteudo">
+        <div class="entradas">
+            <h2>Login</h2>
+            <p>Email</p>
+            <input type="text" id="iptEmail">
+            <p>Senha</p>
+            <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
+            <div class="botao">
+                <button onclick="entrar()" class="botao">Entrar</button>
+            </div>
+        </div>
     </div>
+
 
 
         <footer class="rodape">
@@ -83,4 +93,29 @@
         </footer>
 
 </body>
+<script>
+
+    function entrar() {
+        var email = iptEmail.value
+        var senha = iptSenha.value
+        if(email == '' || senha == ''){
+            alert('Atenção! Preencha todos os campos com base no seu cadastro')
+        }
+        else if (!(email.includes(`@`))) {
+            alert(`Seu email não contém "@"`)
+        } else if (!(email.includes(`.`))) {
+            alert(`Seu email não contém "."`)
+        } else if(email == 'admin@admin.com'&& senha == 'admin'){
+            alert('Bem Vindo administrador')
+            window.location.href = "dashboardAdmin.html"
+        }else if(email == 'batatinha@gmail.com' && senha == 'B@tatinha123'){
+            alert('Bem-Vindo! Login efetuado com sucesso')
+            window.location.href = "dashboardCliente.html"
+        } else {
+            alert('Verifique se os seus dados estão inseridos corretamente')
+        }
+    }
+</script>
+
+
 </html>
