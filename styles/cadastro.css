@@ -183,10 +183,13 @@
     justify-content: center;
     flex-direction: column;
     background-color: #FFFFFF;
-    width: 30rem;
+    width: 1000px;
     border-radius: 15px;
     height: fit-content; 
     margin: 40px;
+    padding: 20px;
+
+    font-size: 1.8rem;
 }
 
 .entradas button{
@@ -200,8 +203,10 @@
 }
 
 .entradas input{
-    width: 300px;
+    width: 80%;
+    height: 35px;
     margin-top: 5px;
+    font-size: 2rem;
 }
 
 .entradas p{
@@ -209,7 +214,12 @@
 }
 
 .validacao{
-    font-size: 0.6rem;
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-left: 100px;
 }
 
+.botao {
+    font-size: 1.7rem;
+}
 
