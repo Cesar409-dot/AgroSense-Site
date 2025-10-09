@@ -25,6 +25,7 @@ body {
     font-size: 1.4rem;
 
     padding: 20px;
+
 }
 
 p.page {
@@ -171,4 +172,37 @@ p.page {
 
 .empresas {
     line-height: 30px;
+}
+
+.submenu {
+    background-color: #174219;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    padding-top: 42px;
+
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.86);
+    
+}
+
+.submenu img {
+    width: 60px;
+}
+.menulateral {
+    background-color: #4E5A65;
+    height: 800px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menulateral h2 {
+    margin-top: 25px;
+}
+
+.conteudo {
+    color: #f1e7d0;
 }
