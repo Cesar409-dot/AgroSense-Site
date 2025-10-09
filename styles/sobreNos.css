@@ -165,3 +165,36 @@ p.page {
 .empresas{
     line-height: 30px;
 }
+
+
+
+.conteudo{
+    background-color: #f1e7d0;
+    padding: 30px;
+    height: 900px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo {
+    position: absolute;
+    top: 250px;
+    color: #174219;
+}
+
+.caixa{
+    background-color: white;
+    text-align: center;
+    border-style:hidden;
+    border-radius: 15px;
+    line-height: 40px;
+    margin: 300px;
+    padding: 30px;  
+}
+
+.caixa p {
+    text-align: justify;
+}
