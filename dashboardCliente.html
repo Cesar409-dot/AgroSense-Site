@@ -16,55 +16,49 @@
                 </a>
             </div>
         </header>
-
-        <div class="conteudo">
-            <div class="submenu">
-                <div>
-                <img src="src/dashboard.png" alt="Dashboard">
-                <p>Dashboard</p>
-                </div>
-                <div>
-                <img src="src/user.png" alt="Usuário">
-                <p>Usuário</p>
-                </div>    
+        <div class="submenu">
+            <div>
+            <img src="src/dashboard.png" alt="Dashboard" onclick="menul()">
+            <p>Dashboard</p>
             </div>
-            <div class="menulateral">
-                <a><h2>Hectares</h2></a>
-                <div id="hectares" style="display: none;">
+        </div>
+        <div class="conteudo">
+            <div id="menulateral" style="display: none;">
+                <h1 onclick="hectares()">Hectares</h1>
+                <div id="hectaresd" style="display: none;">
                     <div id="hectar_1">
-                        <h3>Hectar 1</h3>
+                        <h2 onclick="hectar1d()"><a href="#">Hectar 1</a></h2>
                             <div id="subarea_1" style="display: none;">
-                                <h4>Subárea 1</h4>
-                                <h4>Subárea 2</h4>
+                                <a href="#">
+                                    <h4>Subárea 1</h4>
+                                </a>
+                                <a href="#">
+                                    <h4>Subárea 2</h4>
+                                </a>
                             </div>
                     </div>
                     <div id="hectar_2">
-                        <h3>Hectar 2</h3>
+                        <h2 onclick="hectar2d()">Hectar 2</h2>
                             <div id="subarea_2" style="display: none;">
-                                <h4>Subárea 1</h4>
-                                <h4>Subárea 2</h4>
-                            </div>
-                    </div>
-                    <div id="hectar_3">
-                        <h3>Hectar 3</h3>
-                            <div id="subarea_3" style="display: none;">
-                                <h4>Subárea 1</h4>
-                                <h4>Subárea 2</h4>
+                                <a href="#">
+                                    <h4>Subárea 1</h4>
+                                </a>
+                                <a href="#">
+                                    <h4>Subárea 2</h4>
+                                </a>
                             </div>
                     </div>
                 </div>
                 <div id="historico">
-                    <h2>Histórico</h2>
+                    <h1 onclick="hist()">Histórico</h1>
                     <div id="datas" style="display: none;">
-                        <h4>7 dias</h4>
-                        <h4>15 dias</h4>
-                        <h4>30 dias</h4>
+                        <h2>7 dias</h2>
+                        <h2>15 dias</h2>
+                        <h2>30 dias</h2>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <footer class="rodape">
             <div class="rodape_bordao">
                 <img src="src/logo branca.png" alt="logo" class="logofooter">
@@ -108,4 +102,45 @@
 
         </footer>
 </body>
+<script>
+    function menul() {
+        if (menulateral.style.display == "none") {
+            menulateral.style.display = "block"
+        } else {
+            menulateral.style.display = "none"
+        }
+    }
+
+    function hectares() {
+       if (hectaresd.style.display == "none") {
+            hectaresd.style.display = "block"
+        } else {
+            hectaresd.style.display = "none"
+        } 
+    }
+
+    function hectar1d() {
+       if (subarea_1.style.display == "none") {
+            subarea_1.style.display = "block"
+        } else {
+            subarea_1.style.display = "none"
+        } 
+    }
+
+    function hectar2d() {
+       if (subarea_2.style.display == "none") {
+            subarea_2.style.display = "block"
+        } else {
+            subarea_2.style.display = "none"
+        } 
+    }
+
+    function hist() {
+        if (datas.style.display == "none") {
+            datas.style.display = "block"
+        } else {
+            datas.style.display = "none"
+        }
+    }
+</script>
 </html>

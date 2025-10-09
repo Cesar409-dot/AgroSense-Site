@@ -176,33 +176,48 @@ p.page {
 
 .submenu {
     background-color: #174219;
+    color: #f1e7d0;
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 35px;
     padding-top: 42px;
 
-    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.86);
+    text-align: center;
     
 }
 
 .submenu img {
     width: 60px;
 }
-.menulateral {
+#menulateral {
     background-color: #4E5A65;
-    height: 800px;
+    height: 100%;
     width: 200px;
     display: flex;
+    justify-content: center;
+    text-align: left;
     align-items: center;
     flex-direction: column;
+    padding-top: 15px;
 }
 
-.menulateral h2 {
-    margin-top: 25px;
+#menulateral h1, h2, h3, h4 {
+    margin-left: 15px;
 }
+
 
 .conteudo {
     color: #f1e7d0;
+    height: 1000px;
+}
+
+#menulateral a {
+    text-decoration: none;
+    color: #f1e7d0;
+}
+
+#historico {
+    margin-top: 20px;
 }
