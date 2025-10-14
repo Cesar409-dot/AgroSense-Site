@@ -183,23 +183,37 @@ p.page {
     background-color: #8d6e63;
     color: #F1E7D0;
     border-style: hidden;
-    height: 150px;
     text-align: center;
+    width: 1521px;
+    margin: -6px;
+    height: 150px;
     padding: 20px;
+}
+
+.p_text_imagem{
+    font-size: 20px;
 }
 
 .problema{
     display: flex;
     border-style:solid;
     border-color: #7CB324;
+    flex-direction: column;
+    color: #4E5A65;
+    text-align: center;
     border-width: 15px;
     border-radius: 15px;
-    flex-direction: column;
     margin: 70px;
     padding: 35px;
     height: auto;
-    text-align: center;
-    color: #4E5A65;
+    line-height: 2.2;
+}
+
+.text_lupa{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .titulo_problema{
@@ -209,31 +223,35 @@ p.page {
 }
 
 .lupa{
-    height: 30px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
+}
+
+.texto_problema{
+    font-size: 25px
 }
 
 .subtitulo{
     text-align: end;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 30px;
     color: #174219;
 }
 
 .p1_subtitulo{
     text-align: end;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .p2_subtitulo{
     text-align: end;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .p3_subtitulo{
     text-align: end;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 25px;
 }
