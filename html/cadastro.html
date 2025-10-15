@@ -155,7 +155,7 @@
             }   if (senha != senha.toLowerCase()){
                 p3.innerHTML = `<span style="color: green;">A senha tem que conter letras maiúsculas</span><br>`
             }   if(!(senha.includes(`!`)) || !(senha.includes(`@`)) || !(senha.includes(`#`)) || !(senha.includes(`$`))|| !(senha.includes(`%`))){
-                p4.innerHTML = `<span style="color: red;">A senha tem que conter caracteres especiais</span><br>`
+                p4.innerHTML = `<span style="color: red;">A senha tem que conter caracteres especiais(! @ # $ %)</span><br>`
             }   if(senha.includes(`!`) || senha.includes(`@`) || senha.includes(`#`) || senha.includes(`$`)|| senha.includes(`%`)){
                 p4.innerHTML = `<span style="color: green;">A senha tem que conter caracteres especiais</span><br>`
             }   if(!(senha.includes(`0`)) || !(senha.includes(`1`)) || !(senha.includes(`2`)) || !(senha.includes(`3`))|| !(senha.includes(`4`)) || !(senha.includes(`5`)) || !(senha.includes(`6`)) || !(senha.includes(`7`)) || !(senha.includes(`8`)) || !(senha.includes(`9`))) {
