@@ -11,6 +11,10 @@
     font-family: "Nunito Sans", sans-serif;
 }
 
+body {
+    background-color: #f1e7d0;
+}
+
 .navbar {
     background-color: #7CB324;
 
@@ -171,3 +175,60 @@ p.page {
     line-height: 30px;
 }
 
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px 0;
+    background-color: #f1e7d0;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.conteudo h1 {
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+.titulos, .resultados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 10px 40px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.titulos {
+    background-color: #174219;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.resultados {
+    background-color: white;
+    color: #4E5A65;
+    font-size: 0.95rem;
+}
+
+.titulos p, .resultados p {
+    margin: 0;
+    width: 120px;
+    text-align: center;
+}
+
+.resultados div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    width: 120px;
+}
+
+.resultados div img {
+    width: 25px;
+    cursor: pointer;
+}
