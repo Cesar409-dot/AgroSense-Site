@@ -29,35 +29,22 @@
         <div class="dash" id="tela_principal">
             <h1>Olá Cliente, bem vindo!</h1>
             <h2>Analise a performance da sua plantação</h2>
-            <div class="kpis">
-                <div class="cardkpi c1">
-                    <p>Sem níveis críticos de umidade do solo nos últimos <b>7 DIAS</b></p>
+            
+                <div class="chart-container">
+                    <canvas id="myChart1"></canvas>
+                    <canvas id="myChart2" style="color: #9bf5cacc;"></canvas>
                 </div>
-                <div class="cardkpi c2">
-                    <p>Umidade média do solo atual</p>
-                    <p class="num77">77%</p>
-                </div>
-                <div class="cardkpi c3">
-                    <p>Umidade do solo em <b>estado de alerta</b> no Hectar 2</p>
-                </div>
-                <div class="cardkpi c4">
-                    <p>Maior umidade do solo registrada hoje: <b>81%</b></p>
-                    <p>Menor umidade do solo registrada hoje: <b>59%</b></p>
-                </div>
-            </div>
-            <div class="fundo_branco">
-                    <h2>Correlação Umidade x Produtividade</h2>
-                    <canvas id="chartScatter" style="width: 800px;"></canvas>
-            </div>
+            
+
         </div>
 
         <div id="menulateral" style="display: block;">
             <h1 onclick="hectares()">Hectares</h1>
-            <div id="hectaresd" style="display: none;">
-                   <div id="hectar_1">
+            <div id="hectaresd" style="display: block;">
+                <div id="hectar_1">
                     <h2 onclick="hectar1d()"><a href="hectar1.html">Hectar 1</a></h2>
 
-                    <div id="subarea_1" style="display: none;">
+                    <div id="subarea_1" style="display: block;">
                         <a href="../dashboards/subarea1.html">
                             <h4>Subárea 1</h4>
                         </a>
@@ -133,42 +120,44 @@
     </footer>
 </body>
 <script>
+    const ctx = document.getElementById('myChart1');
 
-    const ctxScatter = document.getElementById('chartScatter');
-    new Chart(ctxScatter, {
-        type: 'scatter',
+    new Chart(ctx, {
+        type: 'polarArea',
         data: {
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'],
             datasets: [{
-                label: 'Hectares (ha)',
-                data: [
-                    { x: 52, y: 15 },
-                    { x: 60, y: 30 },
-                    { x: 65, y: 34 },
-                    { x: 70, y: 38 },
-                    { x: 75, y: 40 },
-                    { x: 86, y: 15 }
-                ],
-                backgroundColor: '#174219',
-                pointRadius: 4.5,
+                label: 'Umidade por Subárea (%)',
+                data: [65, 64, 69, 68, 75, 82, 79, 67, 60, 58, 62, 65, 69, 72, 77, 78, 82, 86, 78, 71, 65, 69, 70, 73, 62],
+                backgroundColor: (ctx) => {
+                    const valorDado = ctx.raw
 
+                    if (valorDado >= 80) {
+                        return '#FF6384CC'
+                    } else if (valorDado <= 60) {
+                        return '#FF6384CC'
+                    } else {
+                        return '#9bf5cacc'
+                    }
+                },
+                borderWidth: 3
             }]
         },
         options: {
             scales: {
-                x: {
-                    title: { display: true, text: 'Umidade (%)' },
-                    min: 50,
-                    max: 90
-                },
                 y: {
-                    title: { display: true, text: 'Produtividade (kg/ha)' },
                     beginAtZero: true
                 }
             }
         }
-    });
+    }
+    );
 </script>
 <script>
+
+    function menul() {
+        window.location.href = "dashboardCliente.html"
+    }
 
     function hectares() {
         if (hectaresd.style.display == "none") {
