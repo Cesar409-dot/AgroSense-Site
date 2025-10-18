@@ -285,5 +285,5 @@ p.page {
 }
 
 .result_produtividade{
-
+    display: flex;
 }
