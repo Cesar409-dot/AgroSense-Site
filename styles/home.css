@@ -255,3 +255,35 @@ p.page {
     font-weight: 500;
     font-size: 25px;
 }
+
+.resultados{
+    background-color: #8d6e63;
+    display: flex;
+    padding: 250px;
+    height: 30px;
+    width: 1570px;
+    margin: 40px;
+}
+
+.img_resultado{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 1px;
+
+}
+.titulo_resultados{
+     display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #F1E7D0;
+    font-size: 35px;
+    font-weight: 10000;
+
+}
+
+.result_produtividade{
+
+}
