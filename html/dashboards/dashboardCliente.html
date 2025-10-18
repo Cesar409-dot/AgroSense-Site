@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="fundo_branco">
-                    <h2>Correlação Umidade x Produtividade</h2>
+                    <h2>Correlação Umidade do solo x Produtividade</h2>
                     <canvas id="chartScatter" style="width: 800px;"></canvas>
             </div>
         </div>
@@ -139,7 +139,7 @@
         type: 'scatter',
         data: {
             datasets: [{
-                label: 'Hectares (ha)',
+                label: 'Relação de Produtividade',
                 data: [
                     { x: 52, y: 15 },
                     { x: 60, y: 30 },
@@ -156,12 +156,12 @@
         options: {
             scales: {
                 x: {
-                    title: { display: true, text: 'Umidade (%)' },
+                    title: { display: true, text: 'Umidade do solo (%)' },
                     min: 50,
                     max: 90
                 },
                 y: {
-                    title: { display: true, text: 'Produtividade (kg/ha)' },
+                    title: { display: true, text: 'Produtividade (t)' },
                     beginAtZero: true
                 }
             }

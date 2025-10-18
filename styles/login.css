@@ -214,6 +214,8 @@ p.page {
     height: 40px;
     margin-top: 5px;
     font-size: 2rem;
+    border: 1px solid #174219;
+    border-radius: 5px;
 }
 
 .entradas p{

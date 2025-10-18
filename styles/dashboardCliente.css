@@ -250,12 +250,17 @@ p.page {
 }
 
 .cardkpi {
-    background-color: #ffffffc3;
+    background-color: #ffffff;
     padding: 12px;
     width: 280px;
     height: 140px;
     border-radius: 15px;
     border: 5px solid #7CB324;
+    transition-duration: 0.3s;
+}
+
+.cardkpi:hover {
+    border: 5px solid darkgreen;
 }
 
 .c1 {
@@ -314,28 +319,48 @@ p.page {
 
 .fundo_branco {
     background-color: #ffffff;       
-    border-radius: 12px;         
+    border-radius: 15px;         
     box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     padding: 20px;                  
     max-width: 800px;                
     margin: 30px auto;               
     display: flex;
     flex-direction: column;
-    align-items: center;            
+    align-items: center;   
+    
+    border: 3px solid #174219;
 }
 
 .fundo_branco h2 {
-    margin-bottom: -50px;
+    margin-bottom: -90px;
+    font-weight: 900;
 }
 
 
 .chart-container {
     display: flex;
+
+}
+
+.chart-box {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 700px;
+    width: 580px;
+    height: fit-content;
+    padding: 20px;
     margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+
+    border: 3px solid #174219;
+
+}
+
+.chart-box h2 {
+    color: #174219;
+    font-weight: 900;
 }
 
 

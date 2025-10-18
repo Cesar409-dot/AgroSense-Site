@@ -27,14 +27,17 @@
     </div>
     <div class="conteudo">
         <div class="dash" id="tela_principal">
-            <h1>Olá Cliente, bem vindo!</h1>
-            <h2>Analise a performance da sua plantação</h2>
-            <div class="chart-container">
-                <canvas id="myChart1"></canvas>
-                <canvas id="myChart2" style="color: #9bf5cacc;"></canvas>
-            </div>
-
-
+            <h1>Hectar 2</h1>
+           <div class="chart-container">
+                    <div class="chart-box">
+                        <h2>Visão geral da umidade do solo em subáreas</h2>
+                        <canvas id="myChart1"></canvas>
+                    </div> 
+                    <div class="chart-box">
+                        <h2>Produtividade do Hectar</h2>
+                        <canvas id="myChart2"></canvas>
+                    </div>               
+                </div>
         </div>
 
         <div id="menulateral" style="display: block;">
@@ -150,7 +153,40 @@
             }
         }
     }
-    );
+    )
+    const ctxScatter = document.getElementById('myChart2');
+    new Chart(ctxScatter, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Relação de produtividade',
+                data: [
+                    { x: 58, y: 15 },
+                    { x: 55, y: 12 },
+                    { x: 57, y: 13 },
+                    { x: 61, y: 19 },
+                    { x: 65, y: 22 },
+                    { x: 85, y: 10 }
+                ],
+                backgroundColor: '#174219',
+                pointRadius: 4.5,
+
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: { display: true, text: 'Umidade do solo (%)' },
+                    min: 50,
+                    max: 90
+                },
+                y: {
+                    title: { display: true, text: 'Produtividade (t)' },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>
 <script>
 

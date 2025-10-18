@@ -25,10 +25,9 @@
         </div>
         <div class="conteudo">
             <div class="dash" id="tela_principal">
-                <h1>Olá Cliente, bem vindo!</h1>
-                <h2>Analise a performance da sua plantação</h2>
+                <h1>Hectar 2 - Subárea 2</h1>
                  <div class="fundo_branco">
-                    <h2>Umidade da Subárea em horas</h2>
+                    <h2>Umidade do solo da subárea em horas</h2>
                     <canvas id="chartLine2" style="width: 800px;"></canvas>
                 </div>
             </div>
@@ -119,7 +118,7 @@
         data: {
             labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
             datasets: [{
-                label: 'Umidade Média (%)',
+                label: 'Umidade do solo (%)',
                 data: [58, 61, 57, 59, 64, 66, 72, 78],
                 borderColor: '#174219',
                 backgroundColor: '#174219',
@@ -127,7 +126,7 @@
                 pointBackgroundColor: '#7cb342'
 
             }, {
-                label: 'Horas',
+                label: 'Horário',
                 borderColor: '#7cb342',
                 backgroundColor: '#7cb342'
 
@@ -155,9 +154,12 @@
         options: {
             scales: {
                 y: {
-                    title: { display: true, text: 'Umidade (%)' },
+                    title: { display: true, text: 'Umidade do solo (%)' },
                     min: 40,
                     max: 90
+                },
+                x: {
+                    title: { display: true, text: 'Horário' },
                 }
             }
         }
