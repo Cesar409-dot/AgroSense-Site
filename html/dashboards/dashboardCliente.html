@@ -45,7 +45,7 @@
                     <p>Menor umidade do solo registrada hoje: <b>59%</b></p>
                 </div>
             </div>
-            <div class="fundo_branco">
+            <div class="fundo_branco princip">
                     <h2>Correlação Umidade do solo x Produtividade</h2>
                     <canvas id="chartScatter" style="width: 800px;"></canvas>
             </div>
@@ -80,10 +80,9 @@
             </div>
             <div id="historico">
                 <h1 onclick="hist()">Histórico</h1>
-                <div id="datas" style="display: none;">
-                    <h2>7 dias</h2>
-                    <h2>15 dias</h2>
-                    <h2>30 dias</h2>
+                <div id="historicos" style="display: none;">
+                    <h2><a href="../dashboards/historico.html">Mensal</a></h4>
+                    <h2><a href="../dashboards/anual.html">Anual</a></h4>
                 </div>
             </div>
         </div>
@@ -126,7 +125,6 @@
                 </a>
                 <a href="">
                     <p>Empresa Parceira 3</p>
->>>>>>> 067407d307be8252570869109e502e80d4c0249f
                 </a>
             </div>
         </div>
@@ -196,13 +194,12 @@
     }
 
     function hist() {
-        if (datas.style.display == "none") {
-            datas.style.display = "block"
+        if (historicos.style.display == "none") {
+            historicos.style.display = "block"
         } else {
-            datas.style.display = "none"
+            historicos.style.display = "none"
         }
     }
 
 </script>
-
 </html>

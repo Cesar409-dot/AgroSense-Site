@@ -28,16 +28,26 @@
     <div class="conteudo">
         <div class="dash" id="tela_principal">
             <h1>Hectar 2</h1>
-           <div class="chart-container">
-                    <div class="chart-box">
-                        <h2>Visão geral da umidade do solo em subáreas</h2>
-                        <canvas id="myChart1"></canvas>
-                    </div> 
-                    <div class="chart-box">
-                        <h2>Produtividade do Hectar</h2>
-                        <canvas id="myChart2"></canvas>
-                    </div>               
+            <div class="chart-container">
+                <div class="chart-box">
+                    <h2>Visão geral da umidade do solo em subáreas</h2>
+                    <canvas id="myChart1"></canvas>
                 </div>
+                <div>
+                </div>
+                <div class="chart-box">
+                    <h2>Produtividade do Hectar</h2>
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="cardkpi cardkpig">
+                    <p>Níveis ideais de umidade do solo (60% a 80%).</p>
+                </div>
+                <div class="cardkpi cardkpir">
+                    <p>Níveis de alerta na umidade do solo.</60></b></p>
+                </div>
+            </div>
         </div>
 
         <div id="menulateral" style="display: block;">
@@ -69,10 +79,9 @@
             </div>
             <div id="historico">
                 <h1 onclick="hist()">Histórico</h1>
-                <div id="datas" style="display: none;">
-                    <h2>7 dias</h2>
-                    <h2>15 dias</h2>
-                    <h2>30 dias</h2>
+                <div id="historicos" style="display: none;">
+                    <h2><a href="../dashboards/historico.html">Mensal</a></h4>
+                    <h2><a href="../dashboards/anual.html">Anual</a></h4>
                 </div>
             </div>
         </div>
@@ -125,12 +134,12 @@
     const ctx = document.getElementById('myChart1');
 
     new Chart(ctx, {
-        type: 'polarArea',
+        type: 'bar',
         data: {
             labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'],
             datasets: [{
                 label: 'Umidade por Subárea (%)',
-                data: [58, 61, 67, 65, 72, 85, 80, 75, 65, 55, 60, 62, 59, 65, 75, 78, 81, 83, 77, 73, 57, 69, 72, 70, 60],
+                data: [58, 55, 56, 61, 62, 75, 81, 84, 88, 55, 60, 62, 59, 65, 75, 78, 81, 83, 77, 73, 57, 69, 59, 55, 60],
                 backgroundColor: (ctx) => {
                     const valorDado = ctx.raw
 
@@ -142,13 +151,19 @@
                         return '#9bf5cacc'
                     }
                 },
-                borderWidth: 3
+                borderWidth: 0
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: { display: true, text: 'Umidade do solo (%)' },
+                },
+                x: {
+                    title: { display: true, text: 'Subárea' },
+                    min: 0,
+                    max: 25
                 }
             }
         }
@@ -218,11 +233,11 @@
         }
     }
 
-    function hist() {
-        if (datas.style.display == "none") {
-            datas.style.display = "block"
+     function hist() {
+        if (historicos.style.display == "none") {
+            historicos.style.display = "block"
         } else {
-            datas.style.display = "none"
+            historicos.style.display = "none"
         }
     }
 

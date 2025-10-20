@@ -60,13 +60,12 @@
                 </div>
                 </div>
                 <div id="historico">
-                    <h1 onclick="hist()">Histórico</h1>
-                    <div id="datas" style="display: none;">
-                        <h2>7 dias</h2>
-                        <h2>15 dias</h2>
-                        <h2>30 dias</h2>
-                    </div>
+                <h1 onclick="hist()">Histórico</h1>
+                <div id="historicos" style="display: none;">
+                    <h2><a href="../dashboards/historico.html">Mensal</a></h4>
+                    <h2><a href="../dashboards/anual.html">Anual</a></h4>
                 </div>
+            </div>
             </div>
         </div>
         <footer class="rodape">
@@ -197,11 +196,11 @@
         }
     }
 
-    function hist() {
-        if (datas.style.display == "none") {
-            datas.style.display = "block"
+     function hist() {
+        if (historicos.style.display == "none") {
+            historicos.style.display = "block"
         } else {
-            datas.style.display = "none"
+            historicos.style.display = "none"
         }
     }
 

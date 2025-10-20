@@ -230,6 +230,7 @@ p.page {
     position: absolute;
     left: 200px;
     padding: 20px;
+
 }
 
 .dash h1 {
@@ -255,12 +256,17 @@ p.page {
     width: 280px;
     height: 140px;
     border-radius: 15px;
-    border: 5px solid #7CB324;
+    border: 3px solid #7CB324;
     transition-duration: 0.3s;
 }
 
 .cardkpi:hover {
-    border: 5px solid darkgreen;
+    border: 3px solid darkgreen;
+}
+
+#linha1 {
+    display: flex;
+    align-items: center;
 }
 
 .c1 {
@@ -322,33 +328,89 @@ p.page {
     border-radius: 15px;         
     box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     padding: 20px;                  
-    max-width: 800px;                
-    margin: 30px auto;               
+    max-width: 800px;                  
     display: flex;
     flex-direction: column;
     align-items: center;   
-    
     border: 3px solid #174219;
+    margin: 0px auto;
 }
 
-.fundo_branco h2 {
+.princip {
+    margin: 50px auto;
+}
+
+
+
+.fundo_branco h2{
     margin-bottom: -90px;
     font-weight: 900;
+}
+
+.titlehist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.titlehist h1 {
+    margin-right: 100px;
+}
+
+.titlehist button {
+    margin-right: 35px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #7CB342;
+    font-weight: bolder;
+}
+
+.titlehist button:hover {
+    cursor: pointer;
 }
 
 
 .chart-container {
     display: flex;
+    flex-direction: row;
 
 }
+
+.chart-container .cardkpi {
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 24px;
+    border: 2px solid #174219;
+    font-size: 1.2rem;
+    color: #174219;
+    font-weight: 800;
+
+    height: 80px;
+}
+
+.cardkpi b {
+    color: red;
+}
+
+
+.cardkpig {
+    background-color: #9bf5cacc;
+}
+
+.cardkpir {
+    background-color: #FF6384CC;
+}
+
 
 .chart-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 580px;
-    height: fit-content;
+    width: 620px;
     padding: 20px;
     margin: 0 auto;
     background-color: #ffffff;

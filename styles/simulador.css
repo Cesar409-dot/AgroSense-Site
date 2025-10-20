@@ -168,7 +168,7 @@ p.page {
 
 .conteudo {
     height: 800px;
-    width: 100vw;
+    width: 100%;
     background-color: #f1e7d0;
     display: flex;
     flex-direction: column;

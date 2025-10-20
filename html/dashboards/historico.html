@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,46 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
+
 <body>
-        <header class="navbar">
-            <img src="../../src/logo png.png" alt="logo" class="logoheader">
-            <div class="menu">
-                <a href="../../html/home.html">
-                    <p class="sair">Sair</p>
-                </a>
-            </div>
-        </header>
-        <div class="submenu">
-            <div>
+    <header class="navbar">
+        <img src="../../src/logo png.png" alt="logo" class="logoheader">
+        <div class="menu">
+            <a href="../../html/home.html">
+                <p class="sair">Sair</p>
+            </a>
+        </div>
+    </header>
+    <div class="submenu">
+        <div>
             <img src="../../src/dashboard.png" alt="Dashboard" onclick="menul()">
             <p>Dashboard</p>
-            </div>
         </div>
-        <div class="conteudo">
-            <div class="dash" id="tela_principal">
-                <h1>Hectar 1 - Subárea 2</h1>
-                 <div class="fundo_branco">
+    </div>
+    <div class="conteudo">
+        <div class="dash" id="tela_principal">
+            <div class="titlehist">
+                <h1>Histórico Mensal da umidade do solo</h1>
+            </div>
+            <div id="linha1">
+                <div class="fundo_branco" style="height: fit-content;">
                     <h2>Umidade do solo da subárea em horas</h2>
                     <canvas id="chartLine2" style="width: 800px;"></canvas>
                 </div>
+                <div class="chart-box" style="max-width: 400px;">
+                    <h2>Umidade do solo da subárea em horas</h2>
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
-            
-            <div id="menulateral" style="display: block;">
-                <h1 onclick="hectares()">Hectares</h1>
-                <div id="hectaresd" style="display: block;">
-                    <div id="hectar_1">
+        </div>
+
+        <div id="menulateral" style="display: block;">
+            <h1 onclick="hectares()">Hectares</h1>
+            <div id="hectaresd" style="display: block;">
+                <div id="hectar_1">
                     <h2 onclick="hectar1d()"><a href="hectar1.html">Hectar 1</a></h2>
 
-                    <div id="subarea_1" style="display: block;">
+                    <div id="subarea_1" style="display: none;">
                         <a href="../dashboards/subarea1.html">
                             <h4>Subárea 1</h4>
                         </a>
@@ -59,12 +69,12 @@
                     </div>
                 </div>
                 <div id="historico">
-                <h1 onclick="hist()">Histórico</h1>
-                <div id="historicos" style="display: none;">
-                    <h2><a href="../dashboards/historico.html">Mensal</a></h4>
-                    <h2><a href="../dashboards/anual.html">Anual</a></h4>
+                    <h1 onclick="hist()">Histórico</h1>
+                    <div id="historicos" style="display: block;">
+                        <h2><a href="../dashboards/historico.html">Mensal</a></h4>
+                            <h2><a href="../dashboards/anual.html">Anual</a></h4>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
         <footer class="rodape">
@@ -85,7 +95,8 @@
                 </div>
             </div>
             <div class="rodape_redes">
-                <p>Redes Sociais</p><div>
+                <p>Redes Sociais</p>
+                <div>
                     <img src="../../src/youtube.png" alt="logoYoutube">
                     <img src="../../src/instagram.png" alt="logoInstagram">
                     <img src="../../src/linkedin.png" alt="logoLinkedin">
@@ -111,7 +122,7 @@
         </footer>
 </body>
 <script>
-  const ctxLine2 = document.getElementById('chartLine2');
+    const ctxLine2 = document.getElementById('chartLine2');
     new Chart(ctxLine2, {
         type: 'line',
         data: {
@@ -136,7 +147,7 @@
                 backgroundColor: '#4e5a65', // cinza
                 borderWidth: 3,
                 pointRadius: 0,
-                borderDash: [8 , 8]
+                borderDash: [8, 8]
 
 
             }, {
@@ -146,7 +157,7 @@
                 backgroundColor: '#4e5a65',
                 borderWidth: 3,
                 pointRadius: 0,
-                borderDash: [8 , 8]
+                borderDash: [8, 8]
 
             }]
         },
@@ -159,6 +170,27 @@
                 },
                 x: {
                     title: { display: true, text: 'Horário' },
+                }
+            }
+        }
+    });
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
         }
@@ -195,13 +227,14 @@
         }
     }
 
-     function hist() {
+    function hist() {
         if (historicos.style.display == "none") {
             historicos.style.display = "block"
         } else {
             historicos.style.display = "none"
         }
     }
+
 
 </script>
 
