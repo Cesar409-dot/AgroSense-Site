@@ -34,8 +34,8 @@
     <div class="conteudo">
         <div class="entradas">
             <h2>Cadastro</h2>
-        <p>Nome da Empresa</p>
-        <input type="text" id="iptNomeEmpresa">
+        <p>Codigo de ativação</p>
+        <input type="text" id="iptCodigoAti">
         <p>Email</p>
         <input type="text" id="iptEmail">
         <p>Senha</p>
@@ -51,12 +51,8 @@
         <input type="password" id="iptCheckSenha">
         <p>Telefone</p>
         <input type="number" id="iptTelefone">
-        <p>CNPJ</p>
-        <input type="number" id="iptCNPJ">
-        <p>CEP</p>
-        <input type="number" id="iptCEP">
-        <p>N° Endereço</p>
-        <input type="text" id="iptEndereco">
+        <p>CPF</p>
+        <input type="number" id="iptCPF">
         <div class="botao">
         <button onclick="cadastrar()" class="botao">Cadastrar</button>
     </div>
@@ -110,34 +106,49 @@
     <script>
 
         function cadastrar(){
-            var nomeEmpresa = iptNomeEmpresa.value
+            var codigoAtivacao = iptCodigoAti.value
             var email = iptEmail.value
             var senha = iptSenha.value
             var confirmarSenha = iptCheckSenha.value
             var telefone = Number(iptTelefone.value)
-            var cnpj = Number(iptCNPJ.value)
-            var cep = Number(iptCEP.value)
-            var numEndereco = iptEndereco.value
+            var cpf = Number(iptCPF.value)
+            var contador = 0
+            var contador2 = 0
             mostrarSenha()
 
-            if(nomeEmpresa == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cnpj == 0 || cep == 0 || numEndereco == `` ) {
+            if(codigoAtivacao == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cpf == 0 ) {
                 alert(`Preencha todos os campos!`)
+            }   else if(codigoAtivacao.length > 9 || codigoAtivacao.length < 9){
+                alert('O campo código de ativação tem que ter 9 dígitos!')
             }   else if(telefone % 1 != 0 || telefone < 0 || telefone > 99999999999) {
                 alert(`No campo telefone não é necessário os caracteres especiais("-","+")`)
-            }   else if (cnpj % 1 != 0 || cnpj < 0 || cnpj > 99999999999999) {
-                alert(`No campo CNPJ não é necessário os caracteres especiais`)
-            }   else if(cep % 1 != 0 || cep < 0 || cep > 99999999) {
-                alert(`No campo CEP não é necessário os caracteres especiais`)
+            }   else if(telefone < 11111111111){
+                alert('No campo telefone tem que ter mais de 11 caracteres')
+            }   else if(cpf % 1 != 0 || cpf < 0 || cpf > 99999999999) {
+                alert(`No campo CPF não pode ser maior que 11 caracteres`)
+            }   else if(cpf < 11111111111){
+                alert('No campo CPF não pode ser menor que 11 caracteres ')
             }   else if (!(email.includes(`@`))){
                 alert(`Seu email não contém "@"`)
             }   else if (!(email.includes(`.`))){
                 alert(`Seu email não contém "."`)
-            } else if(confirmarSenha != senha) {
-                alert(`Verifique se as senhas estão iguais`)
+            }   else if(senha.length < 8){
+                alert('No campo senha tem que ter mais que 8 caracteres')
+            }   else if (senha == senha.toUpperCase()){
+                alert('A senha não contém letras minúsculas')
+            } else if (senha == senha.toLowerCase()) {
+                alert('A senha não contém letras maiúsculas')
+            } else if(!(senha.includes(`0`)) && !(senha.includes(`1`)) && !(senha.includes(`2`)) && !(senha.includes(`3`))&& !(senha.includes(`4`)) && !(senha.includes(`5`)) && !(senha.includes(`6`)) && !(senha.includes(`7`)) && !(senha.includes(`8`)) && !(senha.includes(`9`))){
+                alert('A senha tem que ter pelo menos um número (0 a 9)')
+            }   else if(!(senha.includes(`!`)) && !(senha.includes(`@`)) && !(senha.includes(`#`)) && !(senha.includes(`$`))&& !(senha.includes(`%`))){
+                alert('A senha tem que ter pelo menos um caracter especial (!, @, #, $, %)')
+            }
+            else if(confirmarSenha != senha) {
+                alert(`Verifique se as senhas estão iguais`) 
             } else {
                 alert(`Cadastro efetuado com sucesso!! Agora faça seu login!!`)
                 window.location.href = "login.html"
-            } 
+            }
         }
 
         function mostrarSenha() {
