@@ -32,11 +32,11 @@
             </div>
             <div id="linha1">
                 <div class="fundo_branco" style="height: fit-content;">
-                    <h2>Umidade do solo da subárea em horas</h2>
+                    <h2>Umidade do solo no ano</h2>
                     <canvas id="chartLine2" style="width: 800px;"></canvas>
                 </div>
                 <div class="chart-box" style="max-width: 400px;">
-                    <h2>Umidade do solo da subárea em horas</h2>
+                    <h2>Meses com variações na umidade</h2>
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
@@ -125,24 +125,24 @@
     const ctxLine2 = document.getElementById('chartLine2');
     new Chart(ctxLine2, {
         type: 'line',
-        data: {
-            labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            data: {
+            labels:  ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [{
-                label: 'Umidade do solo (%)',
-                data: [55, 62, 66, 59, 57, 68, 70, 75],
+                label: 'Umidade no solo',
+                data: [60, 62, 66, 55, 57, 68, 70, 68, 67, 76, 82, 79],
                 borderColor: '#174219',
                 backgroundColor: '#174219',
                 pointRadius: 4.5,
                 pointBackgroundColor: '#7cb342'
 
             }, {
-                label: 'Horário',
+                label: 'Meses',
                 borderColor: '#7cb342',
                 backgroundColor: '#7cb342'
 
             }, {
                 label: 'Nível máximo recomendado',
-                data: [80, 80, 80, 80, 80, 80, 80, 80],
+                data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80],
                 borderColor: '#4e5a65',
                 backgroundColor: '#4e5a65', // cinza
                 borderWidth: 3,
@@ -152,7 +152,7 @@
 
             }, {
                 label: 'Nível mínimo recomendado',
-                data: [60, 60, 60, 60, 60, 60, 60, 60],
+                data: [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60],
                 borderColor: '#4e5a65',
                 backgroundColor: '#4e5a65',
                 borderWidth: 3,
@@ -169,7 +169,7 @@
                     max: 90
                 },
                 x: {
-                    title: { display: true, text: 'Horário' },
+                    title: { display: true, text: '' },
                 }
             }
         }
@@ -180,16 +180,18 @@
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+             labels: ['Umidade do solo padrão (9 meses)', 'Umidade do solo com variações (3 meses)'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                data: [9,3],
+                borderWidth: 1,
+                backgroundColor: ['#9bf5cacc','#FF6384CC']
             }]
         },
         options: {
             scales: {
                 y: {
+                    title: { display: true, text: 'Tempo em que cada área ficou fora do nível' },
                     beginAtZero: true
                 }
             }

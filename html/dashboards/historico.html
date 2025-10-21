@@ -32,11 +32,11 @@
             </div>
             <div id="linha1">
                 <div class="fundo_branco" style="height: fit-content;">
-                    <h2>Umidade do solo da subárea em horas</h2>
+                    <h2>Umidade do solo da plantação em semanas</h2>
                     <canvas id="chartLine2" style="width: 800px;"></canvas>
                 </div>
                 <div class="chart-box" style="max-width: 400px;">
-                    <h2>Umidade do solo da subárea em horas</h2>
+                    <h2>Dias com variação de umidade </h2>
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
@@ -121,28 +121,28 @@
 
         </footer>
 </body>
-<script>
+   <script>
     const ctxLine2 = document.getElementById('chartLine2');
     new Chart(ctxLine2, {
         type: 'line',
-        data: {
-            labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            data: {
+            labels:  ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5'],
             datasets: [{
-                label: 'Umidade do solo (%)',
-                data: [55, 62, 66, 59, 57, 68, 70, 75],
+                label: 'Umidade no solo',
+                data: [65, 68, 82, 65, 69],
                 borderColor: '#174219',
                 backgroundColor: '#174219',
                 pointRadius: 4.5,
                 pointBackgroundColor: '#7cb342'
 
             }, {
-                label: 'Horário',
+                label: 'Semanas',
                 borderColor: '#7cb342',
                 backgroundColor: '#7cb342'
 
             }, {
                 label: 'Nível máximo recomendado',
-                data: [80, 80, 80, 80, 80, 80, 80, 80],
+                data: [80, 80, 80, 80, 80],
                 borderColor: '#4e5a65',
                 backgroundColor: '#4e5a65', // cinza
                 borderWidth: 3,
@@ -152,7 +152,7 @@
 
             }, {
                 label: 'Nível mínimo recomendado',
-                data: [60, 60, 60, 60, 60, 60, 60, 60],
+                data: [60, 60, 60, 60, 60],
                 borderColor: '#4e5a65',
                 backgroundColor: '#4e5a65',
                 borderWidth: 3,
@@ -169,7 +169,7 @@
                     max: 90
                 },
                 x: {
-                    title: { display: true, text: 'Horário' },
+                    title: { display: true, text: '' },
                 }
             }
         }
@@ -180,18 +180,17 @@
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Umidade do solo padrão (28 dias)', 'Umidade do solo com variações (2 dias)'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                data: [28, 2],
+                borderWidth: 0,
+                backgroundColor: ['#9bf5cacc','#FF6384CC']
             }]
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+              
             }
         }
     });
@@ -228,10 +227,10 @@
     }
 
     function hist() {
-        if (historicos.style.display == "none") {
-            historicos.style.display = "block"
+        if (datas.style.display == "none") {
+            datas.style.display = "block"
         } else {
-            historicos.style.display = "none"
+            datas.style.display = "none"
         }
     }
 
