@@ -43,7 +43,12 @@ p.page {
     color: #174219 ;
 }
 
-
+.menu a :hover{
+    color: #FFFFFF;
+    background-color: #4E5A65;
+    padding: 15px;
+    border-radius: 15px;
+}
 
 .logoheader {
     height: 80px;

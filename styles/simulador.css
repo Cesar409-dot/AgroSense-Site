@@ -39,7 +39,12 @@ p.page {
     color: #174219 ;
 }
 
-
+.navbar a:hover {
+    text-decoration: underline;
+    text-decoration-color: #4E5A65;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 8px;
+}
 
 .logoheader {
     height: 80px;
@@ -69,6 +74,13 @@ p.page {
 .cadastrar {
     color: #7CB324;
     background-color: #174219;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.c a :hover{
+    color: #FFFFFF;
+    background-color: #4E5A65;
     padding: 15px;
     border-radius: 15px;
 }
