@@ -184,7 +184,7 @@ p.page {
     color: #F1E7D0;
     border-style: hidden;
     text-align: center;
-    width: 1521px;
+    width: 100%;
     margin: -6px;
     height: 150px;
     padding: 20px;
@@ -256,34 +256,62 @@ p.page {
     font-size: 25px;
 }
 
-.resultados{
+.container_resultados{
     background-color: #8d6e63;
     display: flex;
+    border-style: hidden;
+    align-items: center;
+    justify-content: space-between;
     padding: 250px;
     height: 30px;
-    width: 1570px;
-    margin: 40px;
+    width: 90%;
+    margin: 50px;
+    border-width: 15px;
+    border-radius: 15px;
 }
 
-.img_resultado{
+.resultados{
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 1px;
-
-}
-.titulo_resultados{
-     display: flex;
-    align-items: baseline;
     flex-direction: column;
-    justify-content: flex-start;
-    color: #F1E7D0;
-    font-size: 35px;
-    font-weight: 10000;
+    justify-content: space-around;
+}
+
+.produtividade{
+    font-size: 20px;
+    text-align: left;
+    text-indent: 15px;
+}
+
+.produtores{
+    font-size: 20px;
+    text-align: left;
+    text-indent: 15px;
+}
+
+.monitoramento{
+    font-size: 20px;
+    text-align: left;
+    text-indent: 15px;
+}
+
+.resultados_box{
+    width: 60px;
+    float: left;
+}
+
+.resultados_subtitulos{
+    font-size: 20px;
+    text-align: left;
+}
+
+
+.resultados_text{
 
 }
 
-.result_produtividade{
+.resultado_imagem{
     display: flex;
+    width: 300px;
+    height: 300px;
+    float: right;
 }
