@@ -4,7 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-*, body {
+*,
+body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -31,12 +32,12 @@ p.page {
     text-decoration-color: #4E5A65;
     text-decoration-thickness: 4px;
     text-underline-offset: 8px;
-    
+
 }
 
 .navbar a {
     text-decoration: none;
-    color: #174219 ;
+    color: #174219;
 }
 
 
@@ -73,7 +74,7 @@ p.page {
     border-radius: 15px;
 }
 
-.rodape{
+.rodape {
     background-color: #174219;
     display: flex;
     padding: 43px;
@@ -82,16 +83,17 @@ p.page {
 
 }
 
-.rodape_bordao{
+.rodape_bordao {
     color: #7CB324;
     text-align: center;
     font-size: 0.8rem;
 }
+
 .rodape_bordao img {
     width: 180px;
 }
 
-.rodape_contato{
+.rodape_contato {
     display: flex;
     flex-direction: column;
     color: #f1e7d0;
@@ -103,7 +105,7 @@ p.page {
     align-items: center;
 }
 
-.rodape_contato a  {
+.rodape_contato a {
     color: #f1e7d0;
     text-decoration: none;
 }
@@ -113,7 +115,7 @@ p.page {
     text-decoration: underline;
 }
 
-.rodape_contato p{
+.rodape_contato p {
     font-size: 2rem;
     font-weight: 900;
     margin-bottom: 30px;
@@ -124,62 +126,65 @@ p.page {
     margin-right: 10px;
 }
 
-.rodape_redes{
+.rodape_redes {
     margin-bottom: 34px;
 }
 
-.rodape_redes div{
+.rodape_redes div {
     display: flex;
     justify-content: space-evenly;
 }
 
-.rodape_redes p{
+.rodape_redes p {
     font-size: 2rem;
     font-weight: 900;
     color: #f1e7d0;
     margin-bottom: 30px;
 }
-.rodape_redes img{
+
+.rodape_redes img {
     width: 30px;
 }
 
-.rodape_empresas{
+.rodape_empresas {
     margin-top: 24px;
 }
 
-.rodape_empresas div > p {
+.rodape_empresas div>p {
     font-size: 2rem;
     font-weight: 900;
     color: #f1e7d0;
     margin-bottom: 30px;
 }
-.rodape_empresas a{
+
+.rodape_empresas a {
     color: #f1e7d0;
     text-decoration: none;
 }
-.rodape_empresas a:hover{
+
+.rodape_empresas a:hover {
     color: #4E5A65;
     text-decoration: underline;
 }
 
-.empresas{
+.empresas {
     line-height: 30px;
 }
 
-.conteudo{
-    background-color: #F1E7D0 ;
+.conteudo {
+    background-color: #F1E7D0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.image1{
-    
+.image1 {
+
     height: 636px;
 }
 
-.text_imagem{
+.text_imagem {
     background-color: #8d6e63;
     color: #F1E7D0;
     border-style: hidden;
@@ -190,13 +195,13 @@ p.page {
     padding: 20px;
 }
 
-.p_text_imagem{
+.p_text_imagem {
     font-size: 20px;
 }
 
-.problema{
+.problema {
     display: flex;
-    border-style:solid;
+    border-style: solid;
     border-color: #7CB324;
     flex-direction: column;
     color: #4E5A65;
@@ -209,54 +214,54 @@ p.page {
     line-height: 2.2;
 }
 
-.text_lupa{
+.text_lupa {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
 }
 
-.titulo_problema{
+.titulo_problema {
     color: #174219;
     font-size: 50px;
     font-weight: 900;
 }
 
-.lupa{
+.lupa {
     height: 50px;
     width: 50px;
 }
 
-.texto_problema{
+.texto_problema {
     font-size: 25px
 }
 
-.subtitulo{
+.subtitulo {
     text-align: end;
     font-weight: 900;
     font-size: 30px;
     color: #174219;
 }
 
-.p1_subtitulo{
+.p1_subtitulo {
     text-align: end;
     font-weight: 500;
     font-size: 25px;
 }
 
-.p2_subtitulo{
+.p2_subtitulo {
     text-align: end;
     font-weight: 500;
     font-size: 25px;
 }
 
-.p3_subtitulo{
+.p3_subtitulo {
     text-align: end;
     font-weight: 500;
     font-size: 25px;
 }
 
-.container_resultados{
+.container_resultados {
     background-color: #8d6e63;
     display: flex;
     border-style: hidden;
@@ -270,48 +275,123 @@ p.page {
     border-radius: 15px;
 }
 
-.resultados{
+.resultados {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    color: #F1E7D0;
+    border-style: solid;
+    margin: -100px;
+    padding: 30px;
 }
 
-.produtividade{
+.produtores {
     font-size: 20px;
     text-align: left;
-    text-indent: 15px;
 }
 
-.produtores{
+.produtores_text .monitoramento {
     font-size: 20px;
     text-align: left;
-    text-indent: 15px;
 }
 
-.monitoramento{
-    font-size: 20px;
-    text-align: left;
-    text-indent: 15px;
-}
-
-.resultados_box{
+.resultados_box {
     width: 60px;
     float: left;
+    margin: 5px;
 }
 
-.resultados_subtitulos{
-    font-size: 20px;
+.resultados_subtitulos {
+    font-size: 25px;
+}
+
+
+.resultados_text {
+    font-size: 15px;
     text-align: left;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
-
-.resultados_text{
-
-}
-
-.resultado_imagem{
+.resultado_imagem {
     display: flex;
     width: 300px;
     height: 300px;
     float: right;
+}
+
+.container_final {}
+
+.final_image {
+
+    align-items: center;
+    height: 55px;
+    width: 55px;
+}
+
+.container_parte1 {
+    display: flex;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    width: 30%;
+    margin: 50px;
+    padding: 40px;
+    color: #7CB324;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    width: 30%;
+    margin: 50px;
+    padding: 40px;
+    color: #7CB324;
+}
+
+.container_parte2{
+    display: flex;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    width: 30%;
+    margin: 50px;
+    padding: 40px;
+    color: #7CB324;
+}
+
+.box4 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    width: 30%;
+    margin: 50px;
+    padding: 40px;
+    color: #7CB324;
+}
+
+.box5 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    width: 30%;
+    margin: 50px;
+    padding: 40px;
+    color: #7CB324;
 }
