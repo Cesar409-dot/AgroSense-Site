@@ -179,7 +179,7 @@ p.page {
 
 .titulo {
     position: absolute;
-    top: 250px;
+    top: 200px;
     color: #174219;
 }
 
@@ -195,4 +195,10 @@ p.page {
 
 .caixa p {
     text-align: justify;
+    font-size: 20px;
+}
+
+.batata {
+    width: 1000px;
+
 }
