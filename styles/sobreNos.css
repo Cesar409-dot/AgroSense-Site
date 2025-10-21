@@ -42,7 +42,7 @@ p.page {
 
 
 .logoheader {
-    height: 135px;
+    height: 80px;
 }
 
 .menu {
@@ -169,7 +169,7 @@ p.page {
 .conteudo{
     background-color: #f1e7d0;
     padding: 30px;
-    height: 900px;
+    height: 1000px;
 
     display: flex;
     justify-content: center;
@@ -187,18 +187,19 @@ p.page {
     background-color: white;
     text-align: center;
     border-style:hidden;
-    border-radius: 15px;
-    line-height: 40px;
+    border-radius: 14px;
+    line-height: 30px;
     margin: 300px;
-    padding: 30px;  
+    padding: 36px;  
 }
 
 .caixa p {
     text-align: justify;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .batata {
-    width: 1000px;
+    width: 900px;
+    margin: 19px;
 
 }
