@@ -191,22 +191,42 @@ p.page {
 .submenu img {
     width: 60px;
 }
+
+.submenu img:hover {
+    cursor: pointer;
+}
+
 #menulateral {
-    background-color: #4E5A65;
+    background-color: #7CB342;
     height: 100%;
     width: 200px;
     display: flex;
     justify-content: center;
-    text-align: left;
+    text-align: justify;
     align-items: center;
     flex-direction: column;
     padding-top: 15px;
+    box-shadow: 3px black;
 }
 
 #menulateral h1, h2, h3, h4 {
     margin-left: 15px;
+    transition-duration: 0.3s;
 }
 
+#menulateral a:hover {
+    color: #174219;
+    cursor: pointer;
+}
+
+#menulateral a {
+    transition-duration: 0.3s;
+}
+
+#menulateral h1:hover {
+    color: #174219;
+    cursor: pointer;
+}
 
 .conteudo {
     color: #f1e7d0;
@@ -256,12 +276,12 @@ p.page {
     width: 280px;
     height: 140px;
     border-radius: 15px;
-    border: 3px solid #7CB324;
+    border: 1px solid black;
     transition-duration: 0.3s;
 }
 
 .cardkpi:hover {
-    border: 3px solid darkgreen;
+    cursor: default;
 }
 
 #linha1 {
@@ -326,13 +346,12 @@ p.page {
 .fundo_branco {
     background-color: #ffffff;       
     border-radius: 15px;         
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    border: 1px solid rgba(0, 0, 0, 0.468);
     padding: 20px;                  
     max-width: 800px;                  
     display: flex;
     flex-direction: column;
     align-items: center;   
-    border: 3px solid #174219;
     margin: 0px auto;
 }
 
@@ -383,17 +402,14 @@ p.page {
     margin-top: 20px;
     margin-right: 10px;
     margin-left: 24px;
-    border: 2px solid #174219;
+    border: 1px solid rgba(0, 0, 0, 0.468);
     font-size: 1.2rem;
-    color: #174219;
-    font-weight: 800;
+    color: black;
+    font-weight: 500;
 
     height: 80px;
 }
 
-.cardkpi b {
-    color: red;
-}
 
 
 .cardkpig {
@@ -415,9 +431,8 @@ p.page {
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 15px;
-
-    border: 3px solid #174219;
-
+    
+    border: 1px solid rgba(0, 0, 0, 0.468);
 }
 
 .chart-box h2 {

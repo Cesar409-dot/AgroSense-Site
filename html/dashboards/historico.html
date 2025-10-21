@@ -43,7 +43,7 @@
         </div>
 
         <div id="menulateral" style="display: block;">
-            <h1 onclick="hectares()">Hectares</h1>
+            <h1 onclick="hectares()" id="hec1">Hectares</h1>
             <div id="hectaresd" style="display: block;">
                 <div id="hectar_1">
                     <h2 onclick="hectar1d()"><a href="hectar1.html">Hectar 1</a></h2>
@@ -71,7 +71,7 @@
                 <div id="historico">
                     <h1 onclick="hist()">Histórico</h1>
                     <div id="historicos" style="display: block;">
-                        <h2><a href="../dashboards/historico.html">Mensal</a></h4>
+                        <h2><a href="../dashboards/historico.html" style="color: #174219">Mensal</a></h4>
                             <h2><a href="../dashboards/anual.html">Anual</a></h4>
                     </div>
                 </div>
@@ -178,13 +178,12 @@
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: ['Umidade do solo padrão (28 dias)', 'Umidade do solo com variações (2 dias)'],
             datasets: [{
                 label: '# of Votes',
                 data: [28, 2],
-                borderWidth: 0,
                 backgroundColor: ['#9bf5cacc','#FF6384CC']
             }]
         },
@@ -205,8 +204,11 @@
     function hectares() {
         if (hectaresd.style.display == "none") {
             hectaresd.style.display = "block"
+            hec1.style.color = "#174219"
+
         } else {
             hectaresd.style.display = "none"
+            hec1.style.color = "#f1e7d0"
         }
     }
 
@@ -227,10 +229,12 @@
     }
 
     function hist() {
-        if (datas.style.display == "none") {
-            datas.style.display = "block"
+        if (historicos.style.display == "none") {
+            historicos.style.display = "block"
+            historico.style.color = "#174219"
         } else {
-            datas.style.display = "none"
+            historicos.style.display = "none"
+            historico.style.color = "#f1e7d0"
         }
     }
 

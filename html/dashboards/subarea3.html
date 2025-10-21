@@ -33,7 +33,7 @@
             </div>
             
             <div id="menulateral" style="display: block;">
-                <h1 onclick="hectares()">Hectares</h1>
+                <h1 onclick="hectares()" id="hec1">Hectares</h1>
                 <div id="hectaresd" style="display: block;">
                     <div id="hectar_1">
                     <h2 onclick="hectar1d()"><a href="hectar1.html">Hectar 1</a></h2>
@@ -51,7 +51,7 @@
                     <h2 onclick="hectar2d()"><a href="hectar2.html">Hectar 2</a></h2>
                     <div id="subarea_2" style="display: block;">
                         <a href="../dashboards/subarea3.html">
-                            <h4>Subárea 1</h4>
+                            <h4 style="color: #174219">Subárea 1</h4>
                         </a>
                         <a href="../dashboards/subarea4.html">
                             <h4>Subárea 2</h4>
@@ -174,8 +174,11 @@
     function hectares() {
         if (hectaresd.style.display == "none") {
             hectaresd.style.display = "block"
+            hec1.style.color = "#174219"
+
         } else {
             hectaresd.style.display = "none"
+            hec1.style.color = "#f1e7d0"
         }
     }
 
@@ -195,11 +198,13 @@
         }
     }
 
- function hist() {
+    function hist() {
         if (historicos.style.display == "none") {
             historicos.style.display = "block"
+            historico.style.color = "#174219"
         } else {
             historicos.style.display = "none"
+            historico.style.color = "#f1e7d0"
         }
     }
 
