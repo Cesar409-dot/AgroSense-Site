@@ -55,8 +55,10 @@
         <input type="number" id="iptTelefone">
         <p>CPF</p>
         <input type="number" id="iptCPF">
+        <div class="c"> 
         <div class="botao">
         <button onclick="cadastrar()" class="botao">Cadastrar</button>
+        </div>
     </div>
     </div>
     </div>
@@ -114,8 +116,6 @@
             var confirmarSenha = iptCheckSenha.value
             var telefone = Number(iptTelefone.value)
             var cpf = Number(iptCPF.value)
-            var contador = 0
-            var contador2 = 0
             mostrarSenha()
 
             if(codigoAtivacao == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cpf == 0 ) {

@@ -43,8 +43,8 @@
             <input type="text" id="iptEmail">
             <p>Senha</p>
             <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
-            <div class="botao">
-                <button onclick="entrar()" class="botao">Entrar</button>
+            <div class="botao c">
+                <button onclick="verificarTentativas()" class="botao">Entrar</button>
             </div>
         </div>
     </div>
@@ -115,6 +115,22 @@
             window.location.href = "../html/dashboards/dashboardCliente.html"
         } else {
             alert('Verifique se os seus dados estão inseridos corretamente')
+        }
+    }
+
+    var tentativas = 0
+
+    function verificarTentativas() {
+        while (tentativas < 3) {
+            entrar()
+            tentativas++
+            if (tentativas < 3) {
+                break
+            }
+        }
+
+        if (tentativas >= 3) {
+            alert('Você atingiu o número máximo de tentativas! Recarregue a página para tentar novamente.')
         }
     }
 </script>

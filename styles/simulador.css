@@ -85,6 +85,7 @@ p.page {
     border-radius: 15px;
 }
 
+
 .rodape{
     background-color: #174219;
     display: flex;
@@ -244,7 +245,7 @@ div#inputs {
 }
 
 #botao:hover {
-    background-color: #174219;
+    background-color: #4E5A65;
     color: #ffffff;
     cursor: pointer;
 }
