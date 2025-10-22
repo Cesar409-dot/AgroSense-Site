@@ -320,7 +320,6 @@ p.page {
     float: right;
 }
 
-.container_final {}
 
 .final_image {
 
@@ -344,6 +343,7 @@ p.page {
     margin: 50px;
     padding: 40px;
     color: #7CB324;
+    border-radius: 10%;
 }
 
 .box2 {
@@ -355,6 +355,7 @@ p.page {
     margin: 50px;
     padding: 40px;
     color: #7CB324;
+    border-radius: 10%;
 }
 
 .container_parte2{
@@ -372,6 +373,7 @@ p.page {
     margin: 50px;
     padding: 40px;
     color: #7CB324;
+    border-radius: 10%;
 }
 
 .box4 {
@@ -383,6 +385,7 @@ p.page {
     margin: 50px;
     padding: 40px;
     color: #7CB324;
+    border-radius: 10%;
 }
 
 .box5 {
@@ -394,4 +397,5 @@ p.page {
     margin: 50px;
     padding: 40px;
     color: #7CB324;
+    border-radius: 10%;
 }
