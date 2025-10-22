@@ -37,11 +37,13 @@
         <div class="entradas">
             <h2>Cadastro</h2>
         <p>Codigo de ativação</p>
-        <input type="text" id="iptCodigoAti">
+        <input type="text" id="iptCodigoAti" placeholder="ex: 9E345RT09">
+        <p>Nome</p>
+        <input type="text" id="iptNome" placeholder="Ex: Cesar">
         <p>Email</p>
-        <input type="text" id="iptEmail">
+        <input type="text" id="iptEmail" placeholder="Ex: agrosense@gmail.com">
         <p>Senha</p>
-        <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
+        <input type="password" id="iptSenha" onkeyup="mostrarSenha()" placeholder="Ex: @groSense123"> 
         <div class="validacao">
         <p id="p1"></p>
         <p id="p2"></p>
@@ -50,11 +52,11 @@
         <p id="p5"></p>
     </div>
         <p>Confirmar Senha</p>
-        <input type="password" id="iptCheckSenha">
+        <input type="password" id="iptCheckSenha" placeholder="Ex: @groSense123">
         <p>Telefone</p>
-        <input type="number" id="iptTelefone">
+        <input type="number" id="iptTelefone" placeholder="Ex: 119801008418">
         <p>CPF</p>
-        <input type="number" id="iptCPF">
+        <input type="number" id="iptCPF" placeholder="Ex: 32145698701">
         <div class="c"> 
         <div class="botao">
         <button onclick="cadastrar()" class="botao">Cadastrar</button>
@@ -111,6 +113,7 @@
 
         function cadastrar(){
             var codigoAtivacao = iptCodigoAti.value
+            var nome = iptNome.value
             var email = iptEmail.value
             var senha = iptSenha.value
             var confirmarSenha = iptCheckSenha.value
@@ -118,7 +121,7 @@
             var cpf = Number(iptCPF.value)
             mostrarSenha()
 
-            if(codigoAtivacao == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cpf == 0 ) {
+            if(codigoAtivacao == `` || nome == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cpf == 0 ) {
                 alert(`Preencha todos os campos!`)
             }   else if(codigoAtivacao.length > 9 || codigoAtivacao.length < 9){
                 alert('O campo código de ativação tem que ter 9 dígitos!')
