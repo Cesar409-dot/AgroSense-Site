@@ -41,10 +41,14 @@
             <h2>Login</h2>
             <p>Email</p>
             <input type="text" id="iptEmail">
+            <div id="divEmail" class="email"></div>
             <p>Senha</p>
             <input type="password" id="iptSenha" onkeyup="mostrarSenha()">
+            <div id="divSenha" class="senha"></div>
             <div class="botao c">
                 <button onclick="verificarTentativas()" class="botao">Entrar</button>
+            </div>
+            <div id="divMsg" class="mensagem">
             </div>
         </div>
     </div>
@@ -100,20 +104,23 @@
     function entrar() {
         var email = iptEmail.value
         var senha = iptSenha.value
-        if(email == '' || senha == ''){
-            alert('Atenção! Preencha todos os campos com base no seu cadastro')
+        divEmail.innerHTML = ``
+        divSenha.innerHTML = ``
+        if(email == ''){
+            divEmail.innerHTML = 'Atenção! Preencha o campo email com base no seu cadastro'
+        } if(senha == ''){
+            divSenha.innerHTML = 'Atenção! Preencha o campo senha com base no seu cadastro'
         }
-        else if (!(email.includes(`@`))) {
-            alert(`Seu email não contém "@"`)
-        } else if (!(email.includes(`.`))) {
-            alert(`Seu email não contém "."`)
-        } else if(email == 'admin@admin.com'&& senha == 'admin'){
-            alert('Bem Vindo administrador')
+        else if(email == 'admin@admin.com'&& senha == 'admin'){
+            alert('Bem Vindo! Administrador, login efetuado com sucesso')
             window.location.href = "../html/dashboards/dashboardAdmin.html"
         }else if(email == 'batatinha@gmail.com' && senha == 'B@tatinha123'){
             alert('Bem-Vindo! Login efetuado com sucesso')
             window.location.href = "../html/dashboards/dashboardCliente.html"
-        } else {
+        }else if(email == 'batatinha@gmail.com' && senha != 'B@tatinha123'){
+            divSenha.innerHTML = 'Atenção! Preencha o campo senha com base no seu cadastro'
+        }
+        else {
             alert('Verifique se os seus dados estão inseridos corretamente')
         }
     }
@@ -130,7 +137,7 @@
         }
 
         if (tentativas >= 3) {
-            alert('Você atingiu o número máximo de tentativas! Recarregue a página para tentar novamente.')
+            divMsg.innerHTML = 'Você atingiu o número máximo de tentativas! <br> Recarregue a página para tentar novamente.'
         }
     }
 </script>

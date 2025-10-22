@@ -21,10 +21,17 @@
     justify-content: space-between;
 
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1rem;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 
     padding: 20px;
+
 }
+
 
 p.page {
     text-decoration: underline;
@@ -47,7 +54,7 @@ p.page {
 }
 
 .logoheader {
-    height: 80px;
+    height: 60px;
 }
 
 .menu {
@@ -211,12 +218,12 @@ p.page {
     justify-content: center;
     flex-direction: column;
     background-color: #FFFFFF;
-    width: 750px;
+    width: 600px;
     border-radius: 15px;
     height: fit-content; 
     margin: 40px;
-    padding: 100px;
-    font-size: 1.8rem;
+    padding: 20px;
+    font-size: 1.2rem;
 }
 
 .entradas button{
@@ -226,22 +233,47 @@ p.page {
     border-color: #7CB324;
     font-weight: 900;
     padding: 8px;
-    margin-top: 55px;
+    margin-top: 35px;
+    font-size: 1.4rem;
+    transition-duration: 0.3s;
+}
+
+.entradas button:hover{
+    padding: 12px;
 }
 
 .entradas input{
-    width: 90%;
-    height: 40px;
+    width: 70%;
+    height: 30px;
     margin-top: 5px;
-    font-size: 2rem;
+    font-size: 1rem;
     border: 1px solid #174219;
     border-radius: 5px;
 }
-
+.email{
+    font-size: 16px;
+    margin-top: 10px;
+    color: red;
+    font-weight: 760;
+}
 .entradas p{
     margin-top: 35px;
 }
 
 .botao {
     font-size: 1.7rem;
+}
+
+.mensagem{
+    font-size: 16px;
+    color: red;
+    margin-top: 35px;
+    font-weight: 760;
+}
+
+.senha{
+    font-size: 16px;
+    color: red;
+    margin-top: 35px;
+    font-weight: 760;
 }
