@@ -21,7 +21,12 @@
     justify-content: space-between;
 
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1rem;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 
     padding: 20px;
 }
@@ -39,7 +44,7 @@
 }
 
 .logoheader {
-    height: 80px;
+    height: 60px;
 }
 
 .menu {
@@ -203,13 +208,13 @@
     justify-content: center;
     flex-direction: column;
     background-color: #FFFFFF;
-    width: 1000px;
+    width: 600px;
     border-radius: 15px;
     height: fit-content; 
     margin: 40px;
     padding: 20px;
 
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 
 .entradas button{
@@ -220,15 +225,29 @@
     font-weight: 900;
     padding: 6px;
     margin-top: 30px;
+    font-size: 1rem;
+    transition-duration: 0.3s;
+}
+
+.entradas button:hover{
+    padding: 10px;
+
+}
+
+.entradas img{
+    position: relative;
+    top: 28px;
+    right: 180px;
 }
 
 .entradas input{
+    text-align:center;
     border: 1px solid #174219;
     border-radius: 5px;
-    width: 80%;
-    height: 35px;
+    width: 70%;
+    height: 30px;
     margin-top: 5px;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .entradas p{
@@ -236,12 +255,15 @@
 }
 
 .validacao{
-    font-size: 1rem;
+    font-size: 0.7rem;
     align-self: flex-start;
     margin-left: 100px;
 }
 
-.botao {
-    font-size: 1.7rem;
+#msg, #msg2, #msg3, #msg4, #msg5, #msg6, #msg7 {
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
+    color: red;
 }
 

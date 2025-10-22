@@ -37,13 +37,20 @@
         <div class="entradas">
             <h2>Cadastro</h2>
         <p>Codigo de ativação</p>
+        <img src="../src/cadeado-aberto.png" alt="">
         <input type="text" id="iptCodigoAti" placeholder="ex: 9E345RT09">
+        <div id="msg"></div>
         <p>Nome</p>
+        <img src="../src/pessoa.png" alt="">
         <input type="text" id="iptNome" placeholder="Ex: Cesar">
+        <div id="msg2"></div>
         <p>Email</p>
+        <img src="../src/o-email.png" alt="">
         <input type="text" id="iptEmail" placeholder="Ex: agrosense@gmail.com">
+        <div id="msg3"></div>
         <p>Senha</p>
-        <input type="password" id="iptSenha" onkeyup="mostrarSenha()" placeholder="Ex: @groSense123"> 
+            <img src="../src/cadeado-trancado.png"  alt="imagem do cadeado">
+            <input type="password" id="iptSenha" onkeyup="mostrarSenha()" placeholder="Ex: @groSense123"> 
         <div class="validacao">
         <p id="p1"></p>
         <p id="p2"></p>
@@ -52,15 +59,21 @@
         <p id="p5"></p>
     </div>
         <p>Confirmar Senha</p>
+        <img src="../src/cadeado-trancado.png"  alt="imagem do cadeado">
         <input type="password" id="iptCheckSenha" placeholder="Ex: @groSense123">
+        <div id="msg4"></div>
         <p>Telefone</p>
+        <img src="../src/telefone.png" alt="">
         <input type="number" id="iptTelefone" placeholder="Ex: 119801008418">
+        <div id="msg5"></div>
         <p>CPF</p>
+        <img src="../src/cpf.png" alt="">
         <input type="number" id="iptCPF" placeholder="Ex: 32145698701">
-        <div class="c"> 
-        <div class="botao">
+        <div id="msg6"></div>
+        
+        <div class="botao c">
         <button onclick="cadastrar()" class="botao">Cadastrar</button>
-        </div>
+        
     </div>
     </div>
     </div>
@@ -121,35 +134,53 @@
             var cpf = Number(iptCPF.value)
             mostrarSenha()
 
-            if(codigoAtivacao == `` || nome == `` || email == `` || senha == `` || confirmarSenha == `` || telefone == 0 || cpf == 0 ) {
-                alert(`Preencha todos os campos!`)
-            }   else if(codigoAtivacao.length > 9 || codigoAtivacao.length < 9){
-                alert('O campo código de ativação tem que ter 9 dígitos!')
+            msg.innerHTML = ''
+            msg2.innerHTML = ''
+            msg3.innerHTML = ''
+            msg4.innerHTML = ''
+            msg5.innerHTML = ''
+            msg6.innerHTML = ''
+
+            if(codigoAtivacao == ``) {
+                msg.innerHTML = `Preencha o campo Código de ativação`
+            }   if(nome == ``) {
+                msg2.innerHTML = `Preencha o campo nome`
+            }   if (email == ``) {
+                msg3.innerHTML = `Preencha o campo email`
+            }   if (confirmarSenha == ``){
+                msg4.innerHTML = `Preencha o campo Confirmar Senha`
+            }   if (telefone == 0) {
+                msg5.innerHTML = `Preencha o campo telefone`
+            }   if (cpf == 0) {
+                msg6.innerHTML = `Preencha o campo CPF`
+            }
+            else if(codigoAtivacao.length > 9 || codigoAtivacao.length < 9){
+                msg.innerHTML = 'O campo código de ativação tem que ter 9 dígitos!'
             }   else if(telefone % 1 != 0 || telefone < 0 || telefone > 99999999999) {
-                alert(`No campo telefone não é necessário os caracteres especiais("-","+")`)
+                msg6.innerHTML = `No campo telefone não é necessário os caracteres especiais("-","+")`
             }   else if(telefone < 11111111111){
-                alert('No campo telefone tem que ter mais de 11 caracteres')
+                msg6.innerHTML = 'No campo telefone tem que ter mais de 11 caracteres'
             }   else if(cpf % 1 != 0 || cpf < 0 || cpf > 99999999999) {
-                alert(`No campo CPF não pode ser maior que 11 caracteres`)
+                msg7.innerHTML = `No campo CPF não pode ser maior que 11 caracteres`
             }   else if(cpf < 11111111111){
-                alert('No campo CPF não pode ser menor que 11 caracteres ')
+                msg7.innerHTML = 'No campo CPF não pode ser menor que 11 caracteres'
             }   else if (!(email.includes(`@`))){
-                alert(`Seu email não contém "@"`)
+                msg3.innerHTML = `Seu email não contém "@"`
             }   else if (!(email.includes(`.`))){
-                alert(`Seu email não contém "."`)
+                msg3.innerHTML = `Seu email não contém "."`
             }   else if(senha.length < 8){
-                alert('No campo senha tem que ter mais que 8 caracteres')
+                msg4.innerHTML = 'No campo senha tem que ter mais que 8 caracteres'
             }   else if (senha == senha.toUpperCase()){
-                alert('A senha não contém letras minúsculas')
+                msg4.innerHTML = 'A senha não contém letras minúsculas'
             } else if (senha == senha.toLowerCase()) {
-                alert('A senha não contém letras maiúsculas')
+                msg4.innerHTML = 'A senha não contém letras maiúsculas'
             } else if(!(senha.includes(`0`)) && !(senha.includes(`1`)) && !(senha.includes(`2`)) && !(senha.includes(`3`))&& !(senha.includes(`4`)) && !(senha.includes(`5`)) && !(senha.includes(`6`)) && !(senha.includes(`7`)) && !(senha.includes(`8`)) && !(senha.includes(`9`))){
-                alert('A senha tem que ter pelo menos um número (0 a 9)')
+                msg4.innerHTML = 'A senha tem que ter pelo menos um número (0 a 9)'
             }   else if(!(senha.includes(`!`)) && !(senha.includes(`@`)) && !(senha.includes(`#`)) && !(senha.includes(`$`))&& !(senha.includes(`%`))){
-                alert('A senha tem que ter pelo menos um caracter especial (!, @, #, $, %)')
+                msg4.innerHTML = `A senha tem que ter pelo menos um caracter especial (!, @, #, $, %)`
             }
             else if(confirmarSenha != senha) {
-                alert(`Verifique se as senhas estão iguais`) 
+                msg5.innerHTML = `Verifique se as senhas estão iguais` 
             } else {
                 alert(`Cadastro efetuado com sucesso!! Agora faça seu login!!`)
                 window.location.href = "login.html"
