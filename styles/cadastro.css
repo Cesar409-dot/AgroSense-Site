@@ -248,6 +248,15 @@
     height: 30px;
     margin-top: 5px;
     font-size: 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    transition-duration: 0.3s;
+}
+
+.entradas input:focus {
+    outline: none;
+    border-color:#7CB324; 
+    box-shadow: 0 0 5px #7CB324; 
 }
 
 .entradas p{
