@@ -10,8 +10,8 @@ No site teremos as abas de: Home, Simulador, Sobre nós, Login e cadastro. Além
 Na aba 'Home':  Ela é onde vai ser inserido o contexto e sobre nossos resultados comprovados.<br><br>
 Na aba 'Simulador': Nela é onde damos exemplos de lucro com o nosso sensor de perda sem o nosso sensor, tirando toda dúvida que o cliente tiver na questão de Lucro.<br><br>
 Na aba 'Sobre nós': Vamos contar um pouco sobre a história de como a empresa foi iniciada e motivo do porque iniciamos a empresa.<br><br>
-Na aba 'Login': Onde o Usuário(cliente) vai fazer o login para acessar os gráficos de monitoramento da umidade do solo de cada hectare. Porém, no login, temos a 
-parte que os administradores da AgroSense vai gerenciar os dados das empresas e seus colaboradores.<br><br>
+Na aba 'Login': Onde o Usuário(cliente) vai fazer o login para acessar os gráficos de monitoramento da umidade do solo de cada hectare. Porém, no 'Login', temos a 
+parte que os administradores da AgroSense vão gerenciar os dados das empresas e seus colaboradores.<br><br>
 Na aba 'cadastro': Nela é onde será feito o cadastro das empresas interessadas no nosso serviço. O ponto interessante que foi acrescentado nessa aba (Cadastrar) além de 'Nome','Email','Senha','Telefone' e 'CPF'. Tem a parte de 'Código de Ativação' que tem como funcionalidade, permitir o funcionário se cadastrar para ter acesso aos gráficos.<br<br>
 
 ## Sobre a Empresa
