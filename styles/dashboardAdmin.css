@@ -27,9 +27,15 @@ body {
     border-radius: 12px;
 }
 
-.conteudo h1 {
-    margin-bottom: 30px;
+.conteudo h2 {
     font-weight: 900;
+
+}
+
+.conteudo h1{
+    margin-bottom: 100px;
+    font-weight: 900;
+    margin-top: -70px;
 }
 
 .titulos, .resultados {
@@ -47,6 +53,9 @@ body {
     color: white;
     font-size: 1.2rem;
     font-weight: 800;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    filter: blur(0.2px);
+    backdrop-filter: blur(7px);
 }
 
 .resultados {
@@ -102,3 +111,53 @@ body {
     cursor: pointer;
 }
 
+.conteudo img{
+    width: 130px;
+    display: flex;
+    align-self: flex-start;
+}
+
+
+.buscar input{
+    text-align:center;
+    border: 1px solid #174219;
+    border-radius: 10px;
+    width: 500px;
+    height: 30px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    transition-duration: 0.3s;
+    margin-right: 40px;
+}
+
+.buscar input:focus {
+    outline: none;
+    border-color:#7CB324; 
+    box-shadow: 0 0 5px #7CB324; 
+}
+
+.buscar button{
+    background-color: #174219;
+    color: white;
+    border-radius: 5px;
+    border-color: #174219;
+    font-weight: 900;
+    padding: 5px;
+    font-size: 0.8rem;
+    transition-duration: 0.3s;
+    width: 60px;
+    margin-bottom: 50px;
+}
+
+.buscar button:hover {
+    padding: 10px;
+    width: 70px;
+    background-color: #4E5A65;
+    border-color: #4E5A65;
+    cursor: pointer;
+}
+
+.buscar{
+    justify-content: space-between;
+}
