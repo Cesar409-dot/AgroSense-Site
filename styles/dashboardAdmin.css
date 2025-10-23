@@ -15,177 +15,13 @@ body {
     background-color: #f1e7d0;
 }
 
-.navbar {
-    background-color: #7CB324;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    font-weight: 900;
-    font-size: 1.4rem;
-
-    padding: 20px;
-}
-
-p.page {
-    text-decoration: underline;
-    text-decoration-color: #4E5A65;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 8px;
-    
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #174219 ;
-}
-
-.menu a :hover{
-    color: #FFFFFF;
-    background-color: #4E5A65;
-    padding: 15px;
-    border-radius: 15px;
-}
-
-.logoheader {
-    height: 80px;
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-}
-
-.menu p {
-    margin-left: 35px;
-    margin-right: 35px;
-}
-
-.cadastro {
-    display: flex;
-    justify-self: flex-end;
-    align-items: center;
-}
-
-.cadastro p {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.sair {
-    color: #7CB324;
-    background-color: #174219;
-    padding: 15px;
-    border-radius: 15px;
-    width: 100px;
-    text-align: center;
-}
-.rodape {
-    background-color: #174219;
-    display: flex;
-    padding: 43px;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-.rodape_bordao {
-    color: #7CB324;
-    text-align: center;
-    font-size: 0.8rem;
-}
-
-.rodape_bordao img {
-    width: 180px;
-}
-
-.rodape_contato {
-    display: flex;
-    flex-direction: column;
-    color: #f1e7d0;
-    line-height: 2rem;
-}
-
-.rodape_contato div {
-    display: flex;
-    align-items: center;
-}
-
-.rodape_contato a {
-    color: #f1e7d0;
-    text-decoration: none;
-}
-
-.rodape_contato a :hover {
-    color: #4E5A65;
-    text-decoration: underline;
-}
-
-.rodape_contato p {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-bottom: 30px;
-}
-
-.rodape_contato img {
-    width: 25px;
-    margin-right: 10px;
-}
-
-.rodape_redes {
-    margin-bottom: 34px;
-}
-
-.rodape_redes div {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.rodape_redes p {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #f1e7d0;
-    margin-bottom: 30px;
-}
-
-.rodape_redes img {
-    width: 30px;
-}
-
-.rodape_empresas {
-    margin-top: 24px;
-}
-
-.rodape_empresas div>p {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #f1e7d0;
-    margin-bottom: 30px;
-}
-
-.rodape_empresas a {
-    color: #f1e7d0;
-    text-decoration: none;
-}
-
-.rodape_empresas a:hover {
-    color: #4E5A65;
-    text-decoration: underline;
-}
-
-.empresas {
-    line-height: 30px;
-}
 
 .conteudo {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 60px 0;
+    margin: 15px 0;
     background-color: #f1e7d0;
     padding: 40px;
     border-radius: 12px;
@@ -210,13 +46,14 @@ p.page {
     background-color: #174219;
     color: white;
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .resultados {
     background-color: white;
     color: #4E5A65;
     font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .titulos p, .resultados p {
@@ -227,7 +64,7 @@ p.page {
 
 .resultados div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 30px;
     width: 120px;
@@ -236,4 +73,32 @@ p.page {
 .resultados div img {
     width: 25px;
     cursor: pointer;
+    transition-duration: 0.3s;
 }
+
+.resultados div img:hover{
+    width: 30px;
+
+}
+
+.conteudo button{
+    background-color: #174219;
+    color: white;
+    border-radius: 5px;
+    border-color: #174219;
+    font-weight: 900;
+    padding: 5px;
+    margin-top: 60px;
+    font-size: 1.2rem;
+    transition-duration: 0.3s;
+    width: 80px;
+}
+
+.conteudo button:hover {
+    padding: 10px;
+    width: 100px;
+    background-color: #4E5A65;
+    border-color: #4E5A65;
+    cursor: pointer;
+}
+

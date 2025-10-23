@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*,
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+    height: 100%;
+}   
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f1e7d0 ;
+    
+}
+
+.conteudo h2{
+    color: #174219;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.entradas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 600px;
+    border-radius: 15px;
+    height: fit-content; 
+    margin: 40px;
+    padding: 20px;
+
+    font-size: 1.2rem;
+}
+
+.entradas button{
+    background-color:#7CB324;
+    color: #174219;
+    border-radius: 5px;
+    border-color: #7CB324;
+    font-weight: 900;
+    padding: 6px;
+    margin-top: 30px;
+    font-size: 1rem;
+    transition-duration: 0.3s;
+    height: 40px;
+}
+
+.entradas button:hover{
+    padding: 10px;
+    height: 44px;
+    background-color: #4E5A65;
+    border-color: #4E5A65;
+    cursor: pointer;
+    color: #FFFFFF;
+
+}
+
+.entradas img{
+    position: relative;
+    top: 28px;
+    right: 180px;
+}
+
+.entradas input{
+    text-align:center;
+    border: 1px solid #174219;
+    border-radius: 5px;
+    width: 70%;
+    height: 30px;
+    margin-top: 5px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    transition-duration: 0.3s;
+}
+
+.entradas input:focus {
+    outline: none;
+    border-color:#7CB324; 
+    box-shadow: 0 0 5px #7CB324; 
+}
+
+.entradas p{
+    margin-top: 5px;
+}
+
+.validacao{
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
+}
+#msg, #msg2, #msg3 {
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
+    color: red;
+}
