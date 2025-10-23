@@ -6,6 +6,8 @@
 
 Buscamos uma melhor experiência de navegação para o cliente. Então desenvolvemos um site que ira agradar na experiência de navegação e entedimento do usuário.
 No site teremos as abas de: Home, Simulador, Sobre nós, Login e cadastro. Além disso, teremos a aba onde ira ficar os gráficos com as informações dos hectares e usuários. 
+Na aba 'Home':  Ela é onde vai ser inserido o contexto e sobre nossos resultados comprovados.
+Na aba 'Simulador'
 
 ## Sobre a Empresa
 
