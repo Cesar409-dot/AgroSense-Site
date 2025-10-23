@@ -45,11 +45,17 @@ p.page {
     color: #174219;
 }
 
-.navbar a:hover {
+.navbar p:hover {
     text-decoration: underline;
     text-decoration-color: #4E5A65;
     text-decoration-thickness: 4px;
     text-underline-offset: 8px;
+}
+
+
+.cadastrar:hover {
+    background-color: #4E5A65;
+    color: #fff;
 }
 
 .logoheader {
@@ -199,11 +205,11 @@ p.page {
 }
 
 .monitore {
-    background-color: #8D6E63;
+    background-color: #7CB324;
     height: 120px;
     width: 100%;
     text-align: center;
-    color: #f1e7d0;
+    color: #fff;
     padding: 15px;
     font-size: 1.2rem;
 
@@ -234,6 +240,7 @@ p.page {
     font-weight: 500;
     color: #174219;
     height: 500px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .cartao p {
@@ -284,6 +291,7 @@ p.page {
     border-radius: 15px;
     padding: 20px;
     height: 500px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .porque h1 {
@@ -336,6 +344,8 @@ p.page {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 
@@ -346,6 +356,7 @@ p.page {
 
     background-color: #8D6E63;
     background-image: url('../src/produtor.jpg');
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .c1 {
@@ -353,6 +364,7 @@ p.page {
     background-image: url('../src/Result-home.png');
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .c2 {
@@ -365,7 +377,8 @@ p.page {
 }
 
 .dashb {
-    background-color: #fff;
+    background-color: #7CB324;
+    color: #fff;
     border-radius: 15px;
     height: 280px;
     width: 1235px;
@@ -376,13 +389,14 @@ p.page {
     background-position: -120px;
     text-align: right;
     padding: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .dashb h1 {
     font-size: 3.4rem;
     font-weight: 900;
     margin-right: 5px;
-    color: #174219;
+    color: #fff;
 }
 
 .dashb p {
@@ -400,7 +414,7 @@ p.page {
 
     border: none;
     border-radius: 15px;
-    background-color: #7CB342;
+    background-color: #fff;
     color: #174219;
 
     transition-duration: 0.3s;

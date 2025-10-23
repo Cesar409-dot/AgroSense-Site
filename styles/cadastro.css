@@ -36,7 +36,7 @@
     color: #174219 ;
 }
 
-.navbar a:hover {
+.navbar p:hover {
     text-decoration: underline;
     text-decoration-color: #4E5A65;
     text-decoration-thickness: 4px;
