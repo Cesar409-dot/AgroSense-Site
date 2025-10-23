@@ -103,10 +103,10 @@ p.page {
 .rodape {
     background-color: #174219;
     display: flex;
-    padding: 43px;
+    padding: 20px;
     align-items: center;
     justify-content: space-between;
-
+    height: 200px;
 }
 
 .rodape_bordao {
@@ -202,14 +202,14 @@ p.page {
     justify-content: center;
     flex-direction: row;
     background-color: #f1e7d0 ;
-    
+    padding: 30px;
 }
 
 .imagem{
     width: 600px;
     background-color: #7CB324;
     border-radius: 15px;
-    height: 400px;
+    height: 397px;
     position: relative;
     left: 40px;
     border-right: 8px solid #4E5A65;
@@ -219,7 +219,7 @@ p.page {
     position: relative;
     left: 20px;
     width: 550px;
-    bottom: 70px;
+    bottom: 85px;
     filter: drop-shadow(4px 4px white);
 }
 

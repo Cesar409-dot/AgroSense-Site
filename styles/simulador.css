@@ -21,7 +21,12 @@
     justify-content: space-between;
 
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1rem;
+
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 
     padding: 20px;
 }
@@ -47,7 +52,7 @@ p.page {
 }
 
 .logoheader {
-    height: 80px;
+    height: 60px;
 }
 
 .menu {
@@ -86,13 +91,13 @@ p.page {
 }
 
 
-.rodape{
+.rodape {
     background-color: #174219;
     display: flex;
-    padding: 43px;
+    padding: 20px;
     align-items: center;
     justify-content: space-between;
-
+    height: 200px;
 }
 
 .rodape_bordao{

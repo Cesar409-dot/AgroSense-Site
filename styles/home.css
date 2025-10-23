@@ -24,6 +24,11 @@ body {
     font-weight: 900;
     font-size: 1rem;
 
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
     padding: 20px;
 }
 
@@ -40,10 +45,15 @@ p.page {
     color: #174219;
 }
 
-
+.navbar a:hover {
+    text-decoration: underline;
+    text-decoration-color: #4E5A65;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 8px;
+}
 
 .logoheader {
-    height: 65px;
+    height: 60px;
 }
 
 .menu {

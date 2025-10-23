@@ -93,10 +93,10 @@
 .rodape {
     background-color: #174219;
     display: flex;
-    padding: 43px;
+    padding: 20px;
     align-items: center;
     justify-content: space-between;
-
+    height: 200px;
 }
 
 .rodape_bordao {
