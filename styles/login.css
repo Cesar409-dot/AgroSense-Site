@@ -200,16 +200,34 @@ p.page {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #f1e7d0 ;
     
+}
+
+.imagem{
+    width: 600px;
+    background-color: #7CB324;
+    border-radius: 15px;
+    height: 428px;
+    position: relative;
+    left: 40px;
+    border-right: 8px solid #4E5A65;
+}
+
+.imagem img{
+    position: relative;
+    left: 20px;
+    width: 550px;
+    bottom: 70px;
+    filter: drop-shadow(4px 4px white);
 }
 
 .conteudo h2{
     color: #174219;
     margin-bottom: 10px;
     font-weight: 900;
-    font-size: 3rem;
+    
 }
 
 .entradas{
@@ -224,6 +242,9 @@ p.page {
     margin: 40px;
     padding: 20px;
     font-size: 1.2rem;
+    margin-right: 100px;
+    border-left: 8px solid #4E5A65;
+
 }
 
 .entradas button{
@@ -243,6 +264,7 @@ p.page {
 }
 
 .entradas input{
+    text-align: center;
     width: 70%;
     height: 30px;
     margin-top: 5px;
@@ -251,10 +273,10 @@ p.page {
     border-radius: 5px;
 }
 .email{
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
     color: red;
-    font-weight: 760;
 }
 .entradas p{
     margin-top: 35px;
@@ -265,15 +287,21 @@ p.page {
 }
 
 .mensagem{
-    font-size: 16px;
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
     color: red;
-    margin-top: 35px;
-    font-weight: 760;
 }
 
 .senha{
-    font-size: 16px;
+    font-size: 0.7rem;
+    align-self: flex-start;
+    margin-left: 100px;
     color: red;
-    margin-top: 35px;
-    font-weight: 760;
+}
+
+.entradas img{
+    position: relative;
+    top: 28px;
+    right: 180px;
 }
