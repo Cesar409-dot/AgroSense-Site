@@ -4,7 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
-*, body {
+*,
+body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -36,12 +37,12 @@ p.page {
     text-decoration-color: #4E5A65;
     text-decoration-thickness: 4px;
     text-underline-offset: 8px;
-    
+
 }
 
 .navbar a {
     text-decoration: none;
-    color: #174219 ;
+    color: #174219;
 }
 
 .navbar p:hover {
@@ -76,7 +77,7 @@ p.page {
     margin-right: 20px;
 }
 
-.c a :hover{
+.c a :hover {
     color: #FFFFFF;
     background-color: #4E5A65;
     padding: 15px;
@@ -99,16 +100,17 @@ p.page {
     height: 200px;
 }
 
-.rodape_bordao{
+.rodape_bordao {
     color: #7CB324;
     text-align: center;
     font-size: 0.8rem;
 }
+
 .rodape_bordao img {
     width: 180px;
 }
 
-.rodape_contato{
+.rodape_contato {
     display: flex;
     flex-direction: column;
     color: #f1e7d0;
@@ -120,7 +122,7 @@ p.page {
     align-items: center;
 }
 
-.rodape_contato a  {
+.rodape_contato a {
     color: #f1e7d0;
     text-decoration: none;
 }
@@ -130,7 +132,7 @@ p.page {
     text-decoration: underline;
 }
 
-.rodape_contato p{
+.rodape_contato p {
     font-size: 2rem;
     font-weight: 900;
     margin-bottom: 30px;
@@ -141,53 +143,54 @@ p.page {
     margin-right: 10px;
 }
 
-.rodape_redes{
+.rodape_redes {
     margin-bottom: 34px;
 }
 
-.rodape_redes div{
+.rodape_redes div {
     display: flex;
     justify-content: space-evenly;
 }
 
-.rodape_redes p{
+.rodape_redes p {
     font-size: 2rem;
     font-weight: 900;
     color: #f1e7d0;
     margin-bottom: 30px;
 }
-.rodape_redes img{
+
+.rodape_redes img {
     width: 30px;
 }
 
-.rodape_empresas{
+.rodape_empresas {
     margin-top: 24px;
 }
 
-.rodape_empresas div > p {
+.rodape_empresas div>p {
     font-size: 2rem;
     font-weight: 900;
     color: #f1e7d0;
     margin-bottom: 30px;
 }
-.rodape_empresas a{
+
+.rodape_empresas a {
     color: #f1e7d0;
     text-decoration: none;
 }
-.rodape_empresas a:hover{
+
+.rodape_empresas a:hover {
     color: #4E5A65;
     text-decoration: underline;
 }
 
-.empresas{
+.empresas {
     line-height: 30px;
 }
 
-.conteudo{
+.conteudo {
     background-color: #f1e7d0;
     padding: 30px;
-    height: 1000px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,23 +199,25 @@ p.page {
 
 .conteudo h1 {
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .titulo {
-    position: absolute;
-    top: 160px;
     color: #174219;
 }
 
-.caixa{
+.caixa {
     background-color: white;
     text-align: center;
-    border-style:hidden;
+    text-indent: 25px;
+    border-style: hidden;
     border-radius: 14px;
-    line-height: 30px;
-    margin: 300px;
-    padding: 36px;  
+    line-height: 35px;
+    width: 50%;
+    padding: 25px;
+    margin-bottom: 50px;
+    border-style: solid;
+    border: 5px solid #7CB324;
 }
 
 .caixa p {
@@ -221,7 +226,76 @@ p.page {
 }
 
 .batata {
-    width: 900px;
-    margin: 19px;
+    width: 670px;
+    display: flex;
+    justify-content: center;
 
+}
+
+.corpo_sobreNos {
+    background-color: #f1e7d0;
+    height: 100%;
+
+}
+
+.container_parte1 {
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    margin-bottom: 45px;
+
+}
+
+.box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    border: 5px solid #7CB324;
+    border-radius: 15px;
+    padding: 70px;
+    height: 300px;
+    width: 300px;
+    background-color: #ffffff;
+}
+
+.box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-style: solid;
+    border: 5px solid #7CB324;
+    border-radius: 15px;
+    padding: 75px;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 20px;
+    background-color:#ffffff;
+}
+
+.final_image {
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.container_parte2 {
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    margin-bottom: 50px;
+
+}
+.final_imagePlanta{
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.final_imageLampada{
+    height: 76px;
+    margin-bottom: 10px;   
 }
