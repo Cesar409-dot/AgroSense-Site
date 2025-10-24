@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/senha.css">
+    <link rel="shortcut icon" href="../src/logo png.png">
+    <title>Esqueceu senha</title>
+</head>
+<body>
+
+    <div class="conteudo">
+        <div class="entradas">
+            
+            <div class="formulario">
+                <h2>Recupere sua senha</h2>
+                <p>Insira o seu E-mail para recuperar sua senha!</p>
+                
+                <div class="campo">
+                    <img src="../src/o-email.png" alt="Ícone de e-mail" class="icone">
+                    <input type="text" id="iptEmail" placeholder="Ex: agrosense@gmail.com">
+                </div>
+                <div id="divEmail" class="email"></div>
+                
+                <div class="botao c">
+                    <button onclick="enviar()" class="botao">Enviar</button>
+                </div>
+            </div>
+            <img src="../src/esqueceu-sua-senha.png" alt="Imagem de Senha" class="imagem">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function enviar() {
+        var email = iptEmail.value
+        divEmail.innerHTML = ``
+
+        if(email == ''){
+            divEmail.innerHTML = 'Atenção! Preencha o campo email com base no seu cadastro'
+        } else if (!(email.includes(`@`))){
+            divEmail.innerHTML = `Seu email não contém "@"`
+        }else if (!(email.includes(`.`))){
+            divEmail.innerHTML = `Seu email não contém "."`
+            } else{
+                alert('Verifique sua caixa de E-mail!')
+                window.location.href = "login.html"
+            }
+        
+    }
+
+</script>
+</html>

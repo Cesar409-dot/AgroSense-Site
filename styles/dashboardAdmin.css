@@ -146,13 +146,13 @@ body {
     padding: 5px;
     font-size: 0.8rem;
     transition-duration: 0.3s;
-    width: 60px;
+    width: 80px;
     margin-bottom: 50px;
 }
 
 .buscar button:hover {
     padding: 10px;
-    width: 70px;
+    width: 80px;
     background-color: #4E5A65;
     border-color: #4E5A65;
     cursor: pointer;

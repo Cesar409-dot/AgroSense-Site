@@ -213,7 +213,7 @@ p.page {
     border-style: hidden;
     border-radius: 14px;
     line-height: 35px;
-    width: 50%;
+    width: 70%;
     padding: 25px;
     margin-bottom: 50px;
     border-style: solid;
@@ -226,10 +226,10 @@ p.page {
 }
 
 .batata {
-    width: 670px;
+    width: 965px;
     display: flex;
     justify-content: center;
-
+    margin: 20px 0px;
 }
 
 .corpo_sobreNos {
