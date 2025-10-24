@@ -157,7 +157,7 @@ body, * {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 27%;
+    height: 25%;
     background-color: #efeded;
     border-bottom: 1px solid rgba(0, 0, 0, 0.047);
     padding: 15px;
@@ -175,7 +175,8 @@ body, * {
 
 .graficos {
     display: flex;
-    height: 73%;
+    height: 75%;
+    width: 100%;
     background-color: #fff;
 }
 
@@ -189,7 +190,7 @@ body, * {
 .cardkp {
     height: 100%;
     border: none;
-    width: 32%;
+    width: 49%;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 10px;
@@ -211,22 +212,14 @@ body, * {
     text-align: center;
 }
 
-.ckp1 {
-    background: url("../src/like.png");
-    background-size: 33px;
-    background-repeat: no-repeat;
-    background-position: 275px;
-    background-position-y: 70px;
-    background-color: #ffffff;
+.ckph {
+    background-color: #73cb42;
+    color: #fff;
 }
 
-.ckp2 {
-    background: url("../src/warning.png");
-    background-size: 45px;
-    background-repeat: no-repeat;
-    background-position: 270px;
-    background-position-y: 68px;
-    background-color: #ffffff;
+.ckph2 {
+    background-color: #f02e52;
+    color: #fff;
 }
 
 
@@ -244,20 +237,9 @@ body, * {
     align-items: center;
     justify-content: center;
     padding: 5px;
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: #efeded;
-}
-
-.graf2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    width: 50%;
-    height: 100%;
-    background-color: #efeded;
-    border-left: 1px solid rgba(0, 0, 0, 0.047);;
 }
 
 .cardgraf {
@@ -273,6 +255,7 @@ body, * {
 .cardgraf h2 {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    margin-left: 10px;
 
 }
 

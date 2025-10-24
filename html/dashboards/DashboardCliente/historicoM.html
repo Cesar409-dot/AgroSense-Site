@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../styles/dash.css">
+    <link rel="stylesheet" href="../../../styles/dashSH.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
@@ -17,7 +17,7 @@
                     <img src="../../../src/logo branca.png" class="logoside" alt="">
                     <div class="inicio">
                         <img src="../../../src/dashboards.png" alt="">
-                        <p style="color: #7cb342;" onclick="inicio()">Início</p>
+                        <p onclick="inicio()">Início</p>
                     </div>
                     <div class="inicio">
                         <img src="../../../src/land.png" alt="hectare">
@@ -29,38 +29,43 @@
                     </div>
                     <div class="inicio">
                         <img src="../../../src/history.png" alt="historico">
-                        <p onclick="historico()">Histórico</p>
+                        <p onclick="historico()"style="color: #7cb342;">Histórico</p>
                     </div>
                 </div>
             </div>
             <div class="dashdireita">
                 <div class="olac">
-                    <h1>Olá cliente, seja bem-vindo!</h1>
+                    <div class="selec">
+                        <h1>Histórico</h1>
+                        <select name="selhist" id="selhist" onchange="historis()">
+                            <option value="1">Anual</option>
+                            <option value="2" selected>Mensal</option>
+                        </select>
+                    </div>
                     <button onclick="sair()" class="btsair">Sair</button>
                 </div>
                 <div class="gerais">
                     <div class="geral1">
                         <div class="kpis">
 
-                            <h3>Dashboard</h3>
+                            <h3>Indicadores</h3>
                             <div class="cardskpi">
                                 <div class="cardkp ckp1">
-                                    <p>Sem níveis críticos de umidade do solo nos últimos <b>7 DIAS</b></p>
+                                    <p>A sua plantação esteve 28 dias com uma umidade do solo ideal</p>
                                 </div>
                                 <div class="cardkp ckp3">
-                                    <p>Umidade do solo atual</p>
-                                    <p class="cardnv">78%</p>
+                                    <p>A 4ª semana do mês teve a umidade do solo mais baixa registrada (65%)</p>
                                 </div>
                                 <div class="cardkp ckp2">
-                                    <p>Umidade do solo em <b>estado de alerta</b> na Subárea 2</p>
+                                   <p>A umidade do solo média na semana foi <span class="cardnv">70%</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="graficos">
                             <div class="graf1">
                                 <div class="cardgraf">
-                                    <h2>Correlação umidade do solo x produtividade</h2>
-                                    <div style="height: 80%;">
+                                    <h2>Umidade do solo ao longo dos meses</h2>
+                                    <div style="height: 380px;">
                                         <canvas id="chartScatter"></canvas>
                                     </div>
                                 </div>
@@ -68,8 +73,8 @@
                             </div>
                             <div class="graf2">
                                 <div class="cardgraf">
-                                    <h2>Colheita da semana em kg</h2>
-                                    <div style="height: 80%;">
+                                    <h2>Dias com variações na umidade do solo</h2>
+                                    <div>
                                         <canvas id="chartbar"></canvas>
                                     </div>
                                 </div>
@@ -103,20 +108,40 @@
 
     const ctxScatter = document.getElementById('chartScatter');
     new Chart(ctxScatter, {
-        type: 'scatter',
-        data: {
+        type: 'line',
+            data: {
+            labels:  ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5'],
             datasets: [{
-                label: 'Relação de Produtividade',
-                data: [
-                    { x: 52, y: 15 },
-                    { x: 60, y: 30 },
-                    { x: 65, y: 34 },
-                    { x: 70, y: 38 },
-                    { x: 75, y: 40 },
-                    { x: 86, y: 15 }
-                ],
+                label: 'Umidade no solo',
+                data: [65, 68, 82, 65, 69],
+                borderColor: '#174219',
                 backgroundColor: '#174219',
                 pointRadius: 4.5,
+                pointBackgroundColor: '#7cb342'
+
+            }, {
+                label: 'Semanas',
+                borderColor: '#7cb342',
+                backgroundColor: '#7cb342'
+
+            }, {
+                label: 'Nível máximo recomendado',
+                data: [80, 80, 80, 80, 80],
+                borderColor: '#4e5a65',
+                backgroundColor: '#4e5a65', // cinza
+                borderWidth: 3,
+                pointRadius: 0,
+                borderDash: [8, 8]
+
+
+            }, {
+                label: 'Nível mínimo recomendado',
+                data: [60, 60, 60, 60, 60],
+                borderColor: '#4e5a65',
+                backgroundColor: '#4e5a65',
+                borderWidth: 3,
+                pointRadius: 0,
+                borderDash: [8, 8]
 
             }]
         },
@@ -124,45 +149,34 @@
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: {
+                y: {
                     title: { display: true, text: 'Umidade do solo (%)' },
-                    min: 50,
+                    min: 40,
                     max: 90
                 },
-                y: {
-                    title: { display: true, text: 'Produtividade (t)' },
-                    beginAtZero: true
+                x: {
+                    title: { display: true, text: '' },
                 }
             }
         }
     });
+    
     const ctxbar = document.getElementById('chartbar');
     new Chart(ctxbar, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
-            labels: ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo'],
+            labels: ['Umidade do solo padrão (28 dias)', 'Umidade do solo com variações (2 dias)'],
             datasets: [{
-                label: 'Colheita da semana em kg',
-                data: [450, 680, 210, 505, 315, 725, 490],
-                backgroundColor: '#80EF80',
-                pointRadius: 4.5,
-                borderWidth: 0
-
+                label: '# of Votes',
+                data: [28, 2],
+                backgroundColor: ['#80EF80','#f02e52']
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Quantidade colhida' },
-                },
-                x: {
-                    title: { display: true, text: 'Dias da semana' },
-                    min: 0,
-                    max: 25
-                }
+              
             }
         }
     });
@@ -184,7 +198,7 @@
         window.location.href = "subarea.html"
     }
 
-    function historico() {
+    function historis() {
         window.location.href = "historico.html"
     }
 </script>

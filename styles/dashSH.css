@@ -157,7 +157,7 @@ body, * {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 27%;
+    height: 28%;
     background-color: #efeded;
     border-bottom: 1px solid rgba(0, 0, 0, 0.047);
     padding: 15px;
@@ -175,7 +175,7 @@ body, * {
 
 .graficos {
     display: flex;
-    height: 73%;
+    height: 72%;
     background-color: #fff;
 }
 
@@ -201,14 +201,10 @@ body, * {
 
 .cardnv {
     color: #174219;
-    font-size: 60px;
+    font-size: 2.2rem;
     text-align: center;
     font-weight: 900;
     margin-top: 20px;
-}
-
-.ckp3 {
-    text-align: center;
 }
 
 .ckp1 {
@@ -220,16 +216,6 @@ body, * {
     background-color: #ffffff;
 }
 
-.ckp2 {
-    background: url("../src/warning.png");
-    background-size: 45px;
-    background-repeat: no-repeat;
-    background-position: 270px;
-    background-position-y: 68px;
-    background-color: #ffffff;
-}
-
-
 
 .cardkp img {
     width: 28px;
@@ -237,14 +223,16 @@ body, * {
 
 }
 
-
+.ckp2 {
+    line-height: 35px;
+}
 
 .graf1 {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    width: 50%;
+    width: 70%;
     height: 100%;
     background-color: #efeded;
 }
@@ -253,13 +241,24 @@ body, * {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    width: 50%;
+    padding: x;
+    width: 30%;
     height: 100%;
     background-color: #efeded;
     border-left: 1px solid rgba(0, 0, 0, 0.047);;
 }
 
+.selec {
+    display: flex;
+    align-items: center;
+}
+
+.selec select {
+    font-size: 1.5rem;
+    border: 2px solid #174219;
+    border-radius: 10px;
+    padding: 5px;
+}
 .cardgraf {
     height: 98%;
     width: 98%;
@@ -272,7 +271,7 @@ body, * {
 
 .cardgraf h2 {
     font-size: 1.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
 }
 
