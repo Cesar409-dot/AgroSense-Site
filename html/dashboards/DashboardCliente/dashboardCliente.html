@@ -11,22 +11,9 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <img src="../../src/logo png.png" alt="logo" class="logoheader">
-        <div class="menu">
-            <a href="../../html/home.html">
-                <p class="sair">Sair</p>
-            </a>
-        </div>
-    </header>
-    <div class="submenu">
-        <div>
-            <img src="../../src/dashboard.png" alt="Dashboard" onclick="menul()">
-            <p>Dashboard</p>
-        </div>
-    </div>
     <div class="conteudo">
-        <div class="dash" id="tela_principal">
+
+         <div class="dash" id="tela_principal">
             <h1>Olá Cliente, bem vindo!</h1>
             <h2>Analise a performance da sua plantação</h2>
             <div class="kpis">
@@ -46,15 +33,18 @@
                 </div>
             </div>
             <div class="fundo_branco princip">
-                    <h2>Correlação Umidade do solo x Produtividade</h2>
-                    <canvas id="chartScatter" style="width: 800px;"></canvas>
+                <h2>Correlação Umidade do solo x Produtividade</h2>
+                <canvas id="chartScatter" style="width: 800px;"></canvas>
             </div>
-        </div>
+        </div> -->
 
-        <div id="menulateral" style="display: block;">
+       <div id="menulateral" style="display: block;">
+            <div>
+                <img src="../../src/logo png.png" alt="Logo_agrosense" style="width: 100px;">
+            </div>
             <h1 onclick="hectares()" id="hec1">Hectares</h1>
             <div id="hectaresd" style="display: none;">
-                   <div id="hectar_1">
+                <div id="hectar_1">
                     <h2 onclick="hectar1d()"><a href="hectar1.html">Hectar 1</a></h2>
                     <div id="subarea_1" style="display: none;">
                         <a href="../dashboards/subarea1.html">
@@ -81,54 +71,11 @@
                 <h1 onclick="hist()">Histórico</h1>
                 <div id="historicos" style="display: none;">
                     <h2><a href="../dashboards/historico.html">Mensal</a></h4>
-                    <h2><a href="../dashboards/anual.html">Anual</a></h4>
+                        <h2><a href="../dashboards/anual.html">Anual</a></h4>
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="rodape">
-        <div class="rodape_bordao">
-            <img src="../../src/logo branca.png" alt="logo" class="logofooter">
-            <p>Tecnologia que nasce da terra</p>
-        </div>
-        <div class="rodape_contato">
-            <p>Contato</p>
-
-            <div>
-                <img src="../../src/whatsapp.png" alt="logoWhatsapp">
-                <a href=""><span>+55 (11) 9999-9999</span></a>
-            </div>
-            <div>
-                <img src="../../src/email.png" alt="logoEmail">
-                <a href=""><span>agrosense@agrosense.com</span></a>
-            </div>
-        </div>
-        <div class="rodape_redes">
-            <p>Redes Sociais</p>
-            <div>
-                <img src="../../src/youtube.png" alt="logoYoutube">
-                <img src="../../src/instagram.png" alt="logoInstagram">
-                <img src="../../src/linkedin.png" alt="logoLinkedin">
-            </div>
-        </div>
-        <div class="rodape_empresas">
-            <div>
-                <p>Empresas Parceiras</p>
-            </div>
-            <div class="empresas">
-                <a href="">
-                    <p>Empresa Parceira 1</p>
-                </a>
-                <a href="">
-                    <p>Empresa Parceira 2</p>
-                </a>
-                <a href="">
-                    <p>Empresa Parceira 3</p>
-                </a>
-            </div>
-        </div>
-
-    </footer>
+    </div> 
 </body>
 <script>
 
@@ -206,4 +153,5 @@
     }
 
 </script>
+
 </html>

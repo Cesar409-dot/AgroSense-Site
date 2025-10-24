@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="conteudo">
+            <div class="sidebar">
+                <div class="menu">
+                    <img src="../../src/logo branca.png" class="logoside" alt="">
+                    <div class="inicio">
+                        <img src="../../src/dashboards.png" alt="">
+                        <p>Início</p>
+                    </div>
+                    <div class="inicio">
+                        <img src="../../src/land.png" alt="hectare">
+                        <p>Hectare</p>
+                    </div>
+                    <div class="inicio">
+                        <img src="../../src/map.png" alt="subarea">
+                        <p>Subárea</p>
+                    </div>
+                    <div class="inicio">
+                        <img src="../../src/history.png" alt="historico">
+                        <p>Histórico</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashdireita">
+                <div class="olac">
+                    <h2>Olá cliente</h2>
+                    <button onclick="sair()">Sair</button>
+                </div>
+                <div class="gerais">
+                    <div class="geral1">
+                        <div class="kpis">
+
+                            <h3>Dashboard</h3>
+                            <div class="cardskpi">
+                                <div class="cardkp ckp1">
+                                    <p>Sem níveis críticos de umidade do solo nos últimos <b>7 DIAS</b></p>
+                                </div>
+                                <div class="cardkp ckp3">
+                                    <p>Umidade do solo atual</p>
+                                    <p class="cardnv">78%</p>
+                                </div>
+                                <div class="cardkp ckp2">
+                                    <p>Umidade do solo em <b>estado de alerta</b> na Subárea 2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graficos">
+                            <div class="graf1">
+                                <div class="cardgraf">
+                                    <h2>Correlação umidade do solo x produtividade</h2>
+                                    <div style="height: 80%;">
+                                        <canvas id="chartScatter"></canvas>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="graf2">
+                                <div class="cardgraf">
+                                    <h2>Colheita da semana em kg</h2>
+                                    <div style="height: 80%;">
+                                        <canvas id="chartbar"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="geral2">
+                        <div class="card gc1"></div>
+                        <div class="card gc2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    const ctxScatter = document.getElementById('chartScatter');
+    new Chart(ctxScatter, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Relação de Produtividade',
+                data: [
+                    { x: 52, y: 15 },
+                    { x: 60, y: 30 },
+                    { x: 65, y: 34 },
+                    { x: 70, y: 38 },
+                    { x: 75, y: 40 },
+                    { x: 86, y: 15 }
+                ],
+                backgroundColor: '#174219',
+                pointRadius: 4.5,
+
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    title: { display: true, text: 'Umidade do solo (%)' },
+                    min: 50,
+                    max: 90
+                },
+                y: {
+                    title: { display: true, text: 'Produtividade (t)' },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    const ctxbar = document.getElementById('chartbar');
+    new Chart(ctxbar, {
+        type: 'bar',
+        data: {
+            labels: ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo'],
+            datasets: [{
+                label: 'Colheita da semana em kg',
+                data: [450, 680, 210, 505, 315, 725, 490],
+                backgroundColor: '#174219',
+                pointRadius: 4.5,
+                borderWidth: 0
+
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Quantidade colhida' },
+                },
+                x: {
+                    title: { display: true, text: 'Dias da semana' },
+                    min: 0,
+                    max: 25
+                }
+            }
+        }
+    });
+</script>
+<script>
+
+    function hectares() {
+        if (hectaresd.style.display == "none") {
+            hectaresd.style.display = "block"
+            hec1.style.color = "#174219"
+
+        } else {
+            hectaresd.style.display = "none"
+            hec1.style.color = "#f1e7d0"
+        }
+    }
+
+    function hectar1d() {
+        if (subarea_1.style.display == "none") {
+            subarea_1.style.display = "block"
+        } else {
+            subarea_1.style.display = "none"
+        }
+    }
+
+    function hectar2d() {
+        if (subarea_2.style.display == "none") {
+            subarea_2.style.display = "block"
+        } else {
+            subarea_2.style.display = "none"
+        }
+    }
+
+    function hist() {
+        if (historicos.style.display == "none") {
+            historicos.style.display = "block"
+            historico.style.color = "#174219"
+        } else {
+            historicos.style.display = "none"
+            historico.style.color = "#f1e7d0"
+        }
+    }
+
+</script>
+
+
+</html>

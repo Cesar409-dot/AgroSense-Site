@@ -29,15 +29,19 @@ body, * {
     height: 100%;
     width: 15%;
     display: flex;
-    justify-content: center;
     background-color: #174219;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     padding: 15px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.sidebar img {
+.logoside {
     height: 110px;
+    margin-bottom: 50px;
+    align-content: center;
+    margin-left: 28px;
 }
 
 .dashdireita {
@@ -97,6 +101,8 @@ body, * {
     height: 27%;
     background-color: chartreuse;
     padding: 15px;
+    font-size: 18px;
+    line-height: 25px;
 }
 
 .graficos {
@@ -118,7 +124,52 @@ body, * {
     width: 32%;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 10px;
+    background-color: #ffffff;
+    text-align: left;
+    font-size: 1.8rem;
+    line-height: 30px;
 }
+
+.cardnv {
+    color: green;
+    font-size: 60px;
+    text-align: center;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.ckp3 {
+    text-align: center;
+}
+
+.ckp1 {
+    background: url("../src/like.png");
+    background-size: 33px;
+    background-repeat: no-repeat;
+    background-position: 275px;
+    background-position-y: 70px;
+    background-color: #ffffff;
+}
+
+.ckp2 {
+    background: url("../src/warning.png");
+    background-size: 45px;
+    background-repeat: no-repeat;
+    background-position: 270px;
+    background-position-y: 68px;
+    background-color: #ffffff;
+}
+
+
+
+.cardkp img {
+    width: 28px;
+    align-self: center;
+
+}
+
+
 
 .graf1 {
     display: flex;
@@ -147,4 +198,42 @@ body, * {
     border: 1px solid black;
     border-radius: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 10px;
+    background-color: #ffffff;
 }
+
+.cardgraf h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+
+}
+
+.sidebar p, span {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.inicio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;   
+    text-align: left;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    border-left: 0px solid #73cb42;
+    transition-duration: 0.2s;
+}
+
+.inicio img {
+    height: 25px;
+}
+
+.inicio:hover {
+    cursor: pointer;
+    background-color: #1d5720e0;
+    border-left: 4px solid #73cb42;
+}
+

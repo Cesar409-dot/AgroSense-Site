@@ -217,6 +217,7 @@ p.page {
 #menulateral h1, h2, h3, h4 {
     margin-left: 15px;
     transition-duration: 0.3s;
+    margin-top: 25px;
 }
 
 #menulateral a:hover {
@@ -231,6 +232,14 @@ p.page {
 #menulateral h1:hover {
     color: #174219;
     cursor: pointer;
+}
+
+#menulateral img {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }
 
 .conteudo {
