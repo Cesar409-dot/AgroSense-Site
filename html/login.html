@@ -12,117 +12,109 @@
         <header class="navbar">
             <img src="../src/logo png.png" alt="logo" class="logoheader">
             <div class="menu">
-                <a href="home.html">
-                    <p>Início</p>
-                </a>
-                <a href="simulador.html">
-                    <p>Simulador</p>  
-                </a>  
-                <a href="sobreNos.html">
-                    <p>Sobre nós</p>
-                </a>
+                <a href="home.html"><p>Início</p></a>
+                <a href="simulador.html"><p>Simulador</p></a>  
+                <a href="sobreNos.html"><p>Sobre nós</p></a>
             </div>
             <div class="cadastro">
-                <a href="login.html">
-                    <p class="page">Login</p>
-                </a>
+                <a href="login.html"><p class="page">Login</p></a>
                 <div class="c">
-                    <a href="cadastro.html">
-                        <p class="cadastrar">Cadastro</p>
-                    </a>
+                    <a href="cadastro.html"><p class="cadastrar">Cadastro</p></a>
                 </div>
             </div>
         </header>
     </div>
 
-    
     <div class="conteudo">
-        <div class="imagem">
-    <img src="../src/fazendeiro.webp" alt="">
-    </div>
         <div class="entradas">
+            <img src="../src/fazendeiro.webp" alt="Imagem de fazendeiro" class="imagem grande">
+            
+            <div class="formulario">
                 <h2>Login</h2>
+
                 <p>Email</p>
-                <img src="../src/o-email.png" alt="">
-                <input type="text" id="iptEmail" placeholder="Ex: agrosense@gmail.com">
+                <div class="campo">
+                    <img src="../src/o-email.png" alt="Ícone de e-mail" class="icone">
+                    <input type="text" id="iptEmail" placeholder="Ex: agrosense@gmail.com">
+                </div>
                 <div id="divEmail" class="email"></div>
-                <p>Senha</p>    
-                <img src="../src/cadeado-trancado.png"  alt="imagem do cadeado">
-                <input type="password" id="iptSenha" onkeyup="mostrarSenha()" placeholder="Ex: @groSense123">
+
+                <p>Senha</p>
+                <div class="campo">
+                    <img src="../src/cadeado-trancado.png" alt="Ícone de cadeado" class="icone">
+                    <input type="password" id="iptSenha" placeholder="Ex: @groSense123">
+                </div>
                 <div id="divSenha" class="senha"></div>
+                <a href=""class="esqueci">Esqueceu sua senha?</a>
+
                 <div class="botao c">
                     <button onclick="verificarTentativas()" class="botao">Entrar</button>
                 </div>
-                <div id="divMsg" class="mensagem">
-        </div>
+                <div id="divMsg" class="mensagem"></div>
+            </div>
         </div>
     </div>
 
+    <footer class="rodape">
+        <div class="rodape_bordao">
+            <img src="../src/logo branca.png" alt="logo" class="logofooter">
+            <p>Tecnologia que nasce da terra</p>
+        </div>
 
-
-        <footer class="rodape">
-            <div class="rodape_bordao">
-                <img src="../src/logo branca.png" alt="logo" class="logofooter">
-                <p>Tecnologia que nasce da terra</p>
+        <div class="rodape_contato">
+            <p>Contato</p>
+            <div>
+                <img src="../src/whatsapp.png" alt="logoWhatsapp">
+                <a href=""><span>+55 (11) 9999-9999</span></a>
             </div>
-            <div class="rodape_contato">
-                <p>Contato</p>
-
-                <div>
-                    <img src="../src/whatsapp.png" alt="logoWhatsapp">
-                    <a href=""><span>+55 (11) 9999-9999</span></a>
-                </div>
-                <div>
-                    <img src="../src/email.png" alt="logoEmail">
-                    <a href=""><span>agrosense@agrosense.com</span></a>
-                </div>
+            <div>
+                <img src="../src/email.png" alt="logoEmail">
+                <a href=""><span>agrosense@agrosense.com</span></a>
             </div>
-            <div class="rodape_redes">
-                <p>Redes Sociais</p><div>
-                    <img src="../src/youtube.png" alt="logoYoutube">
-                    <img src="../src/instagram.png" alt="logoInstagram">
-                    <img src="../src/linkedin.png" alt="logoLinkedin">
-                </div>
-            </div>
-            <div class="rodape_empresas">
-                <div>
-                    <p>Empresas Parceiras</p>
-                </div>
-                <div class="empresas">
-                    <a href="">
-                        <p>Empresa Parceira 1</p>
-                    </a>
-                    <a href="">
-                        <p>Empresa Parceira 2</p>
-                    </a>
-                    <a href="">
-                        <p>Empresa Parceira 3</p>
-                    </a>
-                </div>
-            </div>
+        </div>
 
-        </footer>
+        <div class="rodape_redes">
+            <p>Redes Sociais</p>
+            <div>
+                <img src="../src/youtube.png" alt="logoYoutube">
+                <img src="../src/instagram.png" alt="logoInstagram">
+                <img src="../src/linkedin.png" alt="logoLinkedin">
+            </div>
+        </div>
 
+        <div class="rodape_empresas">
+            <div><p>Empresas Parceiras</p></div>
+            <div class="empresas">
+                <a href=""><p>Empresa Parceira 1</p></a>
+                <a href=""><p>Empresa Parceira 2</p></a>
+                <a href=""><p>Empresa Parceira 3</p></a>
+            </div>
+        </div>
+    </footer>
 </body>
-<script>
 
+<script>
     function entrar() {
         var email = iptEmail.value
         var senha = iptSenha.value
         divEmail.innerHTML = ``
         divSenha.innerHTML = ``
+
         if(email == ''){
             divEmail.innerHTML = 'Atenção! Preencha o campo email com base no seu cadastro'
-        } if(senha == ''){
+        } 
+        if(senha == ''){
             divSenha.innerHTML = 'Atenção! Preencha o campo senha com base no seu cadastro'
         }
-        else if(email == 'admin@admin.com'&& senha == 'admin'){
+        else if(email == 'admin@admin.com' && senha == 'admin'){
             alert('Bem Vindo! Administrador, login efetuado com sucesso')
-            window.location.href = "../html/dashboards/dashboardAdmin.html"
-        }else if(email == 'batatinha@gmail.com' && senha == 'B@tatinha123'){
+            window.location.href = "../html/dashboards/dashboardAdmin/dashboardAdmin.html"
+        }
+        else if(email == 'batatinha@gmail.com' && senha == 'B@tatinha123'){
             alert('Bem-Vindo! Login efetuado com sucesso')
             window.location.href = "../html/dashboards/dashboardCliente.html"
-        }else if(email == 'batatinha@gmail.com' && senha != 'B@tatinha123'){
+        }
+        else if(email == 'batatinha@gmail.com' && senha != 'B@tatinha123'){
             divSenha.innerHTML = 'Atenção! Preencha o campo senha com base no seu cadastro'
         }
         else {
@@ -131,7 +123,6 @@
     }
 
     var tentativas = 0
-
     function verificarTentativas() {
         while (tentativas < 3) {
             entrar()
@@ -146,6 +137,4 @@
         }
     }
 </script>
-
-
 </html>

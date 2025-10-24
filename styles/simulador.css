@@ -253,6 +253,9 @@ div#inputs {
     background-color: #4E5A65;
     color: #ffffff;
     cursor: pointer;
+
+    height: 50px;
+    width: 135px;
 }
 
 #outputs {
