@@ -211,8 +211,8 @@ body, * {
     background: url("../src/like.png");
     background-size: 33px;
     background-repeat: no-repeat;
-    background-position: 275px;
-    background-position-y: 70px;
+    background-position: 277px;
+    background-position-y: 75px;
     background-color: #ffffff;
 }
 
