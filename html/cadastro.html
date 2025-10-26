@@ -157,13 +157,13 @@
             else if(codigoAtivacao.length > 9 || codigoAtivacao.length < 9){
                 msg.innerHTML = 'O campo código de ativação tem que ter 9 dígitos!'
             }   else if(telefone % 1 != 0 || telefone < 0 || telefone > 99999999999) {
-                msg6.innerHTML = `No campo telefone não é necessário os caracteres especiais("-","+")`
-            }   else if(telefone < 11111111111){
-                msg6.innerHTML = 'No campo telefone tem que ter mais de 11 caracteres'
+                msg5.innerHTML = `No campo telefone não é necessário os caracteres especiais("-","+") e lembre que o número tem que conter 11 caracteres.`
+            }   else if(telefone <= 11111111111){
+                msg5.innerHTML = 'No campo telefone tem que ter mais de 11 caracteres'
             }   else if(cpf % 1 != 0 || cpf < 0 || cpf > 99999999999) {
-                msg7.innerHTML = `No campo CPF não pode ser maior que 11 caracteres`
-            }   else if(cpf < 11111111111){
-                msg7.innerHTML = 'No campo CPF não pode ser menor que 11 caracteres'
+                msg6.innerHTML = `No campo CPF não pode ser maior que 11 caracteres`
+            }   else if(cpf <= 11111111111){
+                msg6.innerHTML = 'No campo CPF não pode ser menor que 11 caracteres'
             }   else if (!(email.includes(`@`))){
                 msg3.innerHTML = `Seu email não contém "@"`
             }   else if (!(email.includes(`.`))){
@@ -180,7 +180,7 @@
                 msg4.innerHTML = `A senha tem que ter pelo menos um caracter especial (!, @, #, $, %)`
             }
             else if(confirmarSenha != senha) {
-                msg5.innerHTML = `Verifique se as senhas estão iguais` 
+                msg4.innerHTML = `Verifique se as senhas estão iguais` 
             } else {
                 alert(`Cadastro efetuado com sucesso!! Agora faça seu login!!`)
                 window.location.href = "login.html"
@@ -204,7 +204,7 @@
             }   if(!(senha.includes(`!`)) || !(senha.includes(`@`)) || !(senha.includes(`#`)) || !(senha.includes(`$`))|| !(senha.includes(`%`))){
                 p4.innerHTML = `<span style="color: red;">A senha tem que conter caracteres especiais(! @ # $ %)</span><br>`
             }   if(senha.includes(`!`) || senha.includes(`@`) || senha.includes(`#`) || senha.includes(`$`)|| senha.includes(`%`)){
-                p4.innerHTML = `<span style="color: green;">A senha tem que conter caracteres especiais</span><br>`
+                p4.innerHTML = `<span style="color: green;">A senha tem que conter caracteres especiais(! @ # $ %)</span><br>`
             }   if(!(senha.includes(`0`)) || !(senha.includes(`1`)) || !(senha.includes(`2`)) || !(senha.includes(`3`))|| !(senha.includes(`4`)) || !(senha.includes(`5`)) || !(senha.includes(`6`)) || !(senha.includes(`7`)) || !(senha.includes(`8`)) || !(senha.includes(`9`))) {
                 p5.innerHTML = `<span style="color: red;">A senha tem que conter números</span><br>`
             }   if(senha.includes(`0`) || senha.includes(`1`) || senha.includes(`2`) || senha.includes(`3`)|| senha.includes(`4`) || senha.includes(`5`) || senha.includes(`6`) || senha.includes(`7`) || senha.includes(`8`) || senha.includes(`9`)) {

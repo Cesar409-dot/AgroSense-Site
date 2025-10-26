@@ -91,6 +91,11 @@ p.page {
     border-radius: 15px;
 }
 
+.cadastrar:hover {
+    background-color: #4E5A65;
+    color: #fff;
+}
+
 .rodape {
     background-color: #174219;
     display: flex;
