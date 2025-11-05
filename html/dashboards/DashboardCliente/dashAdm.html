@@ -39,7 +39,7 @@
             </div>
             <div class="dashdireita">
                 <div class="olac">
-                    <h1>Olá administrador, seja bem-vindo!</h1>
+                    <h1>Olá, administrador, seja bem-vindo!</h1>
                     <button onclick="sair()" class="btsair">Sair</button>
                 </div>
                 <div class="gerais">
@@ -52,7 +52,7 @@
                                     <p>Sem níveis críticos de umidade do solo nos últimos <b>7 DIAS</b></p>
                                 </div>
                                 <div class="cardkp ckp3">
-                                    <p>Umidade do solo atual</p>
+                                    <p>Umidade média do solo </p>
                                     <p class="cardnv">78%</p>
                                 </div>
                                 <div class="cardkp ckp2">
@@ -63,7 +63,7 @@
                         <div class="graficos">
                             <div class="graf1">
                                 <div class="cardgraf">
-                                    <h2>Evolução da umidade do solo na plantação</h2>
+                                    <h2>Evolução da umidade do solo por subárea</h2>
                                     <div style="height: 80%;">
                                         <canvas id="chartScatter"></canvas>
                                     </div>
@@ -84,12 +84,12 @@
                         <div class="card gc1">
                             <div class="cabecalho">Últimos alertas <img src="../../../src/warning.png" alt=""></div>
                             <div class="ocorrencias">
-                                <div class="ocorr">02/05/2025 - Hectare 1</div>
-                                <div class="ocorr">15/01/2025 - Hectare 2</div>
-                                <div class="ocorr">09/01/2025 - Hectare 1</div>
-                                <div class="ocorr">20/12/2024 - Hectare 3</div>
-                                <div class="ocorr">15/12/2024 - Hectare 2</div>
-                                <div class="ocorr">01/12/2024 - Hectare 2</div>
+                                <div class="ocorr">02/05/2025 - Ha 1/Subárea 2</div>
+                                <div class="ocorr">15/01/2025 - Ha 1/Subárea 2</div>
+                                <div class="ocorr">09/01/2025 - Ha 2/Subárea 1</div>
+                                <div class="ocorr">20/12/2024 - Ha 1/Subárea 2</div>
+                                <div class="ocorr">15/12/2024 - Ha 1/Subárea 3</div>
+                                <div class="ocorr">01/12/2024 - Ha 3/Subárea 1</div>
                             </div>
                         </div>
                         <div class="card gc2">
@@ -111,23 +111,49 @@
         data: {
             labels: ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30'],
             datasets: [{
-                label: 'Umidade do solo (%)',
+                label: 'Ha1 - Subárea 2',
                 data: [53, 54, 60, 65, 68, 70, 72, 78],
-                borderColor: '#174219',
-                backgroundColor: '#174219',
-                pointRadius: 4.5,
-                pointBackgroundColor: '#7cb342'
+                borderColor: '#BCC2F5',
+                borderWidth: 2,
+                backgroundColor: '#BCC2F5',
+                pointRadius: 0,
+                pointBackgroundColor: '#F0E7CF'
 
-            }, {
-                label: 'Horário',
-                borderColor: '#7cb342',
-                backgroundColor: '#7cb342'
-
-            }, {
+            },
+            {
+                label: 'Ha1 - Subárea 1',
+                data: [76, 72, 70, 62, 65, 69, 70, 63],
+                borderColor: '#6FA078',
+                backgroundColor: '#6FA078',
+                pointRadius: 0,
+                pointBackgroundColor: '#F0E7CF',
+                borderWidth: 2,
+                
+            },
+            {
+                label: 'Ha2 - Subárea 1',
+                data: [49, 56, 57, 59, 58, 55, 52, 53],
+                borderColor: '#F587AA',
+                backgroundColor: '#F587AA',
+                pointRadius: 0,
+                pointBackgroundColor: '#F0E7CF',
+                borderWidth: 2,
+                
+            },
+            {
+                label: 'Ha2 - Subárea 2',
+                data: [78, 81, 83, 77, 75, 79, 85, 90],
+                borderColor: '#A07D6F',
+                backgroundColor: '#A07D6F',
+                pointRadius: 0,
+                pointBackgroundColor: '#F0E7CF',
+                borderWidth: 2,
+            },
+            {
                 label: 'Nível máximo recomendado',
                 data: [80, 80, 80, 80, 80, 80, 80, 80],
                 borderColor: '#4e5a65',
-                backgroundColor: '#4e5a65', // cinza
+                backgroundColor: '#4e5a65', 
                 borderWidth: 3,
                 pointRadius: 0,
                 borderDash: [8 , 8]
@@ -159,6 +185,7 @@
             }
         }
     });
+
     const ctxbar = document.getElementById('chartbar');
     new Chart(ctxbar, {
         type: 'bar',
