@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/simulador.css">
+    <link rel="shortcut icon" href="./assets/imgs/logo png.png">
+    <title>Simulador</title>
+</head>
+<body>
+        <header class="navbar">
+            <img src="./assets/imgs/logo png.png" alt="logo" class="logoheader">
+            <div class="menu">
+                <a href="index.html">
+                    <p>Início</p>
+                </a>
+                <a href="simulador.html">
+                    <p class="page">Simulador</p>  
+                </a>  
+                <a href="sobreNos.html">
+                    <p>Sobre nós</p>
+                </a>
+            </div>
+            <div class="cadastro">
+                <a href="login.html">
+                    <p>Login</p>
+                </a>
+                <div class="c">
+                    <a href="cadastro.html">
+                        <p class="cadastrar">Cadastro</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="conteudo">
+        <div id="card1">
+        <div id="inputs">
+            <div id="titulo">
+                <img src="./assets/imgs/logo png.png" alt="" style="height: 150px;">
+                <h2>Simulador Financeiro AgroSense</h2>
+                <p>Faça sua simulação aqui, e verifique o quanto você pode melhorar sua produtividade!</p>
+            </div>
+            <h3>Preencha os campos abaixo:</h3>
+            <p>Informe a área plantada (ha)* <input type="number" id="ipt_areaplant"></p>
+            <p>Informe a quantidade plantada por hectare (kg)* <input type="number" id="qtd_plant"></p>
+            
+            <button onclick="simular()" id="botao">Simular</button>
+        </div>
+        <div id="outputs">
+        </div>
+    </div>
+    </div>
+        <footer class="rodape">
+            <div class="rodape_bordao">
+                <img src="./assets/imgs/logo branca.png" alt="logo" class="logofooter">
+                <p>Tecnologia que nasce da terra</p>
+            </div>
+            <div class="rodape_contato">
+                <p>Contato</p>
+
+                <div>
+                    <img src="./assets/imgs/whatsapp.png" alt="logoWhatsapp">
+                    <a href=""><span>+55 (11) 9999-9999</span></a>
+                </div>
+                <div>
+                    <img src="./assets/imgs/email.png" alt="logoEmail">
+                    <a href=""><span>agrosense@agrosense.com</span></a>
+                </div>
+            </div>
+            <div class="rodape_redes">
+                <p>Redes Sociais</p><div>
+                    <img src="./assets/imgs/youtube.png" alt="logoYoutube">
+                    <img src="./assets/imgs/instagram.png" alt="logoInstagram">
+                    <img src="./assets/imgs/linkedin.png" alt="logoLinkedin">
+                </div>
+            </div>
+            <div class="rodape_empresas">
+                <div>
+                    <p>Empresas Parceiras</p>
+                </div>
+                <div class="empresas">
+                    <a href="">
+                        <p>Empresa Parceira 1</p>
+                    </a>
+                    <a href="">
+                        <p>Empresa Parceira 2</p>
+                    </a>
+                    <a href="">
+                        <p>Empresa Parceira 3</p>
+                    </a>
+                </div>
+            </div>
+
+        </footer>
+</body>
+<script>
+    function simular() {
+        var areaPlantada = Number(ipt_areaplant.value)
+        var qtdPlantada = Number(qtd_plant.value)
+        var precoVenda = 2.2 // Com base na Associação Brasileira da Batata (ABBA) - R$ 2,2/kg
+
+        var produtividade = areaPlantada * qtdPlantada
+        var receita = produtividade * precoVenda
+
+        var conservador = produtividade * 1.05
+        var realista = produtividade * 1.125
+        var otimista = produtividade * 1.2
+        var perdas = produtividade * 0.4
+        var preju = perdas * 2.2
+
+
+        if (ipt_areaplant.value == '') {
+            alert('Informe uma área plantada!')
+        } else if (areaPlantada <= 0) {
+            alert('A área plantada tem que ser maior do que zero')
+        } else if (qtd_plant.value == '') {
+            alert('Informe a quantidade plantada por hectare')
+        } else if (qtdPlantada <= 0) {
+            alert('A quantidade plantada tem que ser maior do que zero')
+        } else {
+
+            inputs.style.display = 'none'
+            outputs.style.display = 'block'
+            
+            outputs.innerHTML = `Com base nos dados, a sua plantação atual é de <b>${produtividade.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            Venda total: <b>${receita.toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b> <br><br>
+            Sem nosso monitoramento está sujeito a perder: <b><span style="color: red;">${perdas.toLocaleString('pt-br', {style:"decimal"})}kg</span></b> de batata e terá uma perda de <b><span style="color: red;">${preju.toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</span></b> <hr>
+
+            
+            <h3>Com o sistema de monitoramento AgroSense!</h3>
+            
+            <h4>Em um cenário conservador</h4> A sua plantação atual pode chegar até: <b>${conservador.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((conservador * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <h4>Em um cenário moderado</h4>  A sua plantação atual pode chegar até: <b>${realista.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((realista * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <h4>No melhor dos cenários </h4>  A sua plantação atual pode chegar até: <b>${otimista.toLocaleString('pt-br', {style:"decimal"})}kg</b> <br>
+            E sua empresa pode ter um ganho adicional na venda de: <b class="ganhos">${((otimista * precoVenda) - receita).toLocaleString('pt-br', {style:"currency", currency:"BRL"})}</b>
+            
+            <button onclick="voltar()" id="botao">Fazer outra simulação</button>`
+        }
+    }
+    
+    function voltar() {
+        inputs.style.display = 'block'
+        outputs.style.display = 'none'
+
+        ipt_areaplant.value = ''
+        qtd_plant.value = ''
+    }
+</script>
+</html>
