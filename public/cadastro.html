@@ -72,7 +72,13 @@
             <img src="./assets/imgs/cpf.png" alt="" />
             <input type="number" id="iptCPF" placeholder="Ex: 32145698701" />
             <div id="msg6"></div>
-
+            <p>Tipo de usuário</p>
+            <select name="selectTipo" id="selecTipo">
+                <option value="#">Selecione o tipo...</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div id="msg7"></div>
             <div class="botao c">
                 <button onclick="cadastrar()" class="botao">Cadastrar</button>
             </div>
@@ -135,7 +141,7 @@
     var senhaVar = iptSenha.value;
     var confirmarSenha = iptCheckSenha.value;
     var cpfVar = Number(iptCPF.value)
-
+    var tipoVar = selecTipo.value
    mostrarSenha()
 
         msg.innerHTML = ''
@@ -154,6 +160,9 @@
             msg4.innerHTML = `Preencha o campo Confirmar Senha`
         }if (cpfVar == 0) {
             msg6.innerHTML = `Preencha o campo CPF`
+        }
+        if (tipoVar == '#') {
+            msg7.innerHTML = `Preencha o tipo de usuário`
         }
         else if (CodigoAtiVar.length > 6 || CodigoAtiVar.length < 6) {
             msg.innerHTML = 'O campo código de ativação tem que ter 6 dígitos!'
@@ -179,6 +188,8 @@
         else if (confirmarSenha != senhaVar) {
             msg4.innerHTML = `Verifique se as senhas estão iguais`
         } else {
+
+            console.log(tipoVar)
             alert(`Cadastro efetuado com sucesso!! Agora faça seu login!!`)
             fetch("/usuarios/cadastrar", {
                 method: "POST",
@@ -190,7 +201,9 @@
                     emailServer: emailVar,
                     senhaServer: senhaVar,
                     cpfServer: cpfVar,
-                    codigoAtivacaoServer: CodigoAtiVar
+                    codigoAtivacaoServer: CodigoAtiVar,
+                    tipoServer: tipoVar
+                    
                 }),
             })
                 .then(function (resposta) {
@@ -200,7 +213,7 @@
 
                         setTimeout(() => {
                             window.location = "login.html";
-                        }, "2000");
+                        }, "1000");
 
                     }
                 })

@@ -22,6 +22,8 @@ function autenticar(req, res) {
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
+                                        tipo: resultadoAutenticar[0].tipo,
+                                        codEmpresa: resultadoAutenticar[0].fkEmpresaUser
                                 });
                     } 
                     if (resultadoAutenticar.length == 0) {
@@ -48,6 +50,7 @@ function cadastrar(req, res) {
     var senha = req.body.senhaServer;
     var cpf = req.body.cpfServer;
     var fkEmpresaUser = req.body.codigoAtivacaoServer;
+    var tipo = req.body.tipoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -63,7 +66,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cpf, fkEmpresaUser)
+        usuarioModel.cadastrar(nome, email, senha, cpf, fkEmpresaUser, tipo)
             .then(
                 function (resultado) {
                     res.json(resultado);

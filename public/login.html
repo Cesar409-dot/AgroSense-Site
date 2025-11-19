@@ -137,26 +137,20 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    if(emailVar == 'admin@admin' && senhaVar == 'admin123'){
-                        setTimeout(function () {
-                        msg.innerHTML = `Login efetuado com sucesso!`
+                    sessionStorage.TIPO_USUARIO = json.tipo;
+                    sessionStorage.COD_EMPRESA = json.codEmpresa
+                    
+                    alert("Redirecionando para dashboard...")
+
+                    setTimeout(function () {
+
+                        if (sessionStorage.TIPO_USUARIO == 'User') {
+                            window.location = "dashboard/DashboardCliente/dash.html";
+                        } else {
+                            window.location = "dashboard/DashboardCliente/dashAdm.html";
+                        }
+                       
                     }, 1000);
-                    setTimeout(function () {
-                        alert("Agora Você será redirecionado para fazer o quiz")
-                    }, 2000);
-                    setTimeout(function () {
-                        window.location = "./dashboard/dashboardAdmin/dashboardAdmin.html";
-                    }, 3000);
-                    }
-                    setTimeout(function () {
-                        msg.innerHTML = `Login efetuado com sucesso!`
-                    }, 1000);
-                    setTimeout(function () {
-                        alert("Agora Você será redirecionado para fazer o quiz")
-                    }, 2000);
-                    setTimeout(function () {
-                        window.location = "./dashboard/DashboardCliente/dash.html";
-                    }, 3000);
 
                 })
 
