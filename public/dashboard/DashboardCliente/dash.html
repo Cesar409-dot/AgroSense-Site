@@ -71,7 +71,7 @@
                                 <div class="cardgraf">
                                     <h2>Saúde dos sensores</h2>
                                     <div style="height: 80%;">
-                                        <canvas id="chartbar"></canvas>
+                                        <canvas id="chartSaude"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -104,6 +104,7 @@
     
     function dados() {
         document.getElementById("name").innerHTML = sessionStorage.NOME_USUARIO
+
     }
     
 
@@ -187,7 +188,7 @@
             }
         }
     });
-    const ctxbar = document.getElementById('chartbar');
+    /* const ctxbar = document.getElementById('chartSaude');
     new Chart(ctxbar, {
         type: 'bar',
         data: {
@@ -222,7 +223,7 @@
                 }
             }
         }
-    });
+    }); */
 </script>
 <script>
     function sair() {

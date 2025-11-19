@@ -82,7 +82,8 @@
                     </div>
                     <div class="geral2">
                         <div class="card gc1">
-                            <div class="cabecalho">Últimos alertas <img src="../../assets/imgs/warning.png" alt=""></div>
+                            <div class="cabecalho">Últimos alertas <img src="../../assets/imgs/warning.png" alt="">
+                            </div>
                             <div class="ocorrencias">
                                 <div class="ocorr">02/05/2025 - Ha 1/Subárea 2</div>
                                 <div class="ocorr">15/01/2025 - Ha 1/Subárea 2</div>
@@ -105,10 +106,73 @@
 </body>
 <script>
 
-     function dados() {
+    function dados() {
         document.getElementById("name").innerHTML = sessionStorage.NOME_USUARIO
+
+        fetch(`/medidas/saude`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        let sensoresOn = 0
+                        let sensoresOff = 0
+
+                        resposta.forEach(item => {
+                            sensoresOn = item.Online
+                            sensoresOff = item.Offline
+                        })
+
+                        console.log(sensoresOn)
+                        console.log(sensoresOff)
+
+                        const ctxbar = document.getElementById('chartbar');
+                        new Chart(ctxbar, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Total de sensores'],
+                                datasets: [{
+                                    label: 'Online', 
+                                    data: `${sensoresOn}`,
+                                    backgroundColor: '#80EF80',
+                                    pointRadius: 4.5,
+                                    borderWidth: 0,
+
+                                },
+                                {
+                                    label: 'Offline',
+                                    data: `${sensoresOff}`,
+                                    backgroundColor: '#f02e52',
+                                    pointRadius: 4.5,
+                                    borderWidth: 0,
+
+
+                                }],
+
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                indexAxis: 'x',
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        title: { display: true, text: 'Quantidade dos sensores da plantação' },
+                                    }
+                                }
+                            }
+                        });
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
-    
+
     const ctxScatter = document.getElementById('chartScatter');
     new Chart(ctxScatter, {
         type: 'line',
@@ -132,7 +196,7 @@
                 pointRadius: 0,
                 pointBackgroundColor: '#F0E7CF',
                 borderWidth: 2,
-                
+
             },
             {
                 label: 'Ha2 - Subárea 1',
@@ -142,7 +206,7 @@
                 pointRadius: 0,
                 pointBackgroundColor: '#F0E7CF',
                 borderWidth: 2,
-                
+
             },
             {
                 label: 'Ha2 - Subárea 2',
@@ -157,10 +221,10 @@
                 label: 'Nível máximo recomendado',
                 data: [80, 80, 80, 80, 80, 80, 80, 80],
                 borderColor: '#4e5a65',
-                backgroundColor: '#4e5a65', 
+                backgroundColor: '#4e5a65',
                 borderWidth: 3,
                 pointRadius: 0,
-                borderDash: [8 , 8]
+                borderDash: [8, 8]
 
 
             }, {
@@ -170,7 +234,7 @@
                 backgroundColor: '#4e5a65',
                 borderWidth: 3,
                 pointRadius: 0,
-                borderDash: [8 , 8]
+                borderDash: [8, 8]
 
             }]
         },
@@ -190,42 +254,7 @@
         }
     });
 
-    const ctxbar = document.getElementById('chartbar');
-    new Chart(ctxbar, {
-        type: 'bar',
-        data: {
-            labels: ['Total de sensores'],
-            datasets: [{
-                label: 'Online',
-                data: [47],
-                backgroundColor: '#80EF80',
-                pointRadius: 4.5,
-                borderWidth: 0,
 
-            },
-            {
-                label: 'Offline',
-                data: [3],
-                backgroundColor: '#f02e52',
-                pointRadius: 4.5,
-                borderWidth: 0,
-                
-
-            }],
-            
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            indexAxis: 'x',
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Quantidade dos sensores da plantação' },
-                }
-            }
-        }
-    });
 </script>
 <script>
     function sair() {
