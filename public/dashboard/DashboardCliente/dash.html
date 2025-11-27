@@ -71,6 +71,33 @@
     function dados() {
         document.getElementById("name").innerHTML = sessionStorage.NOME_USUARIO
 
+
+       fetch(`/medidas/saudeSensores`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        let sensoresOn = 0
+                        let sensoresOff = 0
+
+                        resposta.forEach(item => {
+                            sensOn.innerHTML = item.Online
+                            sensOff.innerHTML = item.Offline
+                        })
+
+                        console.log(sensoresOn)
+                        console.log(sensoresOff)
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
     }
     
 </script>

@@ -94,3 +94,74 @@ body, * {
     height: 100px;
 }
 
+.graficos {
+    width: 100%;
+    height: 100%;
+}
+
+.secaocima {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    height: 65%;
+}
+
+.grafico {
+    border: 1px solid black;
+    height: 80%;
+    padding-bottom: 40px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grafico h3 {
+    margin-bottom: 15px;
+}
+
+.kpi1 {
+    border: 1px solid black;
+    height: 65%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.kpis {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    height: 35%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.grafico canvas{
+    width: 100%;
+    height: 10%;
+}
+
+.kpi2 {
+    border: 1px solid black;
+    height: 60%;
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex ;
+    flex-direction: column;
+}
+
+.u{
+    font-size: 2rem;
+}
+
+.kpi1 h4{
+    font-size: 1.5rem;
+}

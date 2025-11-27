@@ -18,23 +18,43 @@
                     <button onclick="sair()" class="btsair">Sair</button>
                 </div>
             <div class="graficos">
-                <div class="grafico">
-
-                </div>
-            </div>
-            <div class="kpis">
-                <div class="maximo">
-                </div>
-                <div class="minimo"></div>
-                <div class="alertas"></div>
+                    <div class="secaocima">
+                        <div class="kpi1">
+                            <h4>Umidade Atual</h4>
+                            <p><b class="u">#%</b></p>
+                            <p>Umidade</p>
+                        </div>
+                        <div class="grafico">
+                            <h3>MONITORAMENTO EM TEMPO REAL</h3>
+                            <canvas id="mychart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="kpis">
+                        <div class="kpi2">
+                            <h4>PICO MÁXIMO</h4>
+                            <p><b>#%</b></p>
+                            <p>(<b>#</b>)</p>
+                        </div>
+                        <div class="kpi2">
+                            <h4>PICO MÍNIMO</h4>
+                            <p><b>#%</b></p>
+                            <p>(<b>#</b>)</p>
+                        </div>
+                        <div class="kpi2">
+                            <h4>ALERTAS NAS ÚLTIMAS 24h</h4>
+                            <p><b>#</b></p>
+                            <p>(<b>#</b>)</p>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 </body>
 <script>
-const ctx = document.getElementById('myChart1');
 
-    new Chart(ctx, {
+const ctxline = document.getElementById("mychart1")
+
+                  new Chart(ctxline, {
         type: 'line',
         data: {
             labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
@@ -73,6 +93,8 @@ const ctx = document.getElementById('myChart1');
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     title: { display: true, text: 'Umidade do solo (%)' },
@@ -84,9 +106,11 @@ const ctx = document.getElementById('myChart1');
                 }
             }
         }
-    });
-</script>
-<script>
+    })
+
+
+
+
     function sair() {
         window.location.href = "../../index.html"
     }

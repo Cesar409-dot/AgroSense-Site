@@ -137,12 +137,11 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.TIPO_USUARIO = json.tipo;
                     sessionStorage.COD_EMPRESA = json.codEmpresa
-                    
-                    alert("Redirecionando para dashboard...")
 
+                    
                     setTimeout(function () {
+                        alert("Redirecionando para dashboard...")
 
                         if (sessionStorage.TIPO_USUARIO == 'User') {
                             window.location = "dashboard/DashboardCliente/dash.html";

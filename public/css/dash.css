@@ -163,7 +163,7 @@ body,
 .online span {
     font-size: 4rem;
     font-weight: 900;
-    margin-top: -15px;
+    margin-top: -5px;
 }
 
 
@@ -183,7 +183,7 @@ body,
 .offline span {
     font-size: 4rem;
     font-weight: 900;
-    margin-top: -15px;
+    margin-top: -5px;
 }
 
 .cardhectares {
