@@ -39,7 +39,7 @@
                                 <h1>Hectare 1 - Subárea 1</h1>
                                 <img src="../../assets/imgs/campo.png" alt="">
                                 <p>Status do sensor: <span id="statusS1">#</span></p> 
-                                <button>Ver detalhes</button>
+                                <button onclick="location.href='subarea.html'">Ver detalhes</button>
                             </div>
                             <div class="hect">
                                 <h1>Hectare 1 - Subárea 2</h1>
@@ -70,10 +70,19 @@
     
     function dados() {
         document.getElementById("name").innerHTML = sessionStorage.NOME_USUARIO
+        var codEmpresaVar = sessionStorage.COD_EMPRESA
 
 
-       fetch(`/medidas/saudeSensores`)
-            .then(function (response) {
+       fetch(`/medidas/saudeSensores`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                codEmpresaServer: codEmpresaVar
+            })  
+            }).then(function (response) {
+                
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);

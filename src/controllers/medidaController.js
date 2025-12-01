@@ -4,9 +4,11 @@ var medidaModel = require("../models/medidaModel");
 
 function saudeSensores(req, res) {
 
+    var fkEmpresaUser = req.body.codEmpresaServer;
+
     console.log(`Recebendo a saúde dos sensores`);
 
-    medidaModel.saudeSensores().then(function (resultado) {
+    medidaModel.saudeSensores(fkEmpresaUser).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
