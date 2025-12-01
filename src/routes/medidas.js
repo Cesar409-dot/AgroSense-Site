@@ -7,4 +7,8 @@ router.get("/saudeSensores", function (req, res) {
     medidaController.saudeSensores(req, res);
 })
 
+router.get("/alertasDash", function (req, res) {
+    medidaController.alertasDash(req, res);
+})
+
 module.exports = router;

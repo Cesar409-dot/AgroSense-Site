@@ -9,7 +9,7 @@
     <title>Dashboard</title>
 </head>
 
-<body onload="dados()">
+<body onload="dados(); alertas()">
     <div class="dash">
         <div class="conteudo">
             <div class="dashdireita">
@@ -50,13 +50,13 @@
                             <div class="alerts">
                                 <h1>Últimos alertas</h1>
                                 <div class="ocorrencias">
-                                    <div class="linhaAlert">ocorr1</div>
-                                    <div class="linhaAlert">ocorr2</div>
-                                    <div class="linhaAlert">ocorr2</div>
-                                    <div class="linhaAlert">ocorr2</div>
-                                    <div class="linhaAlert">ocorr2</div>
-                                    <div class="linhaAlert">ocorr2</div>
-                                    <div class="linhaAlert">ocorr2</div>
+                                    <div class="linhaAlert" id="oc1"></div>
+                                    <div class="linhaAlert" id="oc2"></div>
+                                    <div class="linhaAlert" id="oc3"></div>
+                                    <div class="linhaAlert" id="oc4"></div>
+                                    <div class="linhaAlert" id="oc5"></div>
+                                    <div class="linhaAlert" id="oc6"></div>
+                                    <div class="linhaAlert" id="oc7"></div>
                                 </div>
                             </div>
                         </div>
@@ -99,9 +99,43 @@
             });
 
     }
-    
-</script>
-<script>
+
+    function alertas() {
+
+        var codEmpresaVar = sessionStorage.COD_EMPRESA
+        fetch(`/medidas/alertasDash`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                codEmpresaServer: codEmpresaVar
+            })  
+            }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        oc1.innerHTML = resposta[0].Ocorrência
+                        oc2.innerHTML = resposta[1].Ocorrência
+                        oc3.innerHTML = resposta[2].Ocorrência
+                        oc4.innerHTML = resposta[3].Ocorrência
+                        oc5.innerHTML = resposta[4].Ocorrência
+                        oc6.innerHTML = resposta[5].Ocorrência
+                        oc7.innerHTML = resposta[6].Ocorrência
+                        
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
     function sair() {
         window.location.href = "../../index.html"
     }

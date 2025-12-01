@@ -20,13 +20,13 @@ function saudeSensores(req, res) {
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+function alertasDash(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var fkEmpresaUser = req.body.codEmpresaServer;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    medidaModel.alertasDash(fkEmpresaUser).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -40,6 +40,6 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarMedidasEmTempoReal,
+    alertasDash,
     saudeSensores
 }
