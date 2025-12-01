@@ -142,13 +142,7 @@
                     
                     setTimeout(function () {
                         alert("Redirecionando para dashboard...")
-
-                        if (sessionStorage.TIPO_USUARIO == 'User') {
                             window.location = "dashboard/DashboardCliente/dash.html";
-                        } else {
-                            window.location = "dashboard/DashboardCliente/dashAdm.html";
-                        }
-                       
                     }, 1000);
 
                 })
