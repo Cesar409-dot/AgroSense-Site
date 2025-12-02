@@ -9,7 +9,7 @@
     <title>Dashboard</title>
 </head>
 
-<body>
+<body onload="kpis()">
     <div class="dash">
         <div class="conteudo">
             <div class="olac">
@@ -22,7 +22,7 @@
                         <div class="kpi1">
                             <h4>Umidade Atual</h4>
                             <p><b class="u" id="umiAtual"></b></p>
-                            <p>Umidade <p id="tipoUmi"></p></p>
+                            <p id="tipoUmi"></p>
                         </div>
                         <div class="grafico">
                             <h3>MONITORAMENTO EM TEMPO REAL</h3>
@@ -34,7 +34,7 @@
                             <h4>PICO MÁXIMO</h4>
                             <p><b id="pMax"></b></p>
                             <p>(<b id="hrMax"></b>)</p>
-                        </div>
+                        </div>  
                         <div class="kpi2">
                             <h4>PICO MÍNIMO</h4>
                             <p><b id="pMin"></b></p>
@@ -125,21 +125,25 @@ const ctxline = document.getElementById("mychart1")
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                        pMax.innerHTML = resposta[0];
-                        pMin.innerHTML = resposta[1];
-                        qtdAlertas.innerHTML = resposta[2];
-                        umiAtual.innerHTML = resposta[3];
-                        hrMin.innerHTML = resposta[4]
-                        hrMax.innerHTML = resposta[5]
-
-                        if(resposta[2] >= 60 && resposta[2] <= 80) {
-                            tipoUmi.innerHTML = `Estável`
-                        }   else if(resposta[2] > 80) {
-                            tipoUmi.innerHTML = `Acima do ideal`
-                        }   else {
-                            tipoUmi.innerHTML = `Abaixo do ideal`
+                        var estadoUmidade = 0
+                        
+                        resposta.forEach(item => {
+                        pMax.innerHTML = item.maxumi + '%';
+                        pMin.innerHTML = item.minumi + '%';
+                        qtdAlertas.innerHTML = item.qtdOcorrencia;
+                        estadoUmidade = item.umiatual
+                        umiAtual.innerHTML = estadoUmidade + '%';
+                        hrMin.innerHTML = item.hrMin;
+                        hrMax.innerHTML = item.hrMax;
+                    })
+                        if(estadoUmidade >= 60 && estadoUmidade <= 80) {
+                            tipoUmi.innerHTML = `Umidade estável`
+                        }   else if(estadoUmidade > 80) {
+                            tipoUmi.innerHTML = `Umidade acima do ideal`
+                        }   else {  
+                            tipoUmi.innerHTML = `Umidade abaixo do ideal`
                         }
+
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');

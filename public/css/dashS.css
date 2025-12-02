@@ -172,3 +172,9 @@ body, * {
 .kpi1 h4{
     font-size: 1.5rem;
 }
+
+#pMax, #umiAtual, #pMin, #qtdAlertas {
+    font-size: 2.3rem;
+    font-weight: 900;   
+    color: #174219;
+}
