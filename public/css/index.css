@@ -425,3 +425,17 @@ p.page {
     color: #ffffff;
     cursor: pointer;
 }
+
+#imgsuporte {
+    position: fixed;
+    height: 70px;
+    z-index: 1000;
+    left: 1435px;
+    top: 350px;
+    transition-duration: 0.3s;
+}
+
+#imgsuporte:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}
