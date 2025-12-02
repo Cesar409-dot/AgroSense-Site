@@ -27,7 +27,16 @@ function alertasDash(fkEmpresaUser) {
     return database.executar(instrucaoSql);
 }
 
+function mostrarKpis(fkEmpresaUser) {
+
+    var instrucaoSql = ``;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     alertasDash,
-    saudeSensores
+    saudeSensores,
+    mostrarKpis
 }

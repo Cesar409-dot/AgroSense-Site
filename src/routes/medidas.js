@@ -11,4 +11,8 @@ router.post("/alertasDash", function (req, res) {
     medidaController.alertasDash(req, res);
 })
 
+router.post("/mostrarKpis", function (req, res) {
+    medidaController.mostrarKpis(req, res);
+})
+
 module.exports = router;

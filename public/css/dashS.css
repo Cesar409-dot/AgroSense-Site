@@ -111,7 +111,7 @@ body, * {
 
 .grafico {
     border: 1px solid black;
-    height: 80%;
+    height: 90%;
     padding-bottom: 40px;
     width: 60%;
     display: flex;
