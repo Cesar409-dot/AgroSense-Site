@@ -50,8 +50,44 @@ function mostrarKpis(fkEmpresaUser) {
     return database.executar(instrucaoSql);
 }
 
+function atualizarGrafico(fkEmpresaUser) {
+
+    var instrucaoSql = `SELECT m.umidade  as umi, 
+     DATE_FORMAT(m.dtMedicao, '%Hh%i')AS hr
+    FROM medicao AS m 
+		JOIN sensor s ON m.fksensor = s.idSensor
+			JOIN subarea sa ON s.fkSub = sa.idSubArea
+				JOIN hectare h ON sa.fkHectare = h.idHectare
+					JOIN empresa e ON h.fkEmpresaHect = e.codAtivacao
+						WHERE e.codAtivacao = '${fkEmpresaUser}'
+							GROUP BY m.umidade, hr
+								ORDER BY hr DESC LIMIT 1;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function mostrarGrafico(fkEmpresaUser) {
+
+    var instrucaoSql = `SELECT m.umidade  as umi, 
+     DATE_FORMAT(m.dtMedicao, '%Hh%i')AS hr
+    FROM medicao AS m 
+		JOIN sensor s ON m.fksensor = s.idSensor
+			JOIN subarea sa ON s.fkSub = sa.idSubArea
+				JOIN hectare h ON sa.fkHectare = h.idHectare
+					JOIN empresa e ON h.fkEmpresaHect = e.codAtivacao
+						WHERE e.codAtivacao = '${fkEmpresaUser}'
+							GROUP BY m.umidade, hr
+								ORDER BY hr DESC LIMIT 10;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     alertasDash,
     saudeSensores,
-    mostrarKpis
+    mostrarKpis,
+    atualizarGrafico,
+    mostrarGrafico
 }

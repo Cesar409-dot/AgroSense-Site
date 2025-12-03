@@ -15,4 +15,12 @@ router.post("/mostrarKpis", function (req, res) {
     medidaController.mostrarKpis(req, res);
 })
 
+router.post("/atualizarGrafico", function (req, res) {
+    medidaController.atualizarGrafico(req, res);
+})
+
+router.post("/mostrarGrafico", function (req, res) {
+    medidaController.mostrarGrafico(req, res);
+})
+
 module.exports = router;

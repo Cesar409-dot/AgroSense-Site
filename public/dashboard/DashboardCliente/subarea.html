@@ -9,125 +9,205 @@
     <title>Dashboard</title>
 </head>
 
-<body onload="kpis()">
+<body onload="kpis(); mostrarGrafico(); atualizarGrafico()">
     <div class="dash">
         <div class="conteudo">
             <div class="olac">
-                    <a href="./dash.html"><img src="../../assets/imgs/logo png.png" alt=""></a>
-                    <h1>Hectare 1 - Subárea 1</h1>
-                    <button onclick="sair()" class="btsair">Sair</button>
-                </div>
+                <a href="./dash.html"><img src="../../assets/imgs/logo png.png" alt=""></a>
+                <h1>Hectare 1 - Subárea 1</h1>
+                <button onclick="sair()" class="btsair">Sair</button>
+            </div>
             <div class="graficos">
-                    <div class="secaocima">
-                        <div class="kpi1">
-                            <h4>Umidade Atual</h4>
-                            <p><b class="u" id="umiAtual"></b></p>
-                            <p id="tipoUmi"></p>
-                        </div>
-                        <div class="grafico">
-                            <h3>MONITORAMENTO EM TEMPO REAL</h3>
-                            <canvas id="mychart1"></canvas>
-                        </div>
+                <div class="secaocima">
+                    <div class="kpi1">
+                        <h4>Umidade Atual</h4>
+                        <p><b class="u" id="umiAtual"></b></p>
+                        <p id="tipoUmi"></p>
                     </div>
-                    <div class="kpis">
-                        <div class="kpi2">
-                            <h4>PICO MÁXIMO</h4>
-                            <p><b id="pMax"></b></p>
-                            <p>(<b id="hrMax"></b>)</p>
-                        </div>  
-                        <div class="kpi2">
-                            <h4>PICO MÍNIMO</h4>
-                            <p><b id="pMin"></b></p>
-                            <p>(<b id="hrMin"></b>)</p>
-                        </div>
-                        <div class="kpi2">
-                            <h4>ALERTAS NAS ÚLTIMAS 24h</h4>
-                            <p><b id="qtdAlertas"></b></p>
-                            <p><b>Ocorrências</b></p>
-                        </div>
+                    <div class="grafico">
+                        <h3>MONITORAMENTO EM TEMPO REAL</h3>
+                        <canvas id="mychart1"></canvas>
                     </div>
+                </div>
+                <div class="kpis">
+                    <div class="kpi2">
+                        <h4>PICO MÁXIMO</h4>
+                        <p><b id="pMax"></b></p>
+                        <p>(<b id="hrMax"></b>)</p>
+                    </div>
+                    <div class="kpi2">
+                        <h4>PICO MÍNIMO</h4>
+                        <p><b id="pMin"></b></p>
+                        <p>(<b id="hrMin"></b>)</p>
+                    </div>
+                    <div class="kpi2">
+                        <h4>ALERTAS NAS ÚLTIMAS 24h</h4>
+                        <p><b id="qtdAlertas"></b></p>
+                        <p><b>Ocorrências</b></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
 <script>
 
-const ctxline = document.getElementById("mychart1")
 
-                  new Chart(ctxline, {
-        type: 'line',
-        data: {
-            labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-            datasets: [{
-                label: 'Umidade do solo (%)',
-                data: [75, 73, 76, 77, 72, 70, 68, 70],
-                borderColor: '#174219',
-                backgroundColor: '#174219',
-                pointRadius: 4.5,
-                pointBackgroundColor: '#7cb342'
-
-            }, {
-                label: 'Horário',
-                borderColor: '#7cb342',
-                backgroundColor: '#7cb342'
-
-            }, {
-                label: 'Nível máximo recomendado',
-                data: [80, 80, 80, 80, 80, 80, 80, 80],
-                borderColor: '#4e5a65',
-                backgroundColor: '#4e5a65', // cinza
-                borderWidth: 3,
-                pointRadius: 0,
-                borderDash: [8 , 8]
-
-
-            }, {
-                label: 'Nível mínimo recomendado',
-                data: [60, 60, 60, 60, 60, 60, 60, 60],
-                borderColor: '#4e5a65',
-                backgroundColor: '#4e5a65',
-                borderWidth: 3,
-                pointRadius: 0,
-                borderDash: [8 , 8]
-
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    title: { display: true, text: 'Umidade do solo (%)' },
-                    min: 40,
-                    max: 90
-                },
-                x: {
-                    title: { display: true, text: 'Horário' },
-                }
-            }
-        }
-    })
 
     var codEmpresaVar = sessionStorage.COD_EMPRESA
-    function kpis() {
 
-        
-         fetch(`/medidas/mostrarKpis`,{
+
+
+    function mostrarGrafico() {
+
+        let labels = []
+        fetch(`/medidas/mostrarGrafico`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 codEmpresaServer: codEmpresaVar
-            })  
-            }).then(function (response) {
-                
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        var estadoUmidade = 0
-                        
-                        resposta.forEach(item => {
+            })
+        }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    const valores = resposta.reverse()
+
+                    let labels = [];
+
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Umidade',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }, {
+                                label: 'Nível máximo recomendado',
+                                data: [80, 80, 80, 80, 80, 80, 80, 80, 80],
+                                borderColor: '#4e5a65',
+                                backgroundColor: '#4e5a65', // cinza
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                borderDash: [8, 8]
+
+
+                            }, {
+                                label: 'Nível mínimo recomendado',
+                                data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
+                                borderColor: '#4e5a65',
+                                backgroundColor: '#4e5a65',
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                borderDash: [8, 8]
+
+                            }]
+        };
+
+        valores.forEach(item => {
+            labels.push(item.hr);
+            dados.datasets[0].data.push(item.umi)
+        })
+
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        const graficoUmidade = new Chart(
+            document.getElementById(`mychart1`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(dados, graficoUmidade), 2000);
+
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+
+
+    }
+
+
+
+
+    function atualizarGrafico(dados, graficoUmidade) {
+
+        fetch(`/medidas/atualizarGrafico`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                codEmpresaServer: codEmpresaVar
+            })
+        }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+
+                    resposta.forEach(item => {
+                        if (dados.data.labels.length == 10 && dados.data.datasets[0].data.length == 10) {
+                            dados.data.labels.shift();
+                            dados.data.datasets[0].data.shift();
+                        }
+
+                        dados.data.labels.push(item.hr)
+                        dados.data.datasets[0].data.push(parseFloat(item.umi))
+
+                    })
+                    graficoUmidade.update()
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+
+    }
+
+    setInterval(atualizarGrafico, 8000);
+
+
+    function kpis() {
+
+
+        fetch(`/medidas/mostrarKpis`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                codEmpresaServer: codEmpresaVar
+            })
+        }).then(function (response) {
+
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var estadoUmidade = 0
+
+                    resposta.forEach(item => {
                         pMax.innerHTML = item.maxumi + '%';
                         pMin.innerHTML = item.minumi + '%';
                         qtdAlertas.innerHTML = item.qtdOcorrencia;
@@ -136,19 +216,19 @@ const ctxline = document.getElementById("mychart1")
                         hrMin.innerHTML = item.hrMin;
                         hrMax.innerHTML = item.hrMax;
                     })
-                        if(estadoUmidade >= 60 && estadoUmidade <= 80) {
-                            tipoUmi.innerHTML = `Umidade estável`
-                        }   else if(estadoUmidade > 80) {
-                            tipoUmi.innerHTML = `Umidade acima do ideal`
-                        }   else {  
-                            tipoUmi.innerHTML = `Umidade abaixo do ideal`
-                        }
+                    if (estadoUmidade >= 60 && estadoUmidade <= 80) {
+                        tipoUmi.innerHTML = `Umidade estável`
+                    } else if (estadoUmidade > 80) {
+                        tipoUmi.innerHTML = `Umidade acima do ideal`
+                    } else {
+                        tipoUmi.innerHTML = `Umidade abaixo do ideal`
+                    }
 
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
