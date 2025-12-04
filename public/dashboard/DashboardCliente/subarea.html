@@ -9,7 +9,7 @@
     <title>Dashboard</title>
 </head>
 
-<body onload="kpis(); mostrarGrafico(); atualizarGrafico()">
+<body onload="kpis(); mostrarGrafico()">
     <div class="dash">
         <div class="conteudo">
             <div class="olac">
@@ -50,218 +50,159 @@
         </div>
     </div>
 </body>
+
 <script>
 
-
-
-    var codEmpresaVar = sessionStorage.COD_EMPRESA
-
-
+    var codEmpresaVar = sessionStorage.COD_EMPRESA;
+    var graficoUmidade = null;
 
     function mostrarGrafico() {
 
-        let labels = []
         fetch(`/medidas/mostrarGrafico`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                codEmpresaServer: codEmpresaVar
-            })
-        }).then(function (response) {
-
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                    const valores = resposta.reverse()
-
-                    let labels = [];
-
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }, {
-                                label: 'Nível máximo recomendado',
-                                data: [80, 80, 80, 80, 80, 80, 80, 80, 80],
-                                borderColor: '#4e5a65',
-                                backgroundColor: '#4e5a65', // cinza
-                                borderWidth: 3,
-                                pointRadius: 0,
-                                borderDash: [8, 8]
-
-
-                            }, {
-                                label: 'Nível mínimo recomendado',
-                                data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
-                                borderColor: '#4e5a65',
-                                backgroundColor: '#4e5a65',
-                                borderWidth: 3,
-                                pointRadius: 0,
-                                borderDash: [8, 8]
-
-                            }]
-        };
-
-        valores.forEach(item => {
-            labels.push(item.hr);
-            dados.datasets[0].data.push(item.umi)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ codEmpresaServer: codEmpresaVar })
         })
+        .then(r => r.json())
+        .then(resposta => {
 
-        const config = {
-            type: 'line',
-            data: dados,
-        };
+            const valores = resposta.reverse();
 
-        const graficoUmidade = new Chart(
-            document.getElementById(`mychart1`),
-            config
-        );
+            let labels = [];
+            let valoresGraf = [];
 
-        setTimeout(() => atualizarGrafico(dados, graficoUmidade), 2000);
-
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            valores.forEach(item => {
+                labels.push(item.hr);
+                valoresGraf.push(item.umi);
             });
 
+            const ctx = document.getElementById("mychart1").getContext("2d");
 
+            graficoUmidade = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Umidade",
+                        data: valoresGraf,
+                        borderColor: "rgb(75, 192, 192)",
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: "Nível máximo recomendado",
+                        data: [80,80,80,80,80,80,80,80,80,80],
+                        borderColor: "#4e5a65",
+                        borderWidth: 3,
+                        pointRadius: 0,
+                        borderDash: [8, 8]
+                    },
+                    {
+                        label: "Nível mínimo recomendado",
+                        data: [60,60,60,60,60,60,60,60,60,60],
+                        borderColor: "#4e5a65",
+                        borderWidth: 3,
+                        pointRadius: 0,
+                        borderDash: [8, 8]
+                    }]
+                },
+                options: { animation: false }
+            });
 
-
+            setInterval(atualizarGrafico, 8000);
+        });
     }
 
-
-
-
-    function atualizarGrafico(dados, graficoUmidade) {
+    
+    function atualizarGrafico() {
 
         fetch(`/medidas/atualizarGrafico`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                codEmpresaServer: codEmpresaVar
-            })
-        }).then(function (response) {
-
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-
-                    resposta.forEach(item => {
-                        if (dados.data.labels.length == 10 && dados.data.datasets[0].data.length == 10) {
-                            dados.data.labels.shift();
-                            dados.data.datasets[0].data.shift();
-                        }
-
-                        dados.data.labels.push(item.hr)
-                        dados.data.datasets[0].data.push(parseFloat(item.umi))
-
-                    })
-                    graficoUmidade.update()
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ codEmpresaServer: codEmpresaVar })
         })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        .then(r => r.json())
+        .then(resposta => {
+
+            resposta.forEach(item => {
+
+                const chart = graficoUmidade;
+
+                if (chart.data.labels.length >= 10) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+
+                chart.data.labels.push(item.hr);
+                chart.data.datasets[0].data.push(item.umi);
+
+                chart.update();
             });
 
-
-
+        });
     }
-
-    setInterval(atualizarGrafico, 8000);
 
 
     function kpis() {
-
 
         fetch(`/medidas/mostrarKpis`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                codEmpresaServer: codEmpresaVar
-            })
-        }).then(function (response) {
-
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    var estadoUmidade = 0
-
-                    resposta.forEach(item => {
-                        pMax.innerHTML = item.maxumi + '%';
-                        pMin.innerHTML = item.minumi + '%';
-                        qtdAlertas.innerHTML = item.qtdOcorrencia;
-                        estadoUmidade = item.umiatual
-                        umiAtual.innerHTML = estadoUmidade + '%';
-                        hrMin.innerHTML = item.hrMin;
-                        hrMax.innerHTML = item.hrMax;
-                    })
-                    if (estadoUmidade >= 60 && estadoUmidade <= 80) {
-                        tipoUmi.innerHTML = `Umidade estável`
-                    } else if (estadoUmidade > 80) {
-                        tipoUmi.innerHTML = `Umidade acima do ideal`
-                    } else {
-                        tipoUmi.innerHTML = `Umidade abaixo do ideal`
-                    }
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
+            body: JSON.stringify({ codEmpresaServer: codEmpresaVar })
         })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        .then(r => r.json())
+        .then(resposta => {
+
+            var estadoUmidade = 0;
+
+            resposta.forEach(item => {
+                pMax.innerHTML = item.maxumi + '%';
+                pMin.innerHTML = item.minumi + '%';
+                qtdAlertas.innerHTML = item.qtdOcorrencia;
+                estadoUmidade = item.umiatual;
+                umiAtual.innerHTML = estadoUmidade + '%';
+                hrMin.innerHTML = item.hrmin;
+                hrMax.innerHTML = item.hrmax;
             });
 
+            if (estadoUmidade >= 60 && estadoUmidade <= 80) {
+                tipoUmi.innerHTML = `Umidade estável`;
+            } else if (estadoUmidade > 80) {
+                tipoUmi.innerHTML = `Umidade acima do ideal`;
+            } else {
+                tipoUmi.innerHTML = `Umidade abaixo do ideal`;
+            }
 
+        });
     }
 
-
     function sair() {
-        window.location.href = "../../index.html"
+        window.location.href = "../../index.html";
     }
 
     function inicio() {
-        window.location.href = "dash.html"
+        window.location.href = "dash.html";
     }
 
     function hectare() {
-        window.location.href = "hectare.html"
+        window.location.href = "hectare.html";
     }
 
     function subarea() {
-        window.location.href = "subarea.html"
+        window.location.href = "subarea.html";
     }
 
     function historico() {
-        window.location.href = "historico.html"
+        window.location.href = "historico.html";
     }
 
     function subareasel() {
-        window.location.href = "subareaone.html"
+        window.location.href = "subareaone.html";
     }
 
 </script>
-
 
 </html>
