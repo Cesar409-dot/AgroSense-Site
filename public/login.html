@@ -112,7 +112,12 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             return false;
-        }
+        }   else if(emailVar == 'suporte' && senhaVar == 'suporte') {
+                        setTimeout(function () {
+                        alert("Redirecionando para suporte...")
+                            window.location = "bob.html";
+                    }, 1000);
+        }   else {
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -139,12 +144,10 @@
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.COD_EMPRESA = json.codEmpresa
 
-                    
-                    setTimeout(function () {
+                        setTimeout(function () {
                         alert("Redirecionando para dashboard...")
                             window.location = "dashboard/DashboardCliente/dash.html";
                     }, 1000);
-
                 })
 
             } else {
@@ -162,7 +165,7 @@
 
         return false;
     }
-
+    }
     var tentativas = 0
     function verificarTentativas() {
         while (tentativas < 3) {
@@ -176,6 +179,7 @@
         if (tentativas >= 3) {
             divMsg.innerHTML = 'Você atingiu o número máximo de tentativas! <br> Recarregue a página para tentar novamente.'
         }
+    
     }
 
 

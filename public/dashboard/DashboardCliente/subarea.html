@@ -107,7 +107,15 @@
                         borderDash: [8, 8]
                     }]
                 },
-                options: { animation: false }
+                options: { animation: false,
+                    scales: {
+                        y: {
+                            min:0,
+                            max:100,
+                            beginAtZero:true
+                        }
+                    }
+                 }
             });
 
             setInterval(atualizarGrafico, 8000);
