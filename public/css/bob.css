@@ -1,8 +1,35 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*,
 body {
-    font-family: Arial, sans-serif;
-    background-color: #63B1BC;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+    background-color: #f1e7d0;
+}
+
+#voltar {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: 900;
+    
+}
+
+#container textarea {
+    background-color: #fff;
+}
+
+#container img {
+    height: 120px;
+}
+
+#container h1 {
+    margin-bottom: 15px;
+    color: #174219;
+    font-weight: 900;
 }
 
 #container {
@@ -31,13 +58,15 @@ button {
 }
 
 button {
-    background-color: #ED145B;
+    background-color: #7CB324;
     color: #FFFFFF;
     border: none;
+    margin-bottom: 20px;
+    transition-duration: 0.3s;
 }
 
 button:hover {
-    background-color: #EFB661;
+    background-color: #4E5A65;
 }
 
 #resposta {

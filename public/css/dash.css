@@ -11,13 +11,14 @@ body,
 }
 
 .dash {
-    background-color: beige;
+    background-color: #e8e2e2;
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: 1px solid black;
 }
 
 .conteudo {
@@ -26,7 +27,7 @@ body,
     height: 96%;
     width: 90%;
     border-radius: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 
@@ -49,7 +50,7 @@ body,
     align-items: center;
     width: 100%;
     height: 12%;
-    background-color: #efeded;
+    background-color: #7CB324;
     border-bottom: 1px solid rgba(0, 0, 0, 0.047);
 
 }
@@ -102,8 +103,9 @@ body,
 }
 
 .kpis {
-    background-color: #174219;
+    background-color: beige;
     height: 25%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
 }
 
 .kpis h1 {
@@ -112,7 +114,7 @@ body,
 
 .hectares {
     height: 75%;
-    background-color: #7CB324;
+    background-color: beige;
     padding: 30px;
 }
 
@@ -129,14 +131,14 @@ body,
     display: flex;
     gap: 20px;
     padding: 20px;
-    align-items: center;
+    
 }
 
 .sensores {
     border-radius: 15px;
-    border: 1px solid black;
     height: 95%;
     width: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     background-color: #fff;
     padding: 20px;
     font-size: 1.8rem;
@@ -148,11 +150,11 @@ body,
 }
 
 .online {
-    border: 1px solid black;
     height: 90%;
     width: 25%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 15px;
-    background-color: greenyellow;
+    background-color: #d0ff84;
     font-size: 1.5rem;
 
     display: flex;
@@ -168,11 +170,11 @@ body,
 
 
 .offline {
-    border: 1px solid black;
     height: 90%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     width: 25%;
     border-radius: 15px;
-    background-color: rgb(255, 47, 47);
+    background-color: #ff9191;
     font-size: 1.5rem;
 
     display: flex;
@@ -191,20 +193,20 @@ body,
     height: 100%;
     width: 100%;
     gap: 30px;
+    
 }
 
 .hect {
     height: 93%;
     width: 30%;
-    border: 1px solid black;
     border-radius: 15px;
-    background-color: #efeded;
+    background-color: #fff;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     font-size: 1.3rem;
     font-weight: 600;
 }
@@ -242,10 +244,10 @@ body,
 .alerts {
     height: 93%;
     width: 40%;
-    border: 1px solid black;
     border-radius: 15px;
-    background-color: #efeded;
+    background-color: #fff;
     padding: 30px 0 0 0;    
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .alerts h1 {
