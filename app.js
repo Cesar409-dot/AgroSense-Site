@@ -13,7 +13,6 @@ var cors = require("cors");
 var path = require("path");
 var PORTA_APP = process.env.APP_PORT;
 var HOST_APP = process.env.APP_HOST;
-var PORTA_SERVIDOR = process.env.PORTA;
 const chatIA = new GoogleGenAI({ apiKey: process.env.MINHA_CHAVE });
 
 
@@ -58,20 +57,6 @@ app.listen(PORTA_APP, function () {
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
 
-app.listen(PORTA_SERVIDOR, () => {
-    console.info(
-        `
-        ######                ###    #    
-        #     #  ####  #####   #    # #   
-        #     # #    # #    #  #   #   #  
-        ######  #    # #####   #  #     # 
-        #     # #    # #    #  #  ####### 
-        #     # #    # #    #  #  #     # 
-        ######   ####  #####  ### #     # 
-        `
-    );
-    console.info(`A API BobIA iniciada, acesse http://${HOST_APP}:${PORTA_APP}/bob.html`);
-});
 
 app.post("/perguntar", async (req, res) => {
     const pergunta = req.body.pergunta;
@@ -88,13 +73,13 @@ app.post("/perguntar", async (req, res) => {
 async function gerarResposta(mensagem) {
 
     try {
-        const modeloIA = chatIA.models.generateContent({
-            model: "gemini-2.0-flash",
+        const modeloIA = await chatIA.models.generateContent({
+            model: "gemini-2.5-flash",
             contents: `Em um paragráfo responda: ${mensagem}`
 
         });
-        const resposta = (await modeloIA).text;
-        const tokens = (await modeloIA).usageMetadata;
+        const resposta = modeloIA.text;
+        const tokens = modeloIA.usageMetadata;
 
         console.log(resposta);
         console.log("Uso de Tokens:", tokens);
