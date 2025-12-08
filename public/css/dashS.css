@@ -39,7 +39,6 @@ body, * {
     border-bottom: 1px solid rgba(0, 0, 0, 0.047);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-
 }
 
 .olac h1 {
@@ -61,8 +60,22 @@ body, * {
     height: 60px;
 }
 
-.btsair {
+.user-area {
+    display: flex;
+    align-items: center;
     margin-right: 50px;
+}
+
+#b_usuario {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #174219;
+    font-style: italic;
+    margin-right: 20px;
+}
+
+.btsair {
+    margin-right: 0px;
     background-color: #174219;
     color: #fff;
     border-radius: 10px;

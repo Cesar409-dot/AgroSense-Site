@@ -13,9 +13,12 @@
     <div class="dash">
         <div class="conteudo">
             <div class="olac">
-                <a href="./dash.html"><img src="../../assets/imgs/logo png.png" alt=""></a>
+                <a href="../../index.html"><img src="../../assets/imgs/logo png.png" alt=""></a>
                 <h1>Hectare 1 - Subárea 1</h1>
-                <button onclick="sair()" class="btsair">Sair</button>
+                <div class="user-area">
+                    <span id="b_usuario"></span>
+                    <button onclick="sair()" class="btsair">Sair</button>
+                </div>
             </div>
             <div class="graficos">
                 <div class="secaocima">
@@ -52,6 +55,10 @@
 </body>
 
 <script>
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+    if (nomeUsuario) {
+        document.getElementById("b_usuario").innerHTML = `Olá, ${nomeUsuario}`;
+    }
 
     var codEmpresaVar = sessionStorage.COD_EMPRESA;
     var graficoUmidade = null;
@@ -145,7 +152,6 @@
         .then(resposta => {
 
             if (resposta.length === 0) {
-                console.log("Nenhum dado novo para atualizar.");
                 return;
             }
 
@@ -173,7 +179,7 @@
             kpis()
 
         })
-        .catch(error => console.error('Erro na atualização do gráfico:', error));
+        .catch(error => console.error(error));
     }
 
 
@@ -202,7 +208,7 @@
             });
 
             if (estadoUmidade >= 60 && estadoUmidade <= 80) {
-                tipoUmi.innerHTML = `Umidade estável`;
+                tipoUmi.innerHTML = `Umidade ideal`;
             } else if (estadoUmidade > 80) {
                 tipoUmi.innerHTML = `Umidade acima do ideal`;
             } else {
@@ -213,27 +219,7 @@
     }
 
     function sair() {
-        window.location.href = "../../index.html";
-    }
-
-    function inicio() {
-        window.location.href = "dash.html";
-    }
-
-    function hectare() {
-        window.location.href = "hectare.html";
-    }
-
-    function subarea() {
-        window.location.href = "subarea.html";
-    }
-
-    function historico() {
-        window.location.href = "historico.html";
-    }
-
-    function subareasel() {
-        window.location.href = "subareaone.html";
+        window.location.href = "../DashboardCliente/dash.html";
     }
 
 </script>
