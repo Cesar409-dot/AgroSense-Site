@@ -55,6 +55,7 @@
 
     var codEmpresaVar = sessionStorage.COD_EMPRESA;
     var graficoUmidade = null;
+    const LIMITE_PONTOS = 10; 
 
     function mostrarGrafico() {
 
@@ -66,7 +67,7 @@
         .then(r => r.json())
         .then(resposta => {
 
-            const valores = resposta.reverse();
+            const valores = resposta; 
 
             let labels = [];
             let valoresGraf = [];
@@ -75,6 +76,9 @@
                 labels.push(item.hr);
                 valoresGraf.push(item.umi);
             });
+            
+            const limiteMax = Array(labels.length).fill(80);
+            const limiteMin = Array(labels.length).fill(60);
 
             const ctx = document.getElementById("mychart1").getContext("2d");
 
@@ -85,40 +89,47 @@
                     datasets: [{
                         label: "Umidade",
                         data: valoresGraf,
-                        borderColor: "rgb(75, 192, 192)",
+                        borderColor: "#7CB324",
                         borderWidth: 2,
                         fill: false,
                         tension: 0.1
                     },
                     {
                         label: "Nível máximo recomendado",
-                        data: [80,80,80,80,80,80,80,80,80,80],
+                        data: limiteMax,
                         borderColor: "#4e5a65",
                         borderWidth: 3,
                         pointRadius: 0,
-                        borderDash: [8, 8]
+                        borderDash: [8, 8],
+                        animation: false
                     },
                     {
                         label: "Nível mínimo recomendado",
-                        data: [60,60,60,60,60,60,60,60,60,60],
+                        data: limiteMin, 
                         borderColor: "#4e5a65",
                         borderWidth: 3,
                         pointRadius: 0,
-                        borderDash: [8, 8]
+                        borderDash: [8, 8],
+                        animation: false
                     }]
                 },
-                options: { animation: false,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             min:0,
                             max:100,
                             beginAtZero:true
                         }
+                    },
+                    layout: {
+                        padding: 10
                     }
-                 }
+                }
             });
 
-            setInterval(atualizarGrafico, 8000);
+            setInterval(atualizarGrafico, 2000); 
         });
     }
 
@@ -133,22 +144,36 @@
         .then(r => r.json())
         .then(resposta => {
 
-            resposta.forEach(item => {
+            if (resposta.length === 0) {
+                console.log("Nenhum dado novo para atualizar.");
+                return;
+            }
 
-                const chart = graficoUmidade;
+            const novoPonto = resposta[resposta.length - 1];
+            const chart = graficoUmidade;
 
-                if (chart.data.labels.length >= 10) {
-                    chart.data.labels.shift();
-                    chart.data.datasets[0].data.shift();
-                }
+            
+            if (chart.data.labels.length >= LIMITE_PONTOS) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift(); 
+                
+                chart.data.datasets[1].data.shift(); 
+                chart.data.datasets[2].data.shift(); 
+            }
+            
+            
+            chart.data.labels.push(novoPonto.hr);
+            chart.data.datasets[0].data.push(novoPonto.umi);
+            
+            chart.data.datasets[1].data.push(80); 
+            chart.data.datasets[2].data.push(60); 
 
-                chart.data.labels.push(item.hr);
-                chart.data.datasets[0].data.push(item.umi);
+            chart.update();
 
-                chart.update();
-            });
+            kpis()
 
-        });
+        })
+        .catch(error => console.error('Erro na atualização do gráfico:', error));
     }
 
 
